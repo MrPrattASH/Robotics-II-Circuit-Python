@@ -50,7 +50,7 @@ def sonar(pin, prev_distance = 570):
         distance = 0
 
     #check if user has entered a previous distance
-    if prev_distance = 570:
+    if prev_distance == 570:
         pass
     else:
         #if our previous distance was close, and suddenly we register a VERY FAR object, we clearly are reading a false high 568cm, return the previously read value.
