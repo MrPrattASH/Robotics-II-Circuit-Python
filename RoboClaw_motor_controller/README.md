@@ -60,7 +60,8 @@ Reading encoders on an arduino tutorial can be found [here](https://resources.ba
 
 After wiring, these need to be tuned, [instructions here](https://resources.basicmicro.com/roboclaw-motor-controllers-getting-started-guide/)
 
-# RoboClaw not working with CircuitPython? Steps to solve:
+# DEBUG METHODS
+Note: The roboclaw will randomly erase its onboard memory if it has not been powered on in several weeks. When it does, it defaults to "mixing" mode, which will cause the "rc_control.py" code to IGNORE M2. Follow the steps below to re-program, this MUST be done on the basicmicro windows app, it cannot be re-programmed via onboard buttons for whatever reason. 
 
 1. Be sure RoboClaw has at least 9V battery source. We're going to be using large 12V battery packs for driving our DC motors, so we should be OK. 6V battery sources will not chooch 'er enough, you'll get a constant "logic battery low" error. (so don't use the small 6V barrel jack 4x AA battery holders) 
 2. Be sure the RC is in the correct mode, via the onboard buttons. Follow the steps below to verify that your motorcontroller is in the correct mode. 
@@ -69,7 +70,7 @@ After wiring, these need to be tuned, [instructions here](https://resources.basi
 3. Be sure turn on the 12V battery FIRST, then the M4 battery.
 
 
-### How to Set *Mode* on the Motor Controller
+#### How to Set *Mode* on the Motor Controller
 1. Be sure you have provided power to the motor controller. 
 - Press and release the MODE button to enter mode setup. The STAT2 LED will begin to
 blink out the current mode. Each blink is a half second with a long pause at the end of the
@@ -87,15 +88,14 @@ mode.
 If you've done this correctly, when you send a PWM signal similar to how you've programmed low-level servo control, STAT1 starts to blink/flash rapidly, indicating it is recieving RC signals.
 
 ## Advanced Fix Steps:
-
-1. Power on RC (RoboClaw)
+1. Provide at least 9V Power to RC (RoboClaw)
 2. Connect RC to motion studio in windows PC, connect device. 
     - Note, you need the RC firmware drivers AND basic micro motion studio installed. 
 3. Update firmware if needed. 
 4. Basic micro settings:
-    - RC mode w/ 3 checks enabled, everything else default:
-    - Mixing
-    - Exponetial
-    - MCU
-5. Motors should start chooching if your code is correct. 
-6. Verify motors function via PWM sliders. 
+    - RC mode
+    - TTL Flip: YES
+    - Mixing: NO
+    - Exponetial: YES
+    - MCU: YES
+5. Verify motors function via PWM sliders. 

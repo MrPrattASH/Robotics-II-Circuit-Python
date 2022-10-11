@@ -24,12 +24,12 @@ from adafruit_simplemath import map_range
 motor1 = pwmio.PWMOut(board.D2, frequency=50)
 motor2 = pwmio.PWMOut(board.D3, frequency=50)
 
-# init servo main arm up/down control
+# init lift arm
 pwm = pwmio.PWMOut(board.D4, frequency=50)
 main_arm = servo.ContinuousServo(pwm)
 # + is down, - is Up
 
-# servo gripper arms
+# init Gripper arms
 # d5 left
 # d6 right
 pwm1 = pwmio.PWMOut(board.D5, frequency=50)
@@ -37,7 +37,7 @@ left_servo = servo.Servo(pwm1)
 pwm2 = pwmio.PWMOut(board.D6, frequency=50)
 right_servo = servo.Servo(pwm2)
 
-# buttons
+# init BUTTONS
 # D7 Yellow
 # D8 Red
 red_button = DigitalInOut(board.D8)
@@ -53,23 +53,35 @@ yellow_cur_state = False
 yellow_prev_state = False
 
 
+#motor speed commands
+stop = 1.520
+full_forward = 1.920 #+400us (microseconds)
+full_reverse = 1.120 #-400us (microseconds)
+
 def servo_duty_cycle(pulse_ms, frequency=50):
     period_ms = 1.0 / frequency * 1000.0
     duty_cycle = int(pulse_ms / (period_ms / 65535.0))
     return duty_cycle
 
 def forward(speed):
+    '''moves robot forward at a specific speed
+    speed: int  between 0 - 100
+    '''
+    global full_forward, stop
     #speed = int between 0-100
-    max_speed = 1.0
-    min_speed = 1.45
+    max_speed = full_forward
+    min_speed = stop + 0.01
     map_speed = map_range(speed, 0, 100, min_speed, max_speed)
     motor1.duty_cycle = servo_duty_cycle(map_speed)
     motor2.duty_cycle = servo_duty_cycle(map_speed)
 
-def backward(speed):
-    #speed = int between 0-100
-    max_speed = 2.0
-    min_speed = 1.55
+def reverse(speed):
+    '''moves robot reverse at a specific speed
+    speed: int  between 0 - 100
+    '''
+    global full_reverse, stop
+    max_speed = full_reverse
+    min_speed = stop - 0.01
     map_speed = map_range(speed, 0, 100, min_speed, max_speed)
     motor1.duty_cycle = servo_duty_cycle(map_speed)
     motor2.duty_cycle = servo_duty_cycle(map_speed)
@@ -102,7 +114,6 @@ while True:
             forward(50)
             time.sleep(2)
             stop()
-
 
     if red_cur_state != red_prev_state:
         if not red_cur_state: #button is down

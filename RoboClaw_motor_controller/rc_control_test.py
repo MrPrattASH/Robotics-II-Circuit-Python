@@ -1,18 +1,4 @@
-'''Basic Roboclaw instructions
-DEBUG:
-
-No seriously Mr. Pratt, do this first.
-
-Sometimes the roboclaw likes to add mixing back, EVEN IF PROGRAMMED CORRECTLY W/ ONBOARD BUTTONS.
-Verify the below settings on basic micro windows App & write settings to the board again.
-
-Button mode 1 (RC - Tank Style Driving)
-Option 3:
-F MIXING
-T TTL FLip
-F Exponential
-T MCU
-
+'''Basic Roboclaw PWM RC control
 '''
 import time
 import board
@@ -42,7 +28,7 @@ def servo_duty_cycle(pulse_ms, frequency=50):
 while True:
     motor1.duty_cycle = servo_duty_cycle(full_forward)
     motor2.duty_cycle = servo_duty_cycle(full_forward)
-    print("forward")
+    print("full_speed forward")
     time.sleep(2)
 
     motor1.duty_cycle = servo_duty_cycle(stop)
@@ -52,7 +38,7 @@ while True:
 
     motor1.duty_cycle = servo_duty_cycle(full_reverse)
     motor2.duty_cycle = servo_duty_cycle(full_reverse)
-    print("backward")
+    print("full_speed backward")
     time.sleep(2)
 
     motor1.duty_cycle = servo_duty_cycle(stop)
