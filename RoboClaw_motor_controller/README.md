@@ -30,11 +30,11 @@ Why? If we wire up a battery with a negative connected, we may cause a "short". 
 ![IMG_4052 Small](https://user-images.githubusercontent.com/101632496/193517636-65f17911-e516-4696-b349-0f86a7263680.png)
 
 # Wiring the M4 to our Controller
-We'll be sending commands to our motors using low_level servo control over digital pins. We can use any Digital pin. We also need to provide power to these pins from the M4, not from the roboclaw itself. Wire up your board as per below (though the D.PINS 2/3 are not hard/fast rules)
+We'll be sending commands to our motors using low_level servo control over digital pins. We can use any Digital pin. We must use a common ground back to our M4 board. Wire up your board as per below (though the D.PINS 2/3 are not hard/fast rules)
 
 While not labelled on the schematic, we are going from M4 D.Pins to S1 and S2 on the RoboClaw. S1 controls MA, and S2 controls MB respectively. 
 
-![m4_RC_wiring_diagram](https://user-images.githubusercontent.com/101632496/193522995-c9ddba14-4c4f-4a5d-bbbb-cdcfa753be12.png)
+![m4_RC_wiring_diagram](https://user-images.githubusercontent.com/101632496/195046527-594121f4-7da8-40cf-99ca-c07645d0a720.png)
 
 
 ### Advanced Wiring: Encoders
