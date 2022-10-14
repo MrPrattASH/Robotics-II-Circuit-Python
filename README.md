@@ -65,6 +65,42 @@ Analog input values are always 16 bit (i.e. in range(0, 65535)), regardless of t
 Analog output values are always 16 bit (i.e. in range(0, 65535)). Depending on the underlying hardware those values will get scaled to match the resolution of the converter.
 The example will generate a stairstepped signal, the number of steps depends on the resolution of the converter. E.g. the 10-bit converter in the SAMD21 will create 1024 steps, while the 12-bit converter on the SAMD51 will create 4096 steps.
 
+## Servo - High Level Control
+```import time
+    import board
+    import pwmio
+    from adafruit_motor import servo
+
+    # Create a positional servo object, my_pos_servo.
+    pwm0 = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
+    my_pos_servo = servo.Servo(pwm0)
+
+    # Create a rotational servo object, my_servo.
+    pwm1 = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
+    my_rot_servo = servo.Servo(pwm1) 
+
+    while True:
+        #basic servo sweep
+        for angle in range(0, 180, 5):  # 0 - 180 degrees, 5 degrees at a time.
+            my_pos_servo.angle = angle
+            time.sleep(0.05)
+        for angle in range(180, 0, -5): # 180 - 0 degrees, 5 degrees at a time.
+            my_pos_servo.angle = angle
+            time.sleep(0.05)
+        
+        #spin rot. servo full forward
+        my_rot_servo.throttle = 1.0
+        time.sleep(1)
+
+        #stop rot. servo
+        my_rot_servo.throttle = 0
+        time.sleep(1)
+
+        #spin rot. servo full reverse
+        my_rot_servo.throttle = -1.0
+        time.sleep(1)
+```
+
 ## PWM Motors - Low Level Controls
 Fixed frequency PWM with variable duty cycle. This is useful for controllign the brightness of a LED, the speed of a motor, or sending an RC signal. 
 
@@ -112,26 +148,6 @@ def duty_cycle_value(percent):
 YOURDEVICE.duty_cycle = duty_cycle_value(0.5)  # Set 50% duty cycle!
 ```
 
-## Servo - High Level Control
-```import time
-    import board
-    import pwmio
-    from adafruit_motor import servo
-
-    # create a PWMOut object on Pin A2.
-    pwm = pwmio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
-
-    # Create a servo object, my_servo.
-    my_servo = servo.Servo(pwm)
-
-    while True:
-        for angle in range(0, 180, 5):  # 0 - 180 degrees, 5 degrees at a time.
-            my_servo.angle = angle
-            time.sleep(0.05)
-        for angle in range(180, 0, -5): # 180 - 0 degrees, 5 degrees at a time.
-            my_servo.angle = angle
-            time.sleep(0.05)
-```
 ## NeoPixels 
 ```
     import time

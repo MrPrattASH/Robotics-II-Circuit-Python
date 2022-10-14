@@ -24,7 +24,7 @@ from adafruit_simplemath import map_range
 motor1 = pwmio.PWMOut(board.D2, frequency=50)
 motor2 = pwmio.PWMOut(board.D3, frequency=50)
 
-# init lift arm
+# init lift arm D4
 pwm = pwmio.PWMOut(board.D4, frequency=50)
 main_arm = servo.ContinuousServo(pwm)
 # + is down, - is Up
@@ -38,10 +38,10 @@ pwm2 = pwmio.PWMOut(board.D6, frequency=50)
 right_servo = servo.Servo(pwm2)
 
 # init BUTTONS
-# D7 Yellow
+# D1 Yellow
 # D8 Red
 red_button = DigitalInOut(board.D8)
-yellow_button = DigitalInOut(board.D7)
+yellow_button = DigitalInOut(board.D1)
 red_button.direction = Direction.INPUT
 yellow_button.direction = Direction.INPUT
 red_button.pull = Pull.UP
@@ -87,8 +87,8 @@ def reverse(speed):
     motor2.duty_cycle = servo_duty_cycle(map_speed)
 
 def stop():
-    motor1.duty_cycle = servo_duty_cycle(1.5)
-    motor2.duty_cycle = servo_duty_cycle(1.5)
+    motor1.duty_cycle = servo_duty_cycle(1.52)
+    motor2.duty_cycle = servo_duty_cycle(1.52)
 
 def arm_full_up():
     main_arm.throttle = -1
@@ -101,27 +101,43 @@ def arm_full_down():
     main_arm.throttle = 0
 
 def grab():
+    #R servo, 145 @ rest
+    #R servo, 30 @ grab
+    #L servo, 145 @ rest
+    #L servo, 5 @ rest
     pass
 
+#init grabber arms to centre
+left_servo.angle = 0
+right_servo.angle = 0
+
+angle = 0
+
 while True:
-    # button logic
+    #get button inputs, True if unpresed, False if Pressed
     yellow_cur_state = yellow_button.value
     red_cur_state = red_button.value
+    print(yellow_cur_state)
 
+    #Drive forward 4s, move arm full up
     if yellow_cur_state != yellow_prev_state:
-        if not yellow_cur_state: #button is down
-            print("forward")
-            forward(50)
-            time.sleep(2)
+        if yellow_cur_state: #button is down
+            '''forward(75)
+            time.sleep(4)
             stop()
+            arm_full_up()'''
+            angle+=5
 
     if red_cur_state != red_prev_state:
         if not red_cur_state: #button is down
-            print("backward")
-            backward(50)
-            time.sleep(2)
-            stop()
+            '''grab()
+            arm_full_down()
+            reverse(75)'''
+            angle-=5
 
+    left_servo.angle = angle
+    right_servo.angle = angle
+    print("angle" + str(angle))
     yellow_prev_state = yellow_cur_state
     red_prev_state = red_cur_state
 
