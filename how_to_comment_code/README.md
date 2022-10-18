@@ -27,21 +27,31 @@ The rest of this article explains each of these rules, providing examples and ex
 ## Rule 1: Comments should not duplicate the code
 Many junior programmers write too many comments because they were trained to do so by their introductory instructors. This is an example of a duplicate code in comments: 
 
-<img width="444" alt="Screen Shot 2022-05-20 at 10 26 32" src="https://user-images.githubusercontent.com/101632496/169487096-1204f747-4763-47f4-b701-59ea05fa342b.png">
+```
+#pause robot for 1 second
+basic.pause(1000)
+```
+
 Comments that add no information have negative value because they:
 
 - add visual clutter
 - take time to write and read
 - can become out-of-date
 
-*Note from Mr. Pratt: Throughout this course in tutorials, you will indeed see comments like this from me. However, they are there to point out to you exactly what a behaviour does, and how it is implemented. I am doing this because you may not be aware of how simple behaviours work yet. Understand this is bad practice, but good practice for tutorials. 
+**Note from Mr. Pratt: Throughout this course in tutorials, you will indeed see comments like this from me. However, they are there to point out to you exactly what a behaviour does, and how it is implemented. I am doing this because you may not be aware of how simple behaviours work yet. Understand this is bad practice, but good practice for tutorials.* 
 
 ## Rule 2: Good comments do not excuse unclear code
 Another misuse of comments is to provide information that should have been in the code. A simple example is when someone names a variable with a single letter (in this case, "s") and then adds a comment describing its purpose:
 
-<img width="697" alt="Screen Shot 2022-05-20 at 10 29 59" src="https://user-images.githubusercontent.com/101632496/169487769-2727e2fd-6275-4882-b991-0abcc8d739f3.png">
+```
+#get sensor reading of current light value
+s = pins.analog_read_pin(P1)
 
-The need for comments could be eliminated with better variable naming: s should have been score
+#run motor at value of s (speed)
+motor.run_motors(M1,s)
+```
+
+The need for comments could be eliminated with better variable naming: s should have been speed
 
 ## Rule 3: If you can’t write a clear comment, there may be a problem with the code
 The most infamous comment in the Unix source code is “You are not expected to understand this,” which appeared before some hairy context-switching code. Dennis Ritchie later explained that it was intended “in the spirit of ‘This won’t be on the exam,’ rather than as an impudent challenge.” Unfortunately, it turned out that he and co-author Ken Thompson didn’t understand it themselves and later had to rewrite it.
@@ -74,14 +84,27 @@ You can simply include a hyperlink inside your code comment to a tutorial or for
 ## Rule 6: Add comments when fixing bugs
 Comments should be added not just when initially writing code but also when modifying it, especially fixing bugs. Consider this comment:
 
-<img width="556" alt="Screen Shot 2022-05-20 at 10 34 19" src="https://user-images.githubusercontent.com/101632496/169488561-ad785603-5aa2-4155-b209-fac44551bb49.png">
+```
+#If True, an object is currently in front of the ultrasonic sensor
+while pins.analog_read_pin(P1) >= 400:
+    start_time = time.monotonic_ns()
+    #this stops an infinite loop sometimes caused by rapid movements in front of the sensor. I am unsure of why
+    #this happens, but this "safety check" breaks the infinite loop
+    if (start_time - original_time > 50000000):
+        break
+```
 
 Not only does the comment help the reader understand the code in the current and referenced methods, it is helpful for determining whether the code is still needed and how to test it.
 
 ## Rule 7: Use TODO: comments to mark incomplete implementations
 Sometimes it’s necessary to check in code even though it has known limitations. While it can be tempting not to share known deficiencies in one’s code, it is better to make these explicit, such as with a TODO comment:
 
-<img width="552" alt="Screen Shot 2022-05-20 at 10 35 29" src="https://user-images.githubusercontent.com/101632496/169488750-7f58bbb6-8cc9-44f9-84b9-83e51bf894cd.png">
+```
+    #check if user has entered a previous distance
+    #TODO: program a better way of passing in a prev_distance variable into the function, this is janky
+    if prev_distance == 570:
+        pass
+```
 
 Using a standard format for such comments helps with measuring and addressing technical debt. Better yet, add an issue to your tracker via GitHub, and reference the issue in your comment.
 
@@ -94,21 +117,3 @@ Following these rules should save you and your teammates time and frustration.
 
 That said, I’m sure these rules aren’t exhaustive and look forward to seeing suggested additions in (where else?) the comments.
 >
-
-
-# Adding Code Comments in Construct 3
-How do we add comments? Right click on any individual event, code group, individual action, etc: 
-
-<img width="558" alt="Screen Shot 2022-10-07 at 13 42 25" src="https://user-images.githubusercontent.com/101632496/194545667-c0664b6b-3135-4d3e-b89a-86acb759b9c4.png">
-
-Then, select
->
-> Add + Add Comment
->
-
-<img width="671" alt="Screen Shot 2022-10-07 at 13 42 02" src="https://user-images.githubusercontent.com/101632496/194545742-0d613bde-d950-411d-b9b0-f55689f57f56.png">
-
-
-
-## Self-Assessment Quiz:
-Complete [this self-assessment quiz](https://docs.google.com/forms/d/e/1FAIpQLSe-gp2r-hO95swxyoS1-yOJksn329CtunUSjMo_qGqnv_30Fw/viewform?usp=sf_link) after completing the tutorial. If after completing the self-assessment form, you find you are still missing content knowledge, go back through that section of the tutorial to solidify that knowledge *before moving on to the next module*.  

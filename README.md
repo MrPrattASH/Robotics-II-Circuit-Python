@@ -77,7 +77,7 @@ The example will generate a stairstepped signal, the number of steps depends on 
 
     # Create a rotational servo object, my_servo.
     pwm1 = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
-    my_rot_servo = servo.Servo(pwm1) 
+    my_rot_servo = servo.ContinuousServo(pwm1) 
 
     while True:
         #basic servo sweep
