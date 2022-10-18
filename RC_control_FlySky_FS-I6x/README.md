@@ -22,7 +22,7 @@ Much of this tutorial is taken from several different sources. I include them he
 - [this random thread from 2021 on a raspberryPi forum](https://forums.raspberrypi.com/viewtopic.php?t=308269) that provided the necessary PseudoCode for translating PWM into a useable signal. (April 01,2021 8:03am post)
 
 # Setting initial settings on the Transmitter
-First, Put x4 AA into the transmitter
+First, Put x4 AA into the transmitter & power it on. 
 
 ## Change AUX Switches
 We need to change some default settings. Default AUX switches are VRA & VRB, x2 analog dials. We instead want to switch these over to SWC (3 way toggle switch) and SWB, a 2 way toggle switch. Since we'll only use the right joystick for robot control, there is no need to have x4 analog sensors that we won't use, so instead we'll create 2 switches and 2 analog sensors. 
@@ -49,6 +49,7 @@ We need to change some default settings. Default AUX switches are VRA & VRB, x2 
 
 ## Correct Failsafe
 (credit to runamok source)
+We need to create a Failsafe for our transmitter. If for whatever reason our transmitter stops sending signals, our reciever will default to OFF, rather than continuing to fly/run away on us. The default failsafe 'Off' setting will lock the selected channel in the last setting it had before the transmitter signal was lost. That is not an acceptable response for a combat robot! Turning failsafe 'On' will return a receiver port to a pre-selected safe setting that will bring all motion on the robot to a stop -- a correct failsafe response.
 
 1. Back at the 'MENU' Screen
 2. Tap the 'Down' key to highlight 'System setup' -- tap 'OK' to select.
@@ -65,3 +66,14 @@ We need to change some default settings. Default AUX switches are VRA & VRB, x2 
 
 8. With all channels correctly set, press and hold 'Cancel' to exit and save the failsafe settings.
 9. Tap 'Cancel' three times to step back to the status display screen
+
+# Wiring the Reciever
+It is important to know that the receiver outputs a 5V signal. However, our CircuitPython board logic pins are only 3.3V, so we need to use a device called a LevelShifter, or Voltage changer, to shift 5V logic down to 3.3V logic. The level shifter we're using in our class is bi-directional, meaning that it can convert both High > low voltage, and vice-versa. We need to wire an input voltage, 5V to the A or B side, an output voltage (3.3V) to the opposing side, and connect the GND to our M4. Then, we can easily convert A1 > B1 voltage, or B2 > A2 voltage, and so in. In our case, we'll input 5V to the B side, and output 3.3V to the A side. 
+
+![RC_WIRING_diagram_bb](https://user-images.githubusercontent.com/101632496/196518615-6970abc0-e0fc-469c-818e-9fa2a5711962.png)
+
+# Sample Code
+In the folders above are 3 sample programs
+- rc_analog_channel_read shows you how to read a single analog channel, and output whatever the potentiometer joystick is currently reading
+- rc_toggle_switches shows you how to read a single analog channel, and output whatever state the toggle switch is currently in
+- rc_full_example shows a fully wired transmitter, with all 6 channels populated & programmed. 
