@@ -3,14 +3,20 @@
 This tutorial will serve as a reference for setting up the FlySky FS-i6X transmitter and FS-iA6B reciever with a metro M4 device. Theoretically, this should work for just about any RC controller that is capable of outputting a PWM signal.
 
 # RC Intended output
-CH1 - Right joystick, Left/Right Control
-CH2 - Right joystick, Up/Down Control
-Ch3 - Left joystick, Left/Right Control
-CH4 - Left joystick, Up/Down Control
-CH5 - SWB, 2 way toggle switch
-CH6 - SWC, 3 way toggle switch
+
+- CH1 - Right joystick, Left/Right Control
+- CH2 - Right joystick, Up/Down Control
+- Ch3 - Left joystick, Left/Right Control
+- CH4 - Left joystick, Up/Down Control
+- CH5 - SWB, 2 way toggle switch
+- CH6 - SWC, 3 way toggle switch
 
 Eventually, we will drive the robot throttle with CH2, and steer with CH1. CH3/4 will likely not be used, and CH 5/6 will be used for various mechanisms attached to our robot. 
+
+# Powering on switch states
+- All toggle switches should be pushed UP, the OFF state
+- Right joystick should auto centre, as it is spring loaded
+- Left joystick should be pulled all the way down
 
 
 ![Screen Shot 2022-10-18 at 20 25 43](https://user-images.githubusercontent.com/101632496/196513614-dd92db1c-323c-43ee-bb24-fdf60ac65196.png)
