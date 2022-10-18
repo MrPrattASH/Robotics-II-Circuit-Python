@@ -108,16 +108,13 @@ def read_analog_ch(pin, lower_range_bound = -100, upper_range_bound = 100, deadp
     #convert time.monotonic into a nice 4 digit duty_cycle value
     in_width = floor((end - start)/1000)
     #deadpoint centre for joystick
-    if in_width > 1460 and in_width < 1590:
+    if in_width > 1400 and in_width < 1520:
         out_value = deadpoint
-    #max out forward
-    elif in_width >= 1590:
-        out_value = floor(map_range(in_width,1590,2100,deadpoint,upper_range_bound))
-    #max out reverse
     else:
-        out_value = floor(map_range(in_width,1460,980,deadpoint,lower_range_bound))
-    #note, do NOT introduce a sleep into this code, or it will output odd numbers.
+        out_value = floor(map_range(in_width,800,2100,lower_range_bound,upper_range_bound))
     return out_value
+    #note, do NOT introduce a sleep into this code, or it will output odd numbers.
+       
     
 while True:
     #I suggest you comment out lines you don't wish to print,
