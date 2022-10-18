@@ -84,12 +84,12 @@ In the folders above are 3 sample programs
 - rc_toggle_switches shows you how to read a single analog channel, and output whatever state the toggle switch is currently in
 - rc_full_example shows a fully wired transmitter, with all 6 channels populated & programmed. 
 
-# Post Programming Calibration of Joysticks
+# Calibration of Joysticks
 Joysticks are unfortunately not all made the same. Additionally, overtime joystick springs will relax and change their calibrated centre points. Likely, you'll need to calibrate the joysticks overtime to gain more accurate readings. Upon initial setup, you'll also need to calibrate the joysticks, and fiddle with the below settings. 
 
 *Note: If your robot will not use the left-joystick, there is no need to follow these steps for channels 3/4. 
 
-# Centering the RC Deadpoint (Ch1, Ch2, Ch4)
+## Centering the RC Deadpoint (Ch1, Ch2, Ch4)
 1. Open the rc_analog_channel_read and read Ch1 joystick, (Right, L/R)
 2. Centre the joystick and look at the serial printout statements. Your goal is to have only 0 displaying, such as:
 ```
@@ -107,7 +107,7 @@ If you're jumping between -32,0, or 17,0, , you need to:
 6. Press and hold 'CANCEL' to save your settings. 
 7. Repeat the above steps for all spring loaded axis (Ch1 Right L/R,Ch2 R Up/Down,Ch4 Left Left/Right) 
 
-# Widening the Top/Bottom Boundaries
+## Widening the Top/Bottom Boundaries
 Again, not all Joysticks are made the same. Some do not have as great of a range of motion as others do. Thankfully, we can calibrate this as well.  
 1. Open the rc_analog_channel_read and read Ch1 joystick, (Right, L/R)
 2. Push the joystick all the way left and look at the serial printout statements. Then, all the way to the right Your goal is to have only -100 & 100 (min/max) respectively displaying, such as:
