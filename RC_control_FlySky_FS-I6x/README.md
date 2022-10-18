@@ -13,6 +13,11 @@ This tutorial will serve as a reference for setting up the FlySky FS-i6X transmi
 
 Eventually, we will drive the robot throttle with CH2, and steer with CH1. CH3/4 will likely not be used, and CH 5/6 will be used for various mechanisms attached to our robot. 
 
+# Powering on switch states
+- All toggle switches should be pushed UP, the OFF state
+- Right joystick should auto centre, as it is spring loaded
+- Left joystick should be pulled all the way down
+
 
 ![Screen Shot 2022-10-18 at 20 25 43](https://user-images.githubusercontent.com/101632496/196513614-dd92db1c-323c-43ee-bb24-fdf60ac65196.png)
 
