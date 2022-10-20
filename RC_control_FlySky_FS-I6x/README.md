@@ -76,7 +76,7 @@ We need to create a Failsafe for our transmitter. If for whatever reason our tra
 # Wiring the Reciever
 It is important to know that the receiver outputs a 5V signal. However, our CircuitPython board logic pins are only 3.3V, so we need to use a device called a LevelShifter, or Voltage changer, to shift 5V logic down to 3.3V logic. The level shifter we're using in our class is bi-directional, meaning that it can convert both High > low voltage, and vice-versa. We need to wire an input voltage, 5V to the A or B side, an output voltage (3.3V) to the opposing side, and connect the GND to our M4. Then, we can easily convert A1 > B1 voltage, or B2 > A2 voltage, and so in. In our case, we'll input 5V to the B side, and output 3.3V to the A side. 
 
-![RC_WIRING_diagram_bb](https://user-images.githubusercontent.com/101632496/196518615-6970abc0-e0fc-469c-818e-9fa2a5711962.png)
+![RC_WIRING_diagram_fix](https://user-images.githubusercontent.com/101632496/196914475-a4d45ae9-17f8-4dcd-a750-b5233a771c3b.png)
 
 # Sample Code
 In the folders above are 3 sample programs
