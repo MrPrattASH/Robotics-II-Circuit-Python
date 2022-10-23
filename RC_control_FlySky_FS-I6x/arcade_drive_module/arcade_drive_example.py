@@ -21,28 +21,16 @@ from adafruit_motor import servo
 from adafruit_simplemath import map_range
 from math import floor
 import rc
+from arcade_drive import servo_duty_cycle, arcade_drive
 
 # init DC motors as pwm objects
 motor1 = pwmio.PWMOut(board.D0, frequency=50)
 motor2 = pwmio.PWMOut(board.D1, frequency=50)
 
-# init lift arm D2
-pwm = pwmio.PWMOut(board.D2, frequency=50)
-main_arm = servo.ContinuousServo(pwm)
-# + is down, - is Up
-
-# init Gripper arms
-# d3 left
-# d4 right
-pwm1 = pwmio.PWMOut(board.D3, frequency=50)
-left_servo = servo.Servo(pwm1)
-pwm2 = pwmio.PWMOut(board.D4, frequency=50)
-right_servo = servo.Servo(pwm2)
-
 # motor speed commands
-stop = 1.520
-full_forward = 1.920  # +400us (microseconds)
-full_reverse = 1.120  # -400us (microseconds)
+STOP = 1.520
+FULL_FORWARD = 1.920  # +400us (microseconds)
+FULL_REVERSE = 1.120  # -400us (microseconds)
 
 # init RC Controller
 # R joystick LR
@@ -65,27 +53,7 @@ ch6 = DigitalInOut(board.D8)
 ch6.direction = Direction.INPUT
 ch6.pull = Pull.DOWN
 
-def arm_up():
-    main_arm.throttle = -1
-
-
-def arm_down():
-    main_arm.throttle = 1
-
-
-def arm_stop():
-    main_arm.throttle = 0
-
-
-def claw_open():
-    left_servo.angle = 118
-    right_servo.angle = 0
-
-
-def claw_close():
-    left_servo.angle = 0
-    right_servo.angle = 118
-
+#We initialize both at 0 to start the program in a dead-stop position
 #moving average lists
 x_moving = [0,0]
 y_moving = [0,0]
@@ -100,30 +68,15 @@ while True:
     y_joy = rc.read_analog(ch2)
     x_joy = rc.read_analog(ch1)
 
-    #update
+    #update moving average list with most current reading
     rc.upd_mov_avg(x_moving, x_joy)
     rc.upd_mov_avg(y_moving, y_joy)
 
+    #filter lists with all equal. If no high-spike readings, update x_out value
     if rc.all_equal(x_moving):
         x_out = x_moving[0]
     if rc.all_equal(y_moving):
         y_out = y_moving[0]
 
-    #print("b" + str(sw_b) + "c" + str(sw_c) + " x " + str(x_out) + " y " + str(y_out))
-    '''
-    # control grabber arm - 2 way toggle switch
-    if sw_b == 0:
-        claw_open()
-    else:
-        claw_close()
-
-    # control lift arm - 3way toggle switch
-    if sw_c == 0:
-        arm_stop()
-    elif sw_c == 1:
-        arm_down()
-    else:
-        arm_up()
-    '''
-    #drive motors
-    rc.arcade_drive(x_out, y_out, motor1, motor2)
+    #drive motors using true output values
+    arcade_drive(x_out, y_out, motor1, motor2)
