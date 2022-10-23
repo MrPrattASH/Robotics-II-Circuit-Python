@@ -76,10 +76,56 @@ We need to create a Failsafe for our transmitter. If for whatever reason our tra
 # Wiring the Reciever
 It is important to know that the receiver outputs a 5V signal. However, our CircuitPython board logic pins are only 3.3V, so we need to use a device called a LevelShifter, or Voltage changer, to shift 5V logic down to 3.3V logic. The level shifter we're using in our class is bi-directional, meaning that it can convert both High > low voltage, and vice-versa. We need to wire an input voltage, 5V to the A or B side, an output voltage (3.3V) to the opposing side, and connect the GND to our M4. Then, we can easily convert A1 > B1 voltage, or B2 > A2 voltage, and so in. In our case, we'll input 5V to the B side, and output 3.3V to the A side. 
 
-![RC_WIRING_diagram_bb](https://user-images.githubusercontent.com/101632496/196518615-6970abc0-e0fc-469c-818e-9fa2a5711962.png)
+![RC_WIRING_diagram_fix](https://user-images.githubusercontent.com/101632496/196914475-a4d45ae9-17f8-4dcd-a750-b5233a771c3b.png)
 
 # Sample Code
 In the folders above are 3 sample programs
 - rc_analog_channel_read shows you how to read a single analog channel, and output whatever the potentiometer joystick is currently reading
 - rc_toggle_switches shows you how to read a single analog channel, and output whatever state the toggle switch is currently in
 - rc_full_example shows a fully wired transmitter, with all 6 channels populated & programmed. 
+
+# Calibration of Joysticks
+Joysticks are unfortunately not all made the same. Additionally, overtime joystick springs will relax and change their calibrated centre points. Likely, you'll need to calibrate the joysticks overtime to gain more accurate readings. Upon initial setup, you'll also need to calibrate the joysticks, and fiddle with the below settings. 
+
+*Note: If your robot will not use the left-joystick, there is no need to follow these steps for channels 3/4. 
+
+## Centering the RC Deadpoint (Ch1, Ch2, Ch4)
+1. Open the rc_analog_channel_read and read Ch1 joystick, (Right, L/R)
+2. Centre the joystick and look at the serial printout statements. Your goal is to have only 0 displaying, such as:
+```
+0
+0
+0
+0
+```
+If you're jumping between -32,0, or 17,0, , you need to:
+1. press and hold 'OK' to enter the menu
+2. press 'DOWN' to select the 'Functions Setup'. press 'OK'
+3. press 'DOWN' to select 'Subtrim' press 'OK'
+4. press 'OK' to select the correct channel. If your serial output is bouncing between a negative value and 0, hold 'DOWN' to move the centre subtrim to the left. Vice versa if your serial value is presenting positive.
+5. As you press 'DOWN' or 'UP', watch your serial output. You should notice it's consistency improving over time. 
+6. Press and hold 'CANCEL' to save your settings. 
+7. Repeat the above steps for all spring loaded axis (Ch1 Right L/R,Ch2 R Up/Down,Ch4 Left Left/Right) 
+
+## Widening the Top/Bottom Boundaries
+Again, not all Joysticks are made the same. Some do not have as great of a range of motion as others do. Thankfully, we can calibrate this as well.  
+1. Open the rc_analog_channel_read and read Ch1 joystick, (Right, L/R)
+2. Push the joystick all the way left and look at the serial printout statements. Then, all the way to the right Your goal is to have only -100 & 100 (min/max) respectively displaying, such as:
+```
+-100
+-100
+-100
+-100
+```
+If you're jumping between numbers that are not absolute 100, you need to:
+1. press and hold 'OK' to enter the menu
+2. press 'DOWN' to select the 'Functions Setup'. press 'OK'
+3. press 'DOWN' to select 'Endpoints' press 'OK'
+4. press 'OK' to select the correct channel. The left collumn (red) corresponds to the minimum joystick value, the right collumn (blue) corresponds to the maximum joystick value. 
+
+![Screen Shot 2022-10-18 at 21 50 44](https://user-images.githubusercontent.com/101632496/196532621-67523a8e-3a7f-4047-b365-8c915c1436e4.png)
+
+5. Increase the lower-endpoint, 1% at a time pressing 'UP'. As we're changing, watch your serial output. You should notice it's consistency improving over time. Your goal is a pure number display of the minimum value. Don't be surprised if you need to increase the endpoints to their maximum value of 120%. 
+6. To change the top endpoint, press 'OK' until you have Ch1 selected. Then, push the Right Joystick all the way to the right, this will select the 2nd collumn. Repeat Steps 4/5 until your top joystick value is the same pure 100 number.
+6. Press and hold 'CANCEL' to save your settings. 
+7. Repeat the above steps for Ch2,3,4.
