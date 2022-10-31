@@ -55,4 +55,4 @@ while True:
     if rc.all_equal(y_moving):
         y_out = y_moving[0]
 
-    print("swB: " + str(sw_c) + " swC: " + str(sw_c) +  " X_Joy: " + str(x_out) + " Y:Joy " + str(y_out))
+    print("swB: " + str(sw_b) + " swC: " + str(sw_c) +  " X_Joy: " + str(x_out) + " Y:Joy " + str(y_out))
