@@ -98,6 +98,6 @@ while True:
     ch5_cur = read_2way_switch(ch5)
     ch6_cur = read_3way_switch(ch6)
 
-    print("SwB: " + str(ch5) + " SwC: " + str(ch6))
+    print("SwB: " + str(ch5_cur) + " SwC: " + str(ch6_cur))
 
 
