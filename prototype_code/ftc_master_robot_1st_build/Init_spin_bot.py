@@ -21,6 +21,7 @@ from adafruit_motor import servo
 from adafruit_simplemath import map_range
 from math import floor
 import rc
+from arcade_drive import servo_duty_cycle, arcade_drive
 
 # init DC motors as pwm objects
 motor1 = pwmio.PWMOut(board.D0, frequency=50)
@@ -110,9 +111,9 @@ while True:
         y_out = y_moving[0]
 
     #print("b" + str(sw_b) + "c" + str(sw_c) + " x " + str(x_out) + " y " + str(y_out))
-    '''
+
     # control grabber arm - 2 way toggle switch
-    if sw_b == 0:
+    if sw_b == 1:
         claw_open()
     else:
         claw_close()
@@ -124,6 +125,7 @@ while True:
         arm_down()
     else:
         arm_up()
-    '''
+
     #drive motors
-    rc.arcade_drive(x_out, y_out, motor1, motor2)
+    arcade_drive(x_out, y_out, motor1, motor2)
+    print("x " + str(x_out) + " y " + str(y_out))
