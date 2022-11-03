@@ -84,40 +84,55 @@ In the folders above are 3 sample programs
 - rc_toggle_switches shows you how to read a single analog channel, and output whatever state the toggle switch is currently in
 - rc_full_example shows a fully wired transmitter, with all 6 channels populated & programmed. 
 
-# Calibration of Joysticks
-Joysticks are unfortunately not all made the same. Additionally, overtime joystick springs will relax and change their calibrated centre points. Likely, you'll need to calibrate the joysticks overtime to gain more accurate readings. Upon initial setup, you'll also need to calibrate the joysticks, and fiddle with the below settings. 
+# Calibration of Joysticks "SubTrim"
+Joysticks are unfortunately not all made the same. Some centre points are different than others, and this means that you'll output a different PWM value depending on what controler you are using. Additionally, overtime joystick springs will relax and change their calibrated centre points. Likely, you'll need to calibrate the joysticks overtime to gain more accurate readings. Upon initial setup, you'll also need to calibrate the joysticks, and fiddle with the below settings. You may also notice that your wheels "twitch" at stop, this is also a good time to calibrate the joysticks "SubTrim" 
 
 *Note: If your robot will not use the left-joystick, there is no need to follow these steps for channels 3/4. 
 
-## Centering the RC Deadpoint (Ch1, Ch2, Ch4)
-1. Open the rc_analog_channel_read and read Ch1 joystick, (Right, L/R)
-2. Centre the joystick and look at the serial printout statements. Your goal is to have only 0 displaying, such as:
+### Setting up to Calibrate the Deadpoint
+1. Open rc_full_example.py and download this to your code.py file on the M4. 
+2. Modify your pin initializations to read the correct channels for your wiring. 
+3. Modify line 58's print statement as below and save this to your M4:
+```
+    print(" X_Joy: " + str(x_cur) + " Y:Joy " + str(y_cur))
+```
+4. On your controller, Centre the right joystick and look at the serial printout statements. Your goal is to have only 0 displaying (or the odd false-high every 5-8 readings or so), such as:
 ```
 0
 0
 0
 0
+0.234892
+0
+0
+0
+0
 ```
-If you're jumping between -32,0, or 17,0, , you need to:
+If your controller is outputing 0 consistently , great! You don't need to do the below steps. If you're jumping between a postive number, or negative number and 0, you need to:
+
+### Centering the RC Deadpoint (Ch1, Ch2)
 1. press and hold 'OK' to enter the menu
 2. press 'DOWN' to select the 'Functions Setup'. press 'OK'
 3. press 'DOWN' to select 'Subtrim' press 'OK'
-4. press 'OK' to select the correct channel. If your serial output is bouncing between a negative value and 0, hold 'DOWN' to move the centre subtrim to the left. Vice versa if your serial value is presenting positive.
-5. As you press 'DOWN' or 'UP', watch your serial output. You should notice it's consistency improving over time. 
-6. Press and hold 'CANCEL' to save your settings. 
-7. Repeat the above steps for all spring loaded axis (Ch1 Right L/R,Ch2 R Up/Down,Ch4 Left Left/Right) 
+4. press 'OK' to select the correct channel (1 for X_joy, 2 for Y_joy). If your serial output is bouncing between a negative value and 0, hold 'DOWN' to move the centre subtrim to the left. Vice versa if your serial value is presenting positive.
+5. As you press 'DOWN' or 'UP', watch your serial output on your circuitPy board. You should notice it's consistency improving over time and random high/low values not outputting as consistently. Once they're far more consistently returning "0" than at initial calibration, you're done. 
+6. Repeat the steps for the 2nd analog joystick channel. 
+7. Press and hold 'CANCEL' to save your settings. 
+8. Repeat the above steps for all spring loaded axis (Ch1 Right L/R,Ch2 R Up/Down,Ch4 Left Left/Right) 
 
-## Widening the Top/Bottom Boundaries
-Again, not all Joysticks are made the same. Some do not have as great of a range of motion as others do. Thankfully, we can calibrate this as well.  
-1. Open the rc_analog_channel_read and read Ch1 joystick, (Right, L/R)
-2. Push the joystick all the way left and look at the serial printout statements. Then, all the way to the right Your goal is to have only -100 & 100 (min/max) respectively displaying, such as:
+### Calibrating the Joystick Endpoints
+Again, not all Joysticks are made the same. Some do not have as great of a range of motion as others do. You may have noticed that your motors may move faster in 1 direction than in a different direction. This is because your joysticks "range" is likely not exactly -1 & 1 respectively. This could be due to manufacturing defects in either the joystick instillation, the electronic components themselves, or the plastic housing. Whatever the reasoning,  we can calibrate this as well.  
+
+1. Use the same modified rc_full_example.py code from above to read the current outputs of the x/y axis on channel 1/2 on the right joystick. 
+2. Push the joystick all the way left and look at the serial printout statements. Your goal is to have the highest, *most consistent* number displaying as possible. This is so that we have a reliable range output on our joystick axis'. For example, on my controller, 
 ```
--100
--100
--100
--100
+# most reliable, consistent readings
+X min: -0.729231
+X max: 0.773846 
+Y min: -0.729231
+Y max: 0.773846 
 ```
-If you're jumping between numbers that are not absolute 100, you need to:
+Likely, your controller is jumping between inconistent values at the endpoints of the controller, or even registering a value higher than mine. That's okay, we don't really care what the end number is, what we care about is the conistency/reliability of endpoint value readings. To calibrate: 
 1. press and hold 'OK' to enter the menu
 2. press 'DOWN' to select the 'Functions Setup'. press 'OK'
 3. press 'DOWN' to select 'Endpoints' press 'OK'
@@ -125,7 +140,60 @@ If you're jumping between numbers that are not absolute 100, you need to:
 
 ![Screen Shot 2022-10-18 at 21 50 44](https://user-images.githubusercontent.com/101632496/196532621-67523a8e-3a7f-4047-b365-8c915c1436e4.png)
 
-5. Increase the lower-endpoint, 1% at a time pressing 'UP'. As we're changing, watch your serial output. You should notice it's consistency improving over time. Your goal is a pure number display of the minimum value. Don't be surprised if you need to increase the endpoints to their maximum value of 120%. 
-6. To change the top endpoint, press 'OK' until you have Ch1 selected. Then, push the Right Joystick all the way to the right, this will select the 2nd collumn. Repeat Steps 4/5 until your top joystick value is the same pure 100 number.
-6. Press and hold 'CANCEL' to save your settings. 
-7. Repeat the above steps for Ch2,3,4.
+5. Starting with Channel 1, hold your joystick all the way to the left. Look at what number you are displaying, and see if you are getting false highs outputting. 
+6. As you're holding the joystick, If you're displaying inconsistent highs values, lower your channel endpoint slightly with the "Down" key on the transmitter. 
+7. As you change the endpoint values, watch your serial output on the M4. You should notice the output's consistency improving over time. Our goal is consistent readings, similar to when we calibrated the deadpoint "0" as above. The odd high spike is OK. 
+8. Once the low endpoint is calibrated, move the joystick to the right all the way to the right. Watch the serial output. 
+9. To change the top endpoint, you need to also use the joystick to select the correct collumn (convenient!). You'll need to  select the correct collumn, change the value slightly with Up/Down keys, then hold your joystick all the way right again & watch the serial output, repeat. 
+9. Press OK to select ch2. Repeat steps 6-9 for Ch2. 
+10. Press and hold 'CANCEL' to save your settings. 
+
+My controllers final endpoint values were:
+```
+Ch1 99% 99%
+Ch2 99% 98%
+```
+And its most reliable, consistent readings:
+```
+X min: -0.729231
+X max: 0.773846 
+Y min: -0.729231
+Y max: 0.773846 
+```
+
+### Calibrating the Motor Max/Min Values:
+Now that we've calibrated your joystick, you'll likely notice that we just reduced the output to our motors, so we can only ever drive them at 75%-ish power now. We can fix that in our code. 
+
+The rc.py function takes 4 arguments:
+```
+rc.read_analog(pin, lower_bound = -1.0, upper_bound = 1.0, dead_point = 0.0)
+    
+    :pin: the current channel pin we wish to read.
+    :lower_range_bound: integer: the lower range output. Defaults to an arbitrary -1.0
+    :upper_range_bound: integer: the upper range output. Defaults to an arbitrary 1.0
+    :deadpoint: integer: accepts whatever "stop" or "90*" would be on a servo. Defaults to 0.0
+    :return: the current value read from the channel, mapped to the user-inputed range
+```
+
+We need to change these lower and upper bounds to compensate for our reduced output range from our joystick. What we're going to do is pull our function's endpoints up to compensate for the fact that we now have reduced range outputs. What used to be a "min/max" range of -1/1, will now be more like -1.3/1.3. This will compensate for the fact that we're actually only outputting -.77/-.72, but we can tell our motors that -.77 is actually -100% power.  Let's modify our read_analog function calls on lines 101-102 to compensate:
+
+```
+# my controllers final modified lower/upper ranges
+y_joy = rc.read_analog(ch2, -1.361, 1.302)
+x_joy = rc.read_analog(ch1, -1.361, 1.302)
+```
+
+1. Using my modified ranges as a starting point, modify your rc_full_example file to match the above calibration. 
+2. Move the joystick to its max values on the X/Y axis. Watch your x_cur and y_cur print outputs. You want to get them as close to -1 and 1 as possible. For example, mine outputed:
+```
+# max
+x 1.00087 y 1.00087
+# min
+x -1.00033 y -1.00033
+```
+3. Modify your lower/upper bounds via trial * error (or maths if you're feeling fancy) until you're reading to a 3 decimal point accuracy (1.000*)
+
+Save these values for later, you're going to need them in future calibrations and programs. 
+
+
+

@@ -98,9 +98,8 @@ while True:
     # Get RC Readings
     sw_c = rc.read_3way_switch(ch6)
     sw_b = rc.read_2way_switch(ch5)
-    y_joy = rc.read_analog(ch2)
-    x_joy = rc.read_analog(ch1)
-
+    y_joy = rc.read_analog(ch2, -1.361, 1.302)
+    x_joy = rc.read_analog(ch1, -1.361, 1.302)
     #update
     rc.upd_mov_avg(x_moving, x_joy)
     rc.upd_mov_avg(y_moving, y_joy)
@@ -110,7 +109,8 @@ while True:
     if rc.all_equal(y_moving):
         y_out = y_moving[0]
 
-    #print("b" + str(sw_b) + "c" + str(sw_c) + " x " + str(x_out) + " y " + str(y_out))
+
+    print("b" + str(sw_b) + "c" + str(sw_c) + " x " + str(x_joy) + " y " + str(y_joy))
 
     # control grabber arm - 2 way toggle switch
     if sw_b == 1:
@@ -128,4 +128,3 @@ while True:
 
     #drive motors
     arcade_drive(x_out, y_out, motor1, motor2)
-    print("x " + str(x_out) + " y " + str(y_out))
