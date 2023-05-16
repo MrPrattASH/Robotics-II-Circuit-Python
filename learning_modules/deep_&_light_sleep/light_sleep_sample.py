@@ -6,6 +6,7 @@ import board
 import digitalio
 import alarm
 
+#init onboard LED
 led = digitalio.DigitalInOut(board.D13)
 led.direction = digitalio.Direction.OUTPUT
 
@@ -13,7 +14,7 @@ print("Going to sleep")
 time.sleep(1)
 led.value = False
 
-# Set up an alarm to wake us up after 30 seconds
+# Set up an alarm to wake us up after 10 seconds
 alarms = [
     alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 10),
 ]
@@ -24,5 +25,6 @@ alarm.light_sleep_until_alarms(*alarms)
 
 print("Woke up")
 led.value = True
+#provide user 2s of time to see the LED turn on
 time.sleep(2)
 
