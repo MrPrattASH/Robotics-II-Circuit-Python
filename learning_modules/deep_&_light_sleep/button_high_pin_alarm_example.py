@@ -4,6 +4,7 @@ import time
 import alarm
 
 # Initialize the button as an input with a pulldown resistor
+#you need to wire a 4 or 2pin button on the m4
 button = digitalio.DigitalInOut(board.D2)
 button.direction = digitalio.Direction.INPUT
 button.pull = digitalio.Pull.DOWN
