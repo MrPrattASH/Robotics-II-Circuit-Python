@@ -1,0 +1,63 @@
+# Write your code here :-)
+#sumo advertising platform code
+
+import time
+import board
+import neopixel
+from rainbowio import colorwheel
+import digitalio
+import pwmio
+from adafruit_motor import servo
+
+# Configure the button
+button = digitalio.DigitalInOut(board.D0)
+button.direction = digitalio.Direction.INPUT
+button.pull = digitalio.Pull.UP
+
+# Configure the neopixel strip
+NUM_PIXELS = 30
+pixels = neopixel.NeoPixel(board.D1, NUM_PIXELS, brightness=1, auto_write=False)
+
+# Configure the servo
+pwm0 = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
+servo = servo.ContinuousServo(pwm0)
+
+# Initialize the start time and the button state
+button_state = True
+pixels_on = False
+cur_button_state = True
+
+# Main loop
+while True:
+    
+    for j in range(255):
+        cur_button_state = button.value
+        # Check if the button has been pressed
+        #False = Pressed
+        if not cur_button_state and not button_state:
+            button_state = True
+            # Toggle the servo + Neopixel
+            if not pixels_on:
+                pixels_on = True
+            else:
+                pixels_on = False
+                
+        elif cur_button_state and button_state:
+            button_state = False
+        
+        #neopixel rainbow & Servo throttle
+        if pixels_on:
+            for i in range(NUM_PIXELS):
+                rc_index = (i * 256 // NUM_PIXELS) + j
+                pixels[i] = colorwheel(rc_index & 255)
+            servo.throttle = 0.15
+        else:
+            for i in range(NUM_PIXELS):
+                pixels[i] = (0,0,0)
+            servo.throttle = 0
+        
+        #print(button_state)
+        pixels.show()    
+        time.sleep(0.05)
+        
+    
