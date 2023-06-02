@@ -22,7 +22,7 @@ led = digitalio.DigitalInOut(board.LED)
 led.direction = digitalio.Direction.OUTPUT
 
 # Set up a list of alarms that will trigger when the button is pressed OR after 10 seconds of deep sleep
-alarms = [alarm.pin.PinAlarm(pin=board.D2, pull=True, invert=True), 
+alarms = [alarm.pin.PinAlarm(pin=board.D2, pull=True, value = False), 
           alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 10)
           ]
 #button alarm
