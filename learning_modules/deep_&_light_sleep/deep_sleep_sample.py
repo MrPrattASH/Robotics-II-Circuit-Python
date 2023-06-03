@@ -1,32 +1,28 @@
-# pulls 7.3mA at deep sleep,
-# 29-33mA at program run
-# 16mA at idle
-
-import time
+# Write your code here :-)
 import board
 import digitalio
+import time
 import alarm
+import time
 
-#init board LED
-led = digitalio.DigitalInOut(board.D13)
+# Initialize the onboard LED as an output
+led = digitalio.DigitalInOut(board.LED)
 led.direction = digitalio.Direction.OUTPUT
 
-print("Going to sleep")
-#turn off onboard LED
-led.value = False
+# Set up an alarm that will trigger when the button is pressed
+pin_alarm = alarm.pin.PinAlarm(pin=board.A0, value = False, pull=True)
+ 
+# Turn off the onboard LED when sleep starts
+print("going to sleep")
 time.sleep(1)
+led.value = False
 
-# Set up an alarm to wake us up after 10 seconds
-alarms = [
-    alarm.time.TimeAlarm(monotonic_time=time.monotonic() + 10),
-]
-
-# Go to DEEP sleep until the alarm wakes us up
-alarm.exit_and_deep_sleep_until_alarms(*alarms)
+# Put the board into deep sleep mode until the alarm is triggered
+alarm.exit_and_deep_sleep_until_alarms(pin_alarm)
 
 #the program now "chills" here in this space until the alarm is triggered. 
 
-print("Woke up")
+# Turn on the onboard LED when the alarm is woken
+print("woke up")
 led.value = True
-#sleep for 2s to show the led 
 time.sleep(2)
