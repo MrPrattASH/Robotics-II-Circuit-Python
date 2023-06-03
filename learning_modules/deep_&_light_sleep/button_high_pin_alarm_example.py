@@ -8,7 +8,7 @@ led = digitalio.DigitalInOut(board.LED)
 led.direction = digitalio.Direction.OUTPUT
 
 # Set up an alarm that will trigger when the button is pressed
-pin_alarm = alarm.pin.PinAlarm(pin=board.D2, value = False, pull=True)
+pin_alarm = alarm.pin.PinAlarm(pin=board.A0, value = False, pull=True)
 
 # Turn off the onboard LED when sleep starts
 print("going to sleep")
