@@ -36,7 +36,7 @@ i2c = board.I2C()
 display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=oled_reset)
 
 WIDTH = 128
-HEIGHT = 32  # Change to 64 if needed
+HEIGHT = 64  # Change to 32 if needed
 BORDER = 5
 
 display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=WIDTH, height=HEIGHT)
