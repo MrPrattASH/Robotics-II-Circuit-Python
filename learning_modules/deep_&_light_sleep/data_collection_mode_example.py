@@ -1,9 +1,6 @@
-'''multiple pin or timer alarms example
-- The first section initializes the button as an input with a pulldown resistor.
-- The second section initializes the onboard LED as an output.
-- The third section sets up a list of alarms that will trigger when the button is pressed or after 10 seconds of deep sleep.
-- The while loop turns off the onboard LED when sleep starts and puts the board into deep sleep mode until either alarm is triggered.
-- When either alarm is triggered, it turns on the onboard LED and repeats the deep sleep program with the same alarms set.
+'''DATA COLLECTION BAREBONES example
+- This example shows you have you can have multiple alarms, either a high pin AND a time based alarm.
+- If a pin is the alarm that woke us, we enter a data collection mode function, before returning to sleep. 
 '''
 
 import board
@@ -25,12 +22,13 @@ print("going to sleep")
 time.sleep(1)
 led.value = False
 
-# --------------- INIT DATA COLLECTION PINS -----------------
-#init your data collection pins here, temp-D1, humid-D2, and soil moisture-A1
 
 
 
 def data_collection_mode():
+    # --------------- INIT DATA COLLECTION PINS -----------------
+    #init your data collection pins here, temp-D1, humid-D2, and soil moisture-A1
+    
     #Using a pin to control this mode is a bit unreliable unfortunately
     #instead, we'll use a 30s timer. 
     
