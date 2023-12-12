@@ -6,6 +6,7 @@ Now that you can make an LED blink simply, try this challenge. (modified from th
 ## Morse Code
 Morse code is a system for sending messages as a sequence of ON and OFF signals with predefined spaces in between. 
 
+![image](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/ab17fe38-33fd-41bd-83a9-8b51b805d185)
 A key for international Morse code
 Attribution: Rhey T. Snodgrass & Victor F. Camp, 1922, Public domain, via Wikimedia Commons
 
@@ -16,8 +17,8 @@ Characters in Morse code are represented by a series of dots and dashes, which w
 * Between letters, we wait for 3 units.
 * Between words, we wait for 7 units.
 
-## Your Challenge
-Fill in the blanks in the code below. We want to blink the message SOS, so we need to make our LED:
+# Your Challenge
+Write code inside your "while True" loop to blink the message SOS. We need to make our LED:
 
 1. blink 3 dots (S)
 2. wait for 3 units (between letters)
@@ -31,13 +32,25 @@ Fill in the blanks in the code below. We want to blink the message SOS, so we ne
 
 ```
 Option #1
-# unit time of 1s each. This is a LONG processing code
-led.value = True # turn on
-time.sleep(3) # sleep 3 "units"
-led.value = False # turn off
 
-Option #2
+UNIT = 1.0
+# unit time of 1s each. This is a LONG processing code
+UNIT = 0.2
 # unit time of 0.1s each. This is a MUCH FASTER processing code.
+
+#Dot
 led.value = True # turn on
-time.sleep(0.3) # sleep 3 "units"
-led.value = False # turn off```
+time.sleep(UNIT) # sleep 3 "units"
+led.value = False # turn off
+time.sleep(UNIT)
+
+#Dash
+led.value = True # turn on
+time.sleep(UNIT*3) # sleep 3 "units"
+led.value = False # turn off
+time.sleep(UNIT)
+
+```
+
+## extensions
+Now that you can S.0.S, try out other words to send! 
