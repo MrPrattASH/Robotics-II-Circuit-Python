@@ -6,6 +6,8 @@ You will need:
 * x2 Male > Male Jumper Wires
 * x1 220ohm Resistor
 * x1 3mm LED
+  
+<img width="400" alt="Screenshot 2023-12-12 at 14 21 00" src="https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/00036102-5310-45fb-95d9-a564b58325b1">
 
 ## Things to know:
 
@@ -19,5 +21,19 @@ You will need:
     * The long lead is positive
     * The short lead is neutral
 
+<img width="307" alt="Screenshot 2023-12-12 at 14 20 31" src="https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/fa479601-906b-4586-9a72-bdf9ecbf2272">
+
+
 ## Code:
 Use the code above this README.md called "basic_led_debug.py". If you click that link, you can copy the code to your M4 board. 
+
+![Screenshot 2023-12-12 at 14 21 25](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/2f71c790-ae46-434a-9891-fca0e7a25883)
+
+
+
+You can click this button to copy all code once a .py file is open. 
+
+![Screenshot 2023-12-12 at 14 19 22](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/a96d7b88-331a-4780-9de5-3fb510c90558)
+
+
+
