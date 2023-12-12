@@ -1,3 +1,9 @@
+""" LOW PIN ALARM EXAMPLE
+- this code causes our device to enter deep sleep until button A0 reads LOW
+- Connect a simple 2 pin button, or 2 wires, and when connected, they'll trigger our program to wake up. 
+
+"""
+
 import board
 import digitalio
 import time

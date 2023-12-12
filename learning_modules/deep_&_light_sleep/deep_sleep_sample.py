@@ -1,9 +1,7 @@
-'''multiple pin or timer alarms example
-- The first section initializes the button as an input with a pulldown resistor. 
-- The second section initializes the onboard LED as an output. 
-- The third section sets up a list of alarms that will trigger when the button is pressed or after 10 seconds of deep sleep. 
-- The while loop turns off the onboard LED when sleep starts and puts the board into deep sleep mode until either alarm is triggered. 
-- When either alarm is triggered, it turns on the onboard LED and repeats the deep sleep program with the same alarms set.
+'''DEEP SLEEP example
+- This program enters deep sleep for 10s, then wakes up due to a 10s alarm. 
+- Deep sleep causes the program to terminate on line 26, no more code is run after this statement. 
+- Upon awake by alarm, the program starts again from line 7. 
 '''
 
 import board
