@@ -14,7 +14,7 @@ import digitalio
 import time
 
 # intialize the red LED pin inside a variable. Now we don't need to call that pin each time...
-led = digitalio.DigitalInOut(board.LED)
+led = digitalio.DigitalInOut(board.D13)
 # We need to output to this LED. Inputs would be for a sensor. 
 led.direction = digitalio.Direction.OUTPUT
 
