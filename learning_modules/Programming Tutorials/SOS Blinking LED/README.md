@@ -1,6 +1,6 @@
 # S.O.S. Blinking LED
 
-Now that you can make an LED blink simply, try this challenge. (modified from this [tutorial](https://sites.google.com/view/circuitpython/tutorials/blinking-led/sos_))
+Now that you can make an LED blink simply, try this challenge. (modified from this [tutorial](https://sites.google.com/view/circuitpython/tutorials/blinking-led/sos))
 
 
 ## Morse Code
