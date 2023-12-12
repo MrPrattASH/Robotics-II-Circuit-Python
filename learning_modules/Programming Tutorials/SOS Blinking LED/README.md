@@ -29,12 +29,15 @@ Fill in the blanks in the code below. We want to blink the message SOS, so we ne
 ## tips:
 * Unit time: As long as your units are consistent, the code is the same. For example:
 
-`# unit time of 1s each. This is a LONG processing code
+```
+Option #1
+# unit time of 1s each. This is a LONG processing code
 led.value = True # turn on
 time.sleep(3) # sleep 3 "units"
-led.value = False # turn off`
+led.value = False # turn off
 
-`# unit time of 0.1s each. This is a MUCH FASTER processing code.
+Option #2
+# unit time of 0.1s each. This is a MUCH FASTER processing code.
 led.value = True # turn on
 time.sleep(0.3) # sleep 3 "units"
-led.value = False # turn off`
+led.value = False # turn off```
