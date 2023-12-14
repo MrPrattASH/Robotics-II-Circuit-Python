@@ -6,7 +6,8 @@ Originally taken from [this tutorial from basicmicro](https://resources.basicmic
 
 1. Wire two DC motors to the RoboClaw. On dual channel RoboClaws like ours, the first motor is wired to M1A and M1B and the second motor to M2A and M2B. For class consistency, A is + and B is GND (though it doesn't really matter)
 
-![image](https://user-images.githubusercontent.com/101632496/193512894-0248a016-98b8-4cf2-97a5-ef0109d769d5.png)
+![IMG_5747](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/8cdbb5fc-bffb-454d-bc3c-3de9ae16e3d3)
+
 
 # Connect Power Supply - DC Battery Wiring Instructions
 >
@@ -34,7 +35,8 @@ We'll be sending commands to our motors using low_level servo control over digit
 
 While not labelled on the schematic, we are going from M4 D.Pins to S1 and S2 on the RoboClaw. S1 controls MA, and S2 controls MB respectively. 
 
-![m4_RC_wiring_diagram](https://user-images.githubusercontent.com/101632496/195046527-594121f4-7da8-40cf-99ca-c07645d0a720.png)
+
+![wiring_diagram_m4_rc_fritz_bb](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/2623bff2-adec-4113-bde6-90430c93a470)
 
 
 ### Advanced Wiring: Encoders
