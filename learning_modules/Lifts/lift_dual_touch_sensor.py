@@ -44,7 +44,7 @@ while True:
     
     # Lift Switch
     if ch_5 is not None:  # 2 way switch, left side
-        if ch_1 == 0:  # Lift DOWN
+        if ch_5 == 0:  # Lift DOWN
             if not bottom_sw: # button pressed
                 servo_1.throttle = 0 # stop servo
             else:
