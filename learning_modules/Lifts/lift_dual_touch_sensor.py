@@ -22,7 +22,7 @@ top.pull = digitalio.Pull.UP
 
 # ----------  INIT SERVO ------------
 # create a PWMOut object on Pin A0.
-pwm = pwmio.PWMOut(board.A0, frequency=50)
+pwm = pwmio.PWMOut(board.A2, frequency=50)
 
 # Create a servo object, my_servo.
 servo_1 = servo.ContinuousServo(pwm)
