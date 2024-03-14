@@ -27,6 +27,8 @@ pwm = pwmio.PWMOut(board.A2, frequency=50)
 # Create a servo object, my_servo.
 servo_1 = servo.ContinuousServo(pwm)
 
+
+print("start")
 # Main code
 while True:
     #  Read joystick channels
@@ -38,23 +40,23 @@ while True:
     bottom_sw = bottom.value
     top_sw = top.value 
     
+    print(ch_5)
     #  Drive
     if ch_1 is not None and ch_2 is not None:
         drive.drive(ch_1, ch_2)  # move our motors arcade drive style
     
     # Lift Switch
     if ch_5 is not None:  # 2 way switch, left side
-        if ch_5 == 0:  # Lift DOWN
-            if not bottom_sw: # button pressed
-                servo_1.throttle = 0 # stop servo
-            else:
-                servo_1.throttle = 1 #servo down (counter-clockwise)
-        else:  # Lift UP
-            if not top_sw: # button pressed
-                servo_1.throttle = 0 # stop servo
-            else:
-                servo_1.throttle = -1 #servo up (clockwise)
-    
+        if ch_5:  # Lift UP
+            if top_sw: #  button NOT pressed, servo up (Counter Clockwise) 
+                servo_1.throttle = 0.2
+            else: # stop servo
+                servo_1.throttle = 0
+        else:
+            if bottom_sw: #  button NOT pressed, servo down (clockwise)
+                servo_1.throttle = -0.2
+            else: # stop servo
+                servo_1.throttle = 0
 
     # sleep for 20ms, the length of a single duty cycle of the RC reciever.
     time.sleep(0.02)
