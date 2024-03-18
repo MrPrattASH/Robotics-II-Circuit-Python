@@ -51,7 +51,7 @@ while True:
             if top_sw: #  button NOT pressed, servo up (Counter Clockwise) 
                 servo_1.throttle = 0.2
             else: # stop servo
-                servo_1.throttle = 0
+                servo_1.throttle = 0.09 # "stalls" the servo to keep in top position
         else:
             if bottom_sw: #  button NOT pressed, servo down (clockwise)
                 servo_1.throttle = -0.2
