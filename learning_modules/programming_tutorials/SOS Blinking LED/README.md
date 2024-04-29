@@ -1,14 +1,15 @@
 # S.O.S. Blinking LED
 
-Now that you can make an LED blink simply, try this challenge. (modified from this [tutorial](https://sites.google.com/view/circuitpython/tutorials/blinking-led/sos))
+Now that you can make an LED blink simply, try this challenge. *(modified from this [tutorial](https://sites.google.com/view/circuitpython/tutorials/blinking-led/sos))*
 
 
 ## Morse Code
 Morse code is a system for sending messages as a sequence of ON and OFF signals with predefined spaces in between. 
 
 ![image](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/ab17fe38-33fd-41bd-83a9-8b51b805d185)
+
 A key for international Morse code
-Attribution: Rhey T. Snodgrass & Victor F. Camp, 1922, Public domain, via Wikimedia Commons
+*Attribution: Rhey T. Snodgrass & Victor F. Camp, 1922, Public domain, via Wikimedia Commons*
 
 Characters in Morse code are represented by a series of dots and dashes, which we will use to determine the length of time our LED turns on for. 
 
@@ -52,5 +53,5 @@ time.sleep(UNIT)
 
 ```
 
-## extensions
+## Extension
 Now that you can S.0.S, try out other words to send! 
