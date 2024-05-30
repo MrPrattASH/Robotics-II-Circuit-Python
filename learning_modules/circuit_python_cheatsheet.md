@@ -1,8 +1,5 @@
-# Robotics-II-Circuit-Python
-A repository for learning how to do Robotics using the *Metro M4* CircuitPython board. 
-
-## Quick Links
-* [CircuitPythonCheatSheet](learning_modules/circuit_python_cheatsheet.md)
+# Circuit Python Cheatsheet
+Common code needed in robotics, as a reference for you. Keep this open as you program. Original cheat sheet from Adafruit[here](https://github.com/adafruit/awesome-circuitpython/blob/main/cheatsheet/CircuitPython_Cheatsheet.md)
 
 ## Digital I/O
 Used for initializing new sensors, objects, motors, etc. 
