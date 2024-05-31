@@ -55,3 +55,8 @@ time.sleep(UNIT)
 
 ## Extension
 Now that you can S.0.S, try out other words to send! 
+
+##### Quick Links
+* [Home](README.md)
+* [Tutorials](learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)

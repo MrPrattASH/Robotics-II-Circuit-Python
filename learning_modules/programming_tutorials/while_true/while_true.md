@@ -29,9 +29,9 @@ You've likely noticed by now that rather than printing the statement once, it wi
 
 * The word "while" is a condition for a loop. While the condition inside the following statement is true, the code "inside" the loop will continue to run. In our case, it will print "This is in a loop!" forever. 
 * The words next to the "while" are the conditional statement. We only ever run "True" statements:
-     * while True: this will run because the statement is simply "True"
-     * while 1 == 1: This will also run because 1 is equivalent to 1
-     * while 5 == 7: This will *never* run, because 5 is not equal to 7. 
+     * `while True:` this will run because the statement is simply "True"
+     * `while 1 == 1:` This will also run because 1 is equivalent to 1
+     * `while 5 == 7:` This will *never* run, because 5 is not equal to 7. 
 * The last part of our conditional statement is the ":" colon. The colon signifies to our computer that the statement is over. 
     * much like this indentation in the bullet, anything that is *indented* inside of the "while True:" statement will run. For example try to run the following code:
 ``` 
@@ -42,8 +42,13 @@ while True:
 print("this is NOT indented, so it is outside the loop")
 print("the statement directly above, and this statement, will NEVER print")
 ```
-* The final 2 print statements will **never** print on our serial console, because they are *after* our forever, while True: loop. 
+* The final 2 `print` statements will **never** print on our serial console, because they are *after* our forever, while True: loop. 
 * In python, indents (tabs or x4 spaces) keep track of what parts of code are inside loops, or conditional statements, and what are not. 
 
 # Key Takeaways
 All of our robotics programs will have a single while True: loop inside of them, and this is where all of our code will run. Much like a robot vacuum, we want our robot following instructions forever, until it is powered off. 
+
+##### Quick Links
+* [Home](README.md)
+* [Tutorials](learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)

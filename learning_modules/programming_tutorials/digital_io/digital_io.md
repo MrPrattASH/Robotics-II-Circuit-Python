@@ -8,7 +8,7 @@ The onboard LED is a red LED with the "L" next to it. By the end of this tutoria
 The rest of this tutorial is borrowed/modified from this [AdaFruit Tutorial](https://learn.adafruit.com/welcome-to-circuitpython/creating-and-editing-code) and has been modified to suit the needs of this course. 
 
 ## Practice Code
-copy and paste the following code into your code.py and run it on your board
+copy and paste the [following code](learning_modules/programming_tutorials/digital_io/blinking_led.py) into your code.py and run it on your board
 ```
 import board
 import digitalio
@@ -88,3 +88,8 @@ while True:
 
 * After this, we run all 4 lines, then repeat back to the top of our `while True:` loop, repeating this .5sec on, .5sec off loop forever. 
 * Go ahead and change the value of `time.sleep(0.5)` to something like `(1)` or `(0.1)`. What changes to you observe to the LED? 
+
+##### Quick Links
+* [Home](README.md)
+* [Tutorials](learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
