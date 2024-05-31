@@ -13,16 +13,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 <!-- Custom Navigation CSS -->
 <style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* Ensure a common font for better layout control */
+}
 .custom-header {
     background-color: #f8f9fa;
     padding: 10px 0;
     text-align: center;
-    border-top: 1px solid #eee;
-    margin-top: 40px; /* Add margin top to separate from header */
+    border-bottom: 1px solid #eee;
+    margin-bottom: 20px;
 }
 .custom-nav {
     display: inline-block;
-    gap: 20px;
+    margin-bottom: 20px; /* Ensure space between the nav and the content */
 }
 .custom-nav a {
     margin: 0 15px;
@@ -33,14 +38,9 @@
 .custom-nav a:hover {
     text-decoration: underline;
 }
-/* Ensure body margin and padding are reset for consistency */
-body {
-    margin: 0;
-    padding: 0;
-}
 header {
     text-align: center;
-    margin-top: 20px; /* Add margin top to separate header from navigation links */
+    margin: 20px 0; /* Ensure space between the header and the nav/content */
 }
 #banner {
     text-align: center;
@@ -73,9 +73,6 @@ header {
     {% endif %}
 </div><!-- end banner -->
 <div class="wrapper">
-    <nav>
-        <ul></ul>
-    </nav>
     <section>
         {{ content }}
     </section>
