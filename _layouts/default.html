@@ -12,6 +12,14 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js" integrity="sha256-3Jy/GbSLrg0o9y5Z5n1uw0qxZECH7C6OQpVBgNFYa0g=" crossorigin="anonymous"></script>
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    
+    <style>
+      .custom-nav {
+        display: flex;
+        gap: 20px;
+        margin-bottom: 15px;
+      }
+    </style>
 
     {% include head-custom.html %}
   </head>
@@ -22,12 +30,10 @@
       <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
 
       <!-- Custom Navigation Links -->
-      <nav>
-        <ul>
-          <li><a href="{{ site.baseurl }}/README.md">Home</a></li>
-          <li><a href="{{ site.baseurl }}/learning_modules/tutorials_list.md">Tutorials</a></li>
-          <li><a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.md">Cheat Sheet</a></li>
-        </ul>
+      <nav class="custom-nav">
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+        <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
       </nav>
     </header>
 
