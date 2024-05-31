@@ -18,6 +18,7 @@
     padding: 10px 0;
     text-align: center;
     border-bottom: 1px solid #eee;
+    margin-bottom: 40px; /* Add margin bottom to separate from header */
 }
 .custom-nav {
     display: inline-block;
@@ -37,15 +38,9 @@ body {
     margin: 0;
     padding: 0;
 }
-.header-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px; /* Add margin to separate from content */
-}
 header {
-    margin-top: 20px; /* Add margin to separate header from navigation links */
     text-align: center;
+    margin-top: 60px; /* Increase margin top to separate header from navigation links */
 }
 #banner {
     text-align: center;
@@ -60,20 +55,18 @@ header {
 {% include head-custom.html %}
 </head>
 <body>
-<div class="header-container">
-    <!-- Custom Navigation Links -->
-    <div class="custom-header">
-        <nav class="custom-nav">
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
-            <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
-        </nav>
-    </div>
-    <header>
-        <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-        <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
-    </header>
+<!-- Custom Navigation Links -->
+<div class="custom-header">
+    <nav class="custom-nav">
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+        <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
+    </nav>
 </div>
+<header>
+    <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+    <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
+</header>
 <div id="banner">
     <span id="logo"></span>
     <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
