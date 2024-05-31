@@ -37,8 +37,7 @@ Before moving on to any level 0/1 tutorials, ensure you have completed this init
 * 1.1: [Buttons & LEDs](learning_modules/physical_component_tutorials/4-Pin_Buttons/button_4_1.md)
 
 
-
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

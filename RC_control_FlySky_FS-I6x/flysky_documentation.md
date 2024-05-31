@@ -167,7 +167,7 @@ We need to create a Failsafe for our transmitter. If for whatever reason our tra
 8. With all channels correctly set, press and hold 'Cancel' to exit and save the failsafe settings.
 9. Tap 'Cancel' three times to step back to the status display screen
 
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

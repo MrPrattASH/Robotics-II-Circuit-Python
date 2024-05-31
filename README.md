@@ -6,9 +6,9 @@ A repository for learning how to do Robotics using the *Metro M4* CircuitPython 
     * Breadboarding Tutorials for a variety of common hardware in robotics 
 
 # Repository Contents
-* [CircuitPythonCheatSheet](learning_modules/circuit_python_cheatsheet.md)
+* [CircuitPythonCheatSheet](/learning_modules/circuit_python_cheatsheet.md)
 * [Learning Module Tutorials](/learning_modules/tutorials_list.md)
-* [FlySky-i6 RC Controller Documentation](RC_control_FlySky_FS-I6x/flysky_documentation.md)
+* [FlySky-i6 RC Controller Documentation](/RC_control_FlySky_FS-I6x/flysky_documentation.md)
 
 # CircuitPy Libraries
 Download this library folder and add it to your *CIRCUITPY* drive for all the libraries needed throughout these courses. 

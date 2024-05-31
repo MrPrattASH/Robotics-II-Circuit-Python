@@ -45,7 +45,7 @@ print("this is line 2!)
 print("and I'm a serial console talking to you)
 ```
 
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

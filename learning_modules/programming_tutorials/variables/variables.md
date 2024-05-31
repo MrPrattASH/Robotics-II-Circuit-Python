@@ -110,7 +110,7 @@ print("Total sum in Bank:, bank_account)
 print("Total money all together:", total_money)
 ```
 
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

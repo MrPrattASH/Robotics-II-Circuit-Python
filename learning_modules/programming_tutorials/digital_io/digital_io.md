@@ -89,7 +89,7 @@ while True:
 * After this, we run all 4 lines, then repeat back to the top of our `while True:` loop, repeating this .5sec on, .5sec off loop forever. 
 * Go ahead and change the value of `time.sleep(0.5)` to something like `(1)` or `(0.1)`. What changes to you observe to the LED? 
 
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

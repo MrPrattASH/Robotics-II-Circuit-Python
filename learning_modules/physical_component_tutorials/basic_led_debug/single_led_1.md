@@ -13,7 +13,7 @@ Using [the tutorial from level 0](learning_modules/physical_component_tutorials/
 * Can you make an interesting pattern display across your 4 LEDs by causing them to blink out of sync and in sync? 
 
 
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

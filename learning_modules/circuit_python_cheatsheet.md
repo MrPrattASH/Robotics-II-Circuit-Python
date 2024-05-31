@@ -174,7 +174,7 @@ YOURDEVICE.duty_cycle = duty_cycle_value(0.5)  # Set 50% duty cycle!
     # Ctrl+D and any key to re-enter the REPL on-screen
 ```
 
-##### Quick Links
-* [Home](README.md)
-* [Tutorials](learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](learning_modules/circuit_python_cheatsheet.md)
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

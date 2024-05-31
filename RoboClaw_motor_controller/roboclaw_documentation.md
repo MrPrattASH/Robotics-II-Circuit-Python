@@ -101,3 +101,8 @@ If you've done this correctly, when you send a PWM signal similar to how you've 
     - Exponetial: YES
     - MCU: YES
 5. Verify motors function via PWM sliders. 
+
+### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

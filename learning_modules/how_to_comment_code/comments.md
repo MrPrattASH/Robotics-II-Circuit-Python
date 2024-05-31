@@ -117,3 +117,8 @@ Following these rules should save you and your teammates time and frustration.
 
 That said, I’m sure these rules aren’t exhaustive and look forward to seeing suggested additions in (where else?) the comments.
 >
+
+##### Quick Links
+* [Home](/README.md)
+* [Tutorials](/learning_modules/tutorials_list.md)
+* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)
