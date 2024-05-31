@@ -13,11 +13,28 @@
     <![endif]-->
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     
+    <!-- Custom Navigation CSS -->
     <style>
+      .custom-header {
+        background-color: #f8f9fa;
+        padding: 10px 0;
+        text-align: center;
+      }
+
       .custom-nav {
-        display: flex;
+        display: inline-block;
         gap: 20px;
-        margin-bottom: 15px;
+      }
+
+      .custom-nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        font-weight: bold;
+        color: #007bff;
+      }
+
+      .custom-nav a:hover {
+        text-decoration: underline;
       }
     </style>
 
@@ -26,15 +43,18 @@
   <body>
 
     <header>
+      <!-- Page Title and Description -->
       <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
 
       <!-- Custom Navigation Links -->
-      <nav class="custom-nav">
-        <a href="{{ site.baseurl }}/">Home</a>
-        <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
-        <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
-      </nav>
+      <div class="custom-header">
+        <nav class="custom-nav">
+          <a href="{{ site.baseurl }}/">Home</a>
+          <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+          <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
+        </nav>
+      </div>
     </header>
 
     <div id="banner">
@@ -64,7 +84,7 @@
           <p>Project maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
         {% endif %}
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/mattgraham">mattgraham</a></small></p>
-      </footer>
-    </div>
-  </body>
+    </footer>
+  </div>
+</body>
 </html>
