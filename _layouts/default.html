@@ -17,8 +17,8 @@
     background-color: #f8f9fa;
     padding: 10px 0;
     text-align: center;
-    border-bottom: 1px solid #eee;
-    margin-bottom: 40px; /* Add margin bottom to separate from header */
+    border-top: 1px solid #eee;
+    margin-top: 40px; /* Add margin top to separate from header */
 }
 .custom-nav {
     display: inline-block;
@@ -40,7 +40,7 @@ body {
 }
 header {
     text-align: center;
-    margin-top: 60px; /* Increase margin top to separate header from navigation links */
+    margin-top: 20px; /* Add margin top to separate header from navigation links */
 }
 #banner {
     text-align: center;
@@ -55,14 +55,6 @@ header {
 {% include head-custom.html %}
 </head>
 <body>
-<!-- Custom Navigation Links -->
-<div class="custom-header">
-    <nav class="custom-nav">
-        <a href="{{ site.baseurl }}/">Home</a>
-        <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
-        <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
-    </nav>
-</div>
 <header>
     <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
     <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
@@ -87,6 +79,14 @@ header {
     <section>
         {{ content }}
     </section>
+</div>
+<!-- Custom Navigation Links -->
+<div class="custom-header">
+    <nav class="custom-nav">
+        <a href="{{ site.baseurl }}/">Home</a>
+        <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+        <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
+    </nav>
 </div>
 <footer>
     {% if site.github.is_project_page %}
