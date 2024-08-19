@@ -20,15 +20,17 @@ body {
 }
 
 .custom-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
     background-color: #f8f9fa;
-    padding: 10px 0;
-    text-align: center;
     border-top: 1px solid #eee;
+    z-index: 1000; /* Ensure the header is above other content */
 }
 
 .custom-nav {
-    display: inline-block;
-    margin-bottom: 20px; /* Ensure space between the nav and the content */
+    text-align: center;
+    padding: 10px 0;
 }
 
 .custom-nav a {
@@ -43,13 +45,14 @@ body {
 }
 
 header {
+    padding-top: 60px; /* Ensure space for the fixed header */
     text-align: center;
-    margin: 20px 0; /* Ensure space between the header and the nav/content */
+    margin: 20px 0; /* Ensure space between the header and the content */
 }
 
 #content {
+    margin: 80px auto 0; /* Ensure space for the header and some additional margin */
     max-width: 960px;
-    margin: 0 auto;
     padding: 20px;
 }
 
@@ -70,6 +73,13 @@ footer {
 </style>
 </head>
 <body>
+    <div class="custom-header">
+        <nav class="custom-nav">
+            <a href="{{ site.baseurl }}/">Home</a>
+            <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+            <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
+        </nav>
+    </div>
     <header>
         <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
         <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
@@ -91,14 +101,6 @@ footer {
         <section>
             {{ content }}
         </section>
-    </div>
-    <!-- Custom Navigation Links -->
-    <div class="custom-header">
-        <nav class="custom-nav">
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
-            <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
-        </nav>
     </div>
     <footer>
         {% if site.github.is_project_page %}
