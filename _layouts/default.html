@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'en-US' }}">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,14 +17,6 @@
 <header>
   <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
   <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
-  <!-- Navigation Bar -->
-  <nav>
-    <ul>
-      <li><a href="{{ site.baseurl }}">Home</a></li>
-      <li><a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a></li>
-      <li><a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a></li>
-    </ul>
-  </nav>
 </header>
 <div id="banner">
   <span id="logo"></span>
@@ -38,11 +30,14 @@
       </ul>
     </div>
   {% endif %}
+  <!-- Add your hyperlinks here -->
+  <div class="custom-links">
+    <a href="{{ site.baseurl }}">Home</a>
+    <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+    <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
+  </div>
 </div><!-- end banner -->
 <div class="wrapper">
-  <nav>
-    <ul></ul>
-  </nav>
   <section>
     {{ content }}
   </section>
