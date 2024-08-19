@@ -8,10 +8,10 @@ Each tutorial has a *Level 0* and corresponding *Level 1* tutorial associated wi
 
 ## The Basics
 Before moving on to any level 0/1 tutorials, ensure you have completed this initial tutorial. 
-* [How to Write & Save Code on Circuit Python Boards](/programming_tutorials/circuit_python_basics/python_basics.md)
+* [How to Write & Save Code on Circuit Python Boards](programming_tutorials/circuit_python_basics/python_basics.md)
 
 ## Level 0:
-* 0.0: [Python Syntax](/programming_tutorials/circuit_python_basics/python_basics.md)
+* 0.0: [Python Syntax](programming_tutorials/circuit_python_basics/python_basics.md)
 * 0.1: [What are "Variables"?](learning_modules/programming_tutorials/variables/variables.md)
 * 0.2: [Forever Loops](learning_modules/programming_tutorials/while_true/while_true.md)
 * 1.0: [Onboard LED](learning_modules/programming_tutorials/digital_io/digital_io.md)
