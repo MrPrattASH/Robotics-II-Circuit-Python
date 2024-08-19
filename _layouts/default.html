@@ -24,13 +24,19 @@ body {
     top: 0;
     width: 100%;
     background-color: #f8f9fa;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #eee;
     z-index: 1000; /* Ensure the header is above other content */
 }
 
-.custom-nav {
+header {
+    padding-top: 80px; /* Ensure space for the fixed header */
     text-align: center;
-    padding: 10px 0;
+    margin: 20px 0; /* Ensure space between the header and the content */
+}
+
+.custom-nav {
+    display: inline-block;
+    margin-left: 20px; /* Adds space between the button and the nav links */
 }
 
 .custom-nav a {
@@ -44,14 +50,8 @@ body {
     text-decoration: underline;
 }
 
-header {
-    padding-top: 80px; /* Ensure space for the fixed header */
-    text-align: center;
-    margin: 20px 0; /* Ensure space between the header and the content */
-}
-
 #content {
-    margin: 80px auto 0; /* Ensure space for the header and some additional margin */
+    margin: 120px auto 0; /* Ensure space for the header and some additional margin */
     max-width: 960px;
     padding: 20px;
 }
@@ -66,6 +66,14 @@ h1 {
     margin: 20px 0; /* Ensure spacing for the banner */
 }
 
+.action-bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFD700; /* Match the yellow color */
+    padding: 10px 0;
+}
+
 footer {
     text-align: center;
     padding: 20px 0;
@@ -74,29 +82,19 @@ footer {
 </head>
 <body>
     <div class="custom-header">
-        <nav class="custom-nav">
-            <a href="{{ site.baseurl }}/">Home</a>
-            <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
-            <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
-        </nav>
-    </div>
-    <header>
-        <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
-        <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
-    </header>
-    <div id="banner">
-        <span id="logo"></span>
-        <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
-        {% if site.show_downloads %}
-        <div class="downloads">
-            <span>Downloads:</span>
-            <ul>
-                <li><a href="{{ site.github.zip_url }}" class="button">ZIP</a></li>
-                <li><a href="{{ site.github.tar_url }}" class="button">TAR</a></li>
-            </ul>
+        <header>
+            <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+            <p>{{ page.description | default: site.description | default: site.github.project_tagline }}</p>
+        </header>
+        <div class="action-bar">
+            <a href="{{ site.github.repository_url }}" class="button fork"><strong>View On GitHub</strong></a>
+            <nav class="custom-nav">
+                <a href="{{ site.baseurl }}/">Home</a>
+                <a href="{{ site.baseurl }}/learning_modules/tutorials_list.html">Tutorials</a>
+                <a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a>
+            </nav>
         </div>
-        {% endif %}
-    </div><!-- end banner -->
+    </div>
     <div id="content">
         <section>
             {{ content }}
