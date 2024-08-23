@@ -32,7 +32,7 @@ Before moving on to any level 0/1 tutorials, ensure you have completed this init
 Before moving on to any level 0/1 tutorials, learn about the basics of a *Breadboard* (and why they're called breadboards) and electrical flow
 * Base 0.0: [What Is A Breadboard?](https://learn.adafruit.com/breadboards-for-beginners/introduction)
     * Read up to & *including* "Jumper Wires" 
-* Base 0.1: [Simple Circuits](physical_component_tutorials/breadboard_basics/)
+* Base 0.1: [Simple Circuits](physical_component_tutorials/breadboard_basics/breadboard_basics.md)
 
 
 ## Level 0:
