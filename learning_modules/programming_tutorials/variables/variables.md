@@ -33,6 +33,7 @@ rover_name = "Jenkins"
 has_rc_control = True
 ```
 3. After creating 4 variables, print each variable and observe the output. Notice, we *do not put variable names "in between quotes"* as only string variable values are in between "quotes". 
+
 ```
 print(power)
 print(light_intensity)
@@ -44,6 +45,7 @@ print("light_intensity")
 print("rover_name")
 print("has_rc_control")
 ```
+
 4. Observe the differences between these 2 sets of print statements.
     - The first set printed the *values* of the variables
     - The second set printed 4 different "string variables", rather than their variable values, because all 3 were surrounded by "quotation marks" 
@@ -109,8 +111,3 @@ print("Total sum in wallet:", wallet)
 print("Total sum in Bank:, bank_account)
 print("Total money all together:", total_money)
 ```
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

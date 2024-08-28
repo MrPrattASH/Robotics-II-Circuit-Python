@@ -25,7 +25,7 @@ You will need:
 
 
 ## Code:
-Use the code above this README.md called "basic_led_debug.py". If you click that link, you can copy the code to your M4 board. 
+Use the code above this README.md called [basic_led_debug.py](basic_led_debug.py)". If you click that link, you can copy the code to your M4 board. 
 
 ![Screenshot 2023-12-12 at 14 21 25](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/2f71c790-ae46-434a-9891-fca0e7a25883)
 
@@ -35,9 +35,4 @@ You can click this button to copy all code once a .py file is open.
 
 ![Screenshot 2023-12-12 at 14 19 22](https://github.com/MrPrattASH/Robotics-II-Circuit-Python/assets/101632496/a96d7b88-331a-4780-9de5-3fb510c90558)
 
-
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)
+alternatively, view the code [here](basic_led_debug.py)

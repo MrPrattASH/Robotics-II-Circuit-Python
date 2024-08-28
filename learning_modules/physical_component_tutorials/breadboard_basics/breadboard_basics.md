@@ -54,7 +54,12 @@ Let's wire up x2 LEDs in "series". We'll add another LED to our circuit, but thi
 ![series](series.png)
 
 * In this circuit, To not get too technical, our Voltage drops by 1/2 between the 2 components, but our total current stays the same.
-* Our output voltage is 1/2 as bright, but our battery lasts the same as if only a single, brighter LED was being lit. 
+* As you likely noticed, because of our voltage drop, nothing will turn on. This is because we're only providing 3.3V to our LED's, and with 1.15V power, it's simply not enough power to turn on our LED. 
+
+To fix this, swap your 3.3V power to 5V power. 
+![series5v](servies5v.png)
+
+* Now, our output voltage is 1/2 of 5V, or 2.5V, which is suffient for drivng 2 LEDs. Our LEDs are now half as bright as a single LED running on 5V, but our battery lasts the same as if only a single, brighter LED was being lit. 
 
 ### 2LEDs in parallel
 Lets now change this circuit into a parallel circuit. Observe what happens to our LEDs this time. How has the brightness been changed? 
@@ -80,6 +85,7 @@ LEDs can also have dimmers applied to them to adjust their brightness. We've bee
 ![pot](pot_function.png)
 
 Let's wire up a potentiometer. There are x3 pins on a potentiometer (or "pot" for short), but for this we'll only use 2. 
+* **note:** You'll want to connect your Pot to 5V power, not 3V. 
 
 ![potdiagram](pot_dimmer_diagram.png)
 
