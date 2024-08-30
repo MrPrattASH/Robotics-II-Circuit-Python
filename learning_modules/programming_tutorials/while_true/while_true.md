@@ -18,8 +18,11 @@ Let's try the difference between these 2 programs
 1. delete all existing code. 
 2. write in this code:
 ``` 
+import time
+
 while True:
     print("this is in a loop!)
+    time.sleep(1)
 ```
 3. Open the serial console
 4. Save this program and observe the serial output. 
@@ -47,8 +50,3 @@ print("the statement directly above, and this statement, will NEVER print")
 
 # Key Takeaways
 All of our robotics programs will have a single while True: loop inside of them, and this is where all of our code will run. Much like a robot vacuum, we want our robot following instructions forever, until it is powered off. 
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)
