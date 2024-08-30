@@ -40,14 +40,20 @@ You've likely noticed by now that rather than printing the statement once, it wi
      * `while 5 == 7:` This will *never* run, because 5 is not equal to 7. 
 * The last part of our conditional statement is the ":" colon. The colon signifies to our computer that the statement is over. 
     * much like this indentation in the bullet, anything that is *indented* inside of the "while True:" statement will run. For example try to run the following code:
+* The `import time` and `time.sleep(1)` are special lines from a "module" that allow us to put second pauses into our code. 
+
 ``` 
+import time
+
 print("this is before the loop")
 while True:
     print("this is inside the loop")
     print("Still inside the loop")
+    time.sleep(1)
 print("this is NOT indented, so it is outside the loop")
 print("the statement directly above, and this statement, will NEVER print")
 ```
+
 * The final 2 `print` statements will **never** print on our serial console, because they are *after* our forever, while True: loop. 
 * In python, indents (tabs or x4 spaces) keep track of what parts of code are inside loops, or conditional statements, and what are not. 
 

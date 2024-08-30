@@ -7,13 +7,13 @@ import board
 from sonarbit import Sonarbit
 import time
 
-pin = board.D2
-distance_sensor = Sonarbit(pin)
+distance_sensor = Sonarbit(board.D2)
 
-prev_distance = 570  # Initial value
+prev_distance= 570  # Initial value
 
 while True:
     distance = distance_sensor.get_distance(prev_distance)
-    print("The object is: " + distance +  " cm away")
+    print("The object is: " + str(distance) +  " cm away")
+
     prev_distance = distance
     time.sleep(1)

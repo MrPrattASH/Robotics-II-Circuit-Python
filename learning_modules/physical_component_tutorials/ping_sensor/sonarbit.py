@@ -14,8 +14,8 @@ class Sonarbit:
     
 
     def __init__(self, pin_init):
-        self.pin = pin_init
-        self.d_sensor = digitalio.DigitalInOut(self.pin)
+        # Initialize the pin
+        self.d_sensor = digitalio.DigitalInOut(pin_init)
 
     def get_distance(self, prev_distance=570):
         ''' Get a ping reading from 5cm>568cm from the Elecfreaks Ping Sensor. Trigger & Echo are on the 'same pin'.
