@@ -17,13 +17,16 @@ Let's try the difference between these 2 programs
 ### While True
 1. delete all existing code. 
 2. write in this code:
+
 ``` 
 import time
 
 while True:
     print("this is in a loop!)
     time.sleep(1)
+
 ```
+
 3. Open the serial console
 4. Save this program and observe the serial output. 
 
