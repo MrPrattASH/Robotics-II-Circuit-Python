@@ -39,6 +39,7 @@ Before moving on to any level 0/1 tutorials, learn about the basics of a *Breadb
 ## Level 0:
 * 0.0: [Simple External LED Circuit](physical_component_tutorials/basic_led_debug/single_led_0.md)
 * 1.0: [4-Pin Buttons](https://sites.google.com/view/circuitpython/tutorials/button-and-led)
+* 2.0: [Capacitors & Noisy Signals](physical_component_tutorials/capacitors_breadboard/Capacitors.md)
 
 ## Level 1:
 * 0.1: [x4 External LED Circuit](physical_component_tutorials/basic_led_debug/single_led_1.md)

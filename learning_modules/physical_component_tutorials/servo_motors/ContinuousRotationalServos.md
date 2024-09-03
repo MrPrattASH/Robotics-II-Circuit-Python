@@ -9,6 +9,9 @@ A servo has 3 wires:
 * Ground: Provide a common ground back to your power supply and your microcontroller. 
 ![servo_wiring](servo_wriring_breadboard.png)
 
+You'll find this Servo-Shroud to x3 Male jumper cable helpful when connecting your servo to your breadboard. 
+![jumpers](jumper.jpg)
+
 ## Programming
 
 python code [here](rot_servo_high_level.py)
