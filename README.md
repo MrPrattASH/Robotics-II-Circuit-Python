@@ -17,6 +17,3 @@ Download this library folder and add it to your *CIRCUITPY* drive for all the li
 # Elevation Engineering Tutorials
 * [RoboClaw Motor Controller Documentation](RoboClaw_motor_controller/roboclaw_documentation.md)
 
-# Mars Rovers Tutorials
-
-

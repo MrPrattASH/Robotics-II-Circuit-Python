@@ -16,9 +16,10 @@ Before moving on to any level 0/1 tutorials, ensure you have completed this init
 * 0.2: [Forever Loops](programming_tutorials/while_true/while_true.md)
 * 1.0: [Onboard LED](programming_tutorials/digital_io/digital_io.md)
 * 2.0: [Traceback Error Codes](https://learn.adafruit.com/welcome-to-circuitpython/interacting-with-the-serial-console)
-* 3.0: [Adding Libraries](https://learn.adafruit.com/welcome-to-circuitpython/circuitpython-libraries)
-* 4.0: [What are "Functions"?](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
-* 5.0: [Conditional Statements](https://sites.google.com/view/circuitpython/tutorials/button-and-led/conditionals-i)
+* 3.0: [Libraries](programming_tutorials/libraries/Libraries.md)
+* 4.0: [Conditional Statements](https://sites.google.com/view/circuitpython/tutorials/button-and-led/conditionals-i)
+* 5.0: [What are *Functions*?](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
+
 
 ## Level 1:
 * 0.3: [Built in Libraries](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
@@ -57,3 +58,9 @@ If you're using more than 3 servos, or your board keeps "browning out" (shutting
 # Sensor Tutorials
 
 * [Distance Sensor (Ping)](physical_component_tutorials/ping_sensor/README.md)
+
+# Mars Rover Tutorials
+* [Rotational Servo **Challenges**](physical_component_tutorials/servo_motors/RotationalChallenges.md)
+* [Distance Sensor **Challenges**](physical_component_tutorials/ping_sensor/DistanceSensorChallenges.md)
+
+# Elevation Engineering Tutorials

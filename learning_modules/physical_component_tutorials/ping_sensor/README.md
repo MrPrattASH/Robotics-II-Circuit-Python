@@ -1,90 +1,101 @@
-# Using a Ping Sensor in CircuitPython
+# Using a Distance Sensor in CircuitPython
 
 This tutorial will teach you how to use a ping sensor (in our case, a "SonarBit" branded ping sensor) on a M4 board. 
 
-Start by copying the sonarbit.py code above onto your code.py file on your M4. 
+## How Ultrasonic Sensors Work
+
+Ultrasonic sensors operate by emitting ultrasonic sound waves at a frequency higher than the human ear can hear. The sensor then waits for the sound waves to bounce back (echo) from an object. It measures the time taken for the waves to return and uses this information to calculate the distance to the object. The formula used is:
+
+```
+# Distance is defined as time/2 (emiting soundwaves + echo time) * speed of sound (34000 cm/s)
+distance = floor((end_time - start_time) * 34000 / 2 / 1000000000)
+```
+
+This practical use-case is similar to how bats navigate in the dark.
+
+Ultrasonic sensors like the SonarBit are designed to measure distances within a specific range accurately. In your case, the sensor measures distances accurately between 5 cm and 570 cm. When objects are closer than 5 cm, the sensor might give false readings due to several reasons:
+
+### Sensor Blind Zone:
+Ultrasonic sensors have a "blind zone" right in front of the sensor where they can't accurately measure distance. This is because the emitted ultrasonic wave and the reflected wave can overlap if the object is too close. This overlapping can confuse the sensor, leading to inaccurate readings.
+
+### Minimal Time of Flight:
+The principle of ultrasonic sensors relies on the time it takes for the sound wave to travel to the object and back (Time of Flight). When an object is very close, the time of flight is extremely short. The sensor might not be able to distinguish between the emitted pulse and the received echo, leading to false or zero readings.
+
+### Signal Reflections:
+At very close distances, the emitted ultrasonic waves can reflect off the object multiple times before returning to the sensor. These multiple reflections can cause the sensor to misinterpret the distance. For instance, the sensor might read the distance from a secondary reflection rather than the direct one.
+
+## Example of False Readings:
+
+When an object is placed 3 cm from the sensor (within the blind zone), the ultrasonic pulses sent out by the sensor might overlap with the pulses returning after hitting the object. Because of this overlap:
+
+* The sensor might confuse the returning signal with noise.
+* It might not detect the returning echo at all, thus resulting in no reading or a maximum range reading.
+* It can also interpret multiple reflections as the main echo, showing an incorrect value.
+
+# Program Code
+Start by copying the [sonarbit.py](sonarbit_example.py) code above onto your code.py file on your Microcontroller. 
+
+```
+# Sonarbit_class Example
+# SPDX-FileCopyrightText: 2024 Brogan Pratt
+#
+# SPDX-License-Identifier: MIT
+
+import board
+from sonarbit import Sonarbit
+import time
+
+distance_sensor = Sonarbit(board.D2)
+
+prev_distance= 570  # Initial value
+
+while True:
+    distance = distance_sensor.get_distance(prev_distance)
+    print("The object is: " + str(distance) +  " cm away")
+
+    prev_distance = distance
+    time.sleep(1)
+
+```
 
 ## Code Explanation
 
-Firstly, we import all revelant libraries. Math will be important for later. 
+
+### Libraries
+Firstly, we import all revelant libraries. 
 
 ```
-""" Sonarbit Distance Program."""
-
-import time
 import board
-import digitalio
-from math import floor
+from sonarbit import Sonarbit
+import time
 ```
 
-Now, we define a new function for getting our distance. Unlike an ultrasonic sensor used on a hummingbird:bit, that had 1 pin for send, and 1 pin for recieve, the ping sensor uses the *same pin* for both send and recieve. This requires some tricky programming to get working in CircuitPython.
+* board: This library allows us to specify pin numbers for our microcontroller.
+* sonarbit: This is a custom library for controlling the Sonarbit sensor.
+* time: This library is used for adding delays in the code.
 
-Something else to note is the triple quote at the start. this is called a "docstring" and it is documentation for your function. What variables your function takes, what it does, and how to use the function. It's good practice to use this inside your future functions. 
+### Initializing the Sensor
 
+Next, we need to initialize our distance sensor:
 ```
-def sonar(pin):
-    ''' Get a ping reading from 5cm>568cm from the Elecfreaks Ping Sensor. Trigger & Echo are on the 'same pin'. 
-    pin = the pin with the ping sensor
-    returns: Distance in cm between 0 & 568
-
-    Note: Introduce a 0.05sec delay when taking sensor readings in CircuitPython. The ping sensor board cannot take readings quicker than this, otherwise there is not enough time created between send and recieve commands. 
-    
-    '''
+distance_sensor = Sonarbit(board.D2)
+prev_distance = 570  # Initial value
 ```
+Here, we create an instance of the Sonarbit class and attach it to pin D2 of the microcontroller. We also initialize a variable prev_distance with a value of 570. This is the *maximum read distance* that our sensor is capable of sensing. 
 
-This lambda is sort of a "function inside a function", essentially, it is a "variable function", one that we won't call outside of this function itself, but a calculation we'll need to use a lot inside this code. This converts an integer value into a *microsecond* rather than millisecond, as the ping sensor waits for microseconds. 
-```
-    usleep = lambda x: x/1000000
-```
+### Main Loop
 
-Here, we assign the pin as an output pin in order to send the signal that we will then listen for later in order to check distance to our object. We need to send these signals at a very specific frequency and timing, so we use the left side speaker to send out these signals. 
-```
-    pin.direction = digitalio.Direction.OUTPUT
+The main loop runs indefinitely to continually check and print the distance:
 
-    #send trigger signal
-    pin.value = 0
-    usleep(2)
-    pin.value = 1
-    usleep(10)
-    pin.value = 0
-```
-
-We now **reassign** the same pin as an input, in order to be able to listen for our trigger signal that we send above. We use time.monotonic to be able to continue to listen for our signal and "do other things" while our timer is running. In this case, we are listening for our pin.value to return True, that we have indeed recieved back our signal. (If we never receive a signal, the sensor will time out, return max range, and give a return value of 1.) 
-
-We calculate our start time for when we begin listening, and our end time for when we actually recieve the signal. We'll use these variables below to calcualte distance. 
-```
-    #recieve echo signal
-    pin.direction = digitalio.Direction.INPUT
-    while pin.value == 0:
-        start_time = time.monotonic_ns()
-
-    while pin.value == 1:
-        end_time = time.monotonic_ns()
-```
-
-Lastly, we check our distance to the object based on how long it took for the sent the sound signals to return and be heard. First, we try to calculate the distance as time/2 * the speed of sound (34,000 cm/s). We must divide time/2 as we are actually calculating the time that the signal takes to be sent out, then returned, and we only need to calculate the distance of *half* of this measurement, as otherwise we would be double measuring. We use floor here to return an integer value, rather than float, as our sensor realistically is accurate to +/- 1cm, and is not accurate to a floating decimal point, so returning a float is pointless. 
-
-We use a try statement here, as sometimes an object can be under 5cm away from the sensor. When this happens, the signal doesn't have enough time to be sent and recieved, causing our end time to be < than start time. When this is true, start time is never assigned above, and we get an error that "start time has not been defined", and this breaks out program. To solve this, we use an except statement, meaning that if our try doesn't work, or returns an error, our program will print "object too close" and return a distance of 0. 
-
-Finally, we return the distance value as an integer, in cm. 
-```
-    #If an object is too close, start_time will never be assigned because pin.value will never equal 0, causing a variable assignment error & crash. 
-    try:
-        # Distance is defined as time/2 (there and back) * speed of sound 34000 cm/s
-        distance = floor((end_time - start_time) * 34000/2/1000000000)
-    except:
-        print("object too close")
-        distance = 0
-    
-    return distance
-```
-
-Below is the code working in your main loop. 
-```
-pin = digitalio.DigitalInOut(board.D2)
 while True:
-    print("the object is " + str(sonar(pin)) + " cm away")
-    time.sleep(0.5)
-```
+    distance = distance_sensor.get_distance(prev_distance)
+    print("The object is: " + str(distance) + " cm away")
+    prev_distance = distance
+    time.sleep(1)
 
-That's it! 
+* `get_distance(prev_distance)`: This method retrieves the current distance measured by the sensor. 
+    * `prev_distance` is essential as an arguement. Sometimes, sensors might give out erratic readings due to noise or sudden changes in the environment. Providing a previous distance value can help the sensor's algorithm filter out such anomalies and provide more stable, consistent measurements.
+    * This allows us to cancel out false positives or negatives. If an object gets <5cm away from the distance sensor, the sensor thinks the object is incredibly far away. 
+    * why? If an object is touching the emitting or echo speaker on the sensor, The echo cannot hear the return value, and if it cannot hear the value, it assumes the object is too far away. 
+* `print()`: Prints the measured distance in centimeters.
+* `time.sleep(1)`: The loop pauses for 1 second to provide a delay between readings.

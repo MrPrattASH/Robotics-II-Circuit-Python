@@ -22,7 +22,7 @@ Let's try the difference between these 2 programs
 import time
 
 while True:
-    print("this is in a loop!)
+    print("this is in a loop!")
     time.sleep(1)
 
 ```
