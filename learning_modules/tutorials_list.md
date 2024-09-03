@@ -25,7 +25,7 @@ Before moving on to any level 0/1 tutorials, ensure you have completed this init
 * 0.3: [Built in Libraries](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
 * 1.1: [Morse](programming_tutorials/SOS_Blinking_LED/morse.md)
 * 2.1: [The REPL](https://learn.adafruit.com/welcome-to-circuitpython/the-repl)
-* 4.0: [Built in Functions](programming_tutorials/Built_In_Functions_Practices/built_in_functions.md)
+* 4.1: [Built in Functions](programming_tutorials/Built_In_Functions_Practices/built_in_functions.md)
 
 # Breadboarding & Hardware Tutorials 
 
