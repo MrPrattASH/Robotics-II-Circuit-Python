@@ -31,7 +31,7 @@ Write code inside your "while True" loop to blink the message SOS. We need to ma
 ## tips:
 * Unit time: As long as your units are consistent, the code is the same. For example:
 
-```
+```python
 Option #1
 
 UNIT = 1.0

@@ -18,7 +18,7 @@ Let's try the difference between these 2 programs
 1. delete all existing code. 
 2. write in this code:
 
-``` 
+```python
 import time
 
 while True:
@@ -42,7 +42,7 @@ You've likely noticed by now that rather than printing the statement once, it wi
     * much like this indentation in the bullet, anything that is *indented* inside of the "while True:" statement will run. For example try to run the following code:
 * The `import time` and `time.sleep(1)` are special lines from a "module" that allow us to put second pauses into our code. 
 
-``` 
+```python
 import time
 
 print("this is before the loop")

@@ -1,6 +1,6 @@
 # Variables in Python 
 A variable is a "bucket" that we can use to store data. In Python, we can save data like numbers, words, letters, True/False, or more types of values inside of **variables**. Much like in math, we also use variables in programming.
-```
+```python
 # In math:
 x = 5
 y = 2
@@ -26,7 +26,7 @@ These are the main 4 types of variables that we'll use in this course. More exis
 ## Variable Practice 1
 1. Plug in your metro M4 board to your computer, open code.py, and open the serial port. 
 2. create 4 different variables, one of each type. For example:
-```
+```python
 power = 5
 light_intensity = 84.8
 rover_name = "Jenkins"
@@ -34,7 +34,7 @@ has_rc_control = True
 ```
 3. After creating 4 variables, print each variable and observe the output. Notice, we *do not put variable names "in between quotes"* as only string variable values are in between "quotes". 
 
-```
+```python
 print(power)
 print(light_intensity)
 print(rover_name)
@@ -56,7 +56,7 @@ print("has_rc_control")
 
 ## Variable Practice 2
 1. Observe what happens to the following code in your serial output:
-```
+```python
 distance = 50
 print(distance)
 distance = 12
@@ -71,7 +71,7 @@ print(distance)
 
 ## Variable Practice 3
 Just like in math, we can also use arithmatic operators on variables. 
-```
+```python
 + add
 - subtract
 * multiplication
@@ -80,7 +80,7 @@ Just like in math, we can also use arithmatic operators on variables.
 % Modulus (remainder division)
 ```
 Try this:
-```
+```python
 time = 10
 speed = 40
 distance = time * speed
@@ -88,7 +88,7 @@ print(distance)
 ```
 
 Copy and paste the following code inside code.py. Then, follow the #code comments to practice arithmatic operators in Python:
-``` 
+``` python
 # Note: any line that starts with a "#" hashtag, is a special line in Python
 # it is a "code comment", something that is useful for you, but the computer ignores
 

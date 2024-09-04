@@ -1,6 +1,6 @@
 # Built In Fuctions
 
-This tutorial will teach you how to use built in functions in CircuitPython.
+This tutorial will teach you how to use built in functions in CircuitPython. Before continue, it is expected that you know that the REPL is (in the Level 1 tutorials)
 
 1. load up the serial monitor on your M4 and press any key to open the REPL
 type in the following:
@@ -36,8 +36,3 @@ type in the following:
 
 what was the output for each random call?
 random.random() will return a random float (decimal number) between 0, and 1.0. This is handy for sensors later in the course.
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

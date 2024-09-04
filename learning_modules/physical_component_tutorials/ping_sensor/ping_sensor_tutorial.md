@@ -20,7 +20,7 @@ Make sure you have added the [sonarbit.py](sonarbit.py) library to the lib folde
 ## Code
 
 python code [here](sonarbit_example.py)
-```
+```python
 # Sonarbit_class Example
 # SPDX-FileCopyrightText: 2024 Brogan Pratt
 #
@@ -46,7 +46,7 @@ while True:
 ## Code Breakdown
 
 ### Imports:
-```
+```python
 import board
 from sonarbit import Sonarbit
 import time
@@ -71,7 +71,7 @@ import time
 
 ### Main Loop:
 
-```
+```python
 while True:
     distance = distance_sensor.get_distance(prev_distance)
     print("The object is: " + str(distance) +  " cm away")
@@ -106,7 +106,7 @@ Wiring is the same as one sensor, but simply add in a second sensor to a differe
 * Rather than initialize a single instance of our sonarbit, we simply initialize 2 instances. 
 * Note, we need to now double up on our variables for each respective sensor. 
 * Note, the method calls remain the same, as we're calling them from difference instances of the class. 
-```
+```python
 # Sonarbit_class Example
 # SPDX-FileCopyrightText: 2024 Brogan Pratt
 #

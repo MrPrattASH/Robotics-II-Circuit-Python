@@ -23,12 +23,12 @@ You can initialize each button the same, however, you need to have different var
 
 ##### Tip:
 * you can use the `and` operator to check multiple conditions at once in single if statement. For example:
-```
+```python
 if button_1 and button_2: 
    # both buttons have been pressed 
 ```
 * You also likely need an if, elif, else loop here.
-```
+```python
     while True:
         if button_1 and not button_2:
             # only button 1 is pressed
@@ -36,8 +36,3 @@ if button_1 and button_2:
             # only button 2 is pressed
         ...
 ```
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

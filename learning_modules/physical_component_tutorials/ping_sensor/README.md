@@ -6,7 +6,7 @@ This tutorial will teach you how to use a ping sensor (in our case, a "SonarBit"
 
 Ultrasonic sensors operate by emitting ultrasonic sound waves at a frequency higher than the human ear can hear. The sensor then waits for the sound waves to bounce back (echo) from an object. It measures the time taken for the waves to return and uses this information to calculate the distance to the object. The formula used is:
 
-```
+```python
 # Distance is defined as time/2 (emiting soundwaves + echo time) * speed of sound (34000 cm/s)
 distance = floor((end_time - start_time) * 34000 / 2 / 1000000000)
 ```
@@ -35,7 +35,7 @@ When an object is placed 3 cm from the sensor (within the blind zone), the ultra
 # Program Code
 Start by copying the [sonarbit.py](sonarbit_example.py) code above onto your code.py file on your Microcontroller. 
 
-```
+```python
 # Sonarbit_class Example
 # SPDX-FileCopyrightText: 2024 Brogan Pratt
 #
@@ -64,7 +64,7 @@ while True:
 ### Libraries
 Firstly, we import all revelant libraries. 
 
-```
+```python
 import board
 from sonarbit import Sonarbit
 import time
@@ -77,7 +77,7 @@ import time
 ### Initializing the Sensor
 
 Next, we need to initialize our distance sensor:
-```
+```python
 distance_sensor = Sonarbit(board.D2)
 prev_distance = 570  # Initial value
 ```

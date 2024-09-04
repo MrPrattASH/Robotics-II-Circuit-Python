@@ -39,13 +39,8 @@ Let's write our first program. Programs are a set of instructions that get execu
 
 8. You should now see in the serial console below, with your print statement
 9. Try writing and saving a few more print statements onto the code.py file like so:
-``` 
+```python
 print("hello Python!)
 print("this is line 2!)
 print("and I'm a serial console talking to you)
 ```
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)

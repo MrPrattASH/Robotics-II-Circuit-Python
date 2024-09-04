@@ -40,7 +40,7 @@ When you look at most CircuitPython examples, you'll see they begin with one or 
 
 However, import statements can also sometimes look like the following:
 
-```
+```python
 from library_or_module import name
 from library_or_module.subpackage import name
 from library_or_module import name as local_name
@@ -52,7 +52,7 @@ Therefore, the best place to start is by reading through the import statements.
 
 Here is an example import list for you to work with in this section. There is no setup or other code shown here, as the purpose of this section involves only the import list.
 
-```
+```python
 import time
 import board
 import neopixel
@@ -83,7 +83,7 @@ If you choose to load libraries as you need them, or you're starting fresh with 
 *This demonstration will only return an error if you do not have the required library loaded into the lib folder on your CIRCUITPY drive.*
 
 Let's use a modified version of the Blink example.
-```
+```python
 import board
 import time
 import simpleio

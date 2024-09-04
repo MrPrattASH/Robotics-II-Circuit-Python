@@ -27,7 +27,7 @@ The rest of this article explains each of these rules, providing examples and ex
 ## Rule 1: Comments should not duplicate the code
 Many junior programmers write too many comments because they were trained to do so by their introductory instructors. This is an example of a duplicate code in comments: 
 
-```
+```python
 #pause robot for 1 second
 basic.pause(1000)
 ```
@@ -43,7 +43,7 @@ Comments that add no information have negative value because they:
 ## Rule 2: Good comments do not excuse unclear code
 Another misuse of comments is to provide information that should have been in the code. A simple example is when someone names a variable with a single letter (in this case, "s") and then adds a comment describing its purpose:
 
-```
+```python
 #get sensor reading of current light value
 s = pins.analog_read_pin(P1)
 
@@ -84,7 +84,7 @@ You can simply include a hyperlink inside your code comment to a tutorial or for
 ## Rule 6: Add comments when fixing bugs
 Comments should be added not just when initially writing code but also when modifying it, especially fixing bugs. Consider this comment:
 
-```
+```python
 #If True, an object is currently in front of the ultrasonic sensor
 while pins.analog_read_pin(P1) >= 400:
     start_time = time.monotonic_ns()
@@ -99,7 +99,7 @@ Not only does the comment help the reader understand the code in the current and
 ## Rule 7: Use TODO: comments to mark incomplete implementations
 Sometimes it’s necessary to check in code even though it has known limitations. While it can be tempting not to share known deficiencies in one’s code, it is better to make these explicit, such as with a TODO comment:
 
-```
+```python
     #check if user has entered a previous distance
     #TODO: program a better way of passing in a prev_distance variable into the function, this is janky
     if prev_distance == 570:
@@ -117,8 +117,3 @@ Following these rules should save you and your teammates time and frustration.
 
 That said, I’m sure these rules aren’t exhaustive and look forward to seeing suggested additions in (where else?) the comments.
 >
-
-##### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)
