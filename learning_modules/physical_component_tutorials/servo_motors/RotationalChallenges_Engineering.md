@@ -1,24 +1,16 @@
 # Rotational Servo Challenges
-Now that you know how to program a rotational servo, let's do some challenges to continue to build your knowledge. You'll need your basic rover for this challenge. 
+Now that you know how to program a rotational servo, let's do some challenges to continue to build your knowledge. You'll need several buttons, LEDs, and a rotational servo for this challenge. 
 
 # Wiring your Rover
 Let's wire up your rover first. Don't forget your 10uF Capacitor and 0.22uF ceramic capacitor to help filter out some noise. Remember, the closer these capacitors are to your power rail jumpers, the better. 
 ![rover](mars_rover_schematic.png)
 ![roverjpeg](rover.jpeg)
 
-## Writing User Defined Functions
-For this challenge, it will be useful to create several user defined functions. We'll step through the various challenges to create these functions. 
-1. `straight()`
-2. `stop()`
-3. `turn_right()`
-4. `turn_left()` 
-
-## 1. Straight Movement:
-Calibrate the motors on your rover so that: 
-* Your rover moves forward in a straight line. 
+## 1. Button Controlled Servo:
+Using two buttons, make one button turn on your servo and one button turn it off. 
 
 #### Key Design Constraints
-* Code:
+* Wiring:
     * Move straight forward for 5 sec
     * stop
     * Move straight reverse for 5 sec

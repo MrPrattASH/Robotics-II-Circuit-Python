@@ -65,3 +65,4 @@ If you're using more than 3 servos, or your board keeps "browning out" (shutting
 * [Distance Sensor **Challenges**](physical_component_tutorials/ping_sensor/DistanceSensorChallenges.md)
 
 # Elevation Engineering Tutorials
+* [Rotational Servo **Challenges**](physical_component_tutorials/servo_motors/RotationalChallenges_Engineering.md)
