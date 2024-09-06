@@ -15,12 +15,19 @@ Famed MIT professor Hal Abelson said:
 While he may have purposely understated the importance of running code, he is spot on that programs have two very different audiences. Compilers and interpreters ignore comments and find all syntactically correct programs equally easy to understand. Human readers are very different. We find some programs harder to understand than others, and we look to comments to help us make sense of them. 
 
 > Rule 1: Comments should not duplicate the code.
+
 > Rule 2: Good comments do not excuse unclear code.
+
 > Rule 3: If you can’t write a clear comment, there may be a problem with the code.
+
 > Rule 4: Comments should dispel confusion, not cause it.
+
 > Rule 5: Provide links to the original source of copied code.
+
 > Rule 6: Add comments when fixing bugs.
+
 > Rule 7: Use TODO: comments to mark incomplete implementations.
+
 
 The rest of this article explains each of these rules, providing examples and explaining how and when to apply them.
 
@@ -29,7 +36,7 @@ Many junior programmers write too many comments because they were trained to do 
 
 ```python
 #pause robot for 1 second
-basic.pause(1000)
+time.sleep(1)
 ```
 
 Comments that add no information have negative value because they:
@@ -38,20 +45,27 @@ Comments that add no information have negative value because they:
 - take time to write and read
 - can become out-of-date
 
-**Note from Mr. Pratt: Throughout this course in tutorials, you will indeed see comments like this from me. However, they are there to point out to you exactly what a behaviour does, and how it is implemented. I am doing this because you may not be aware of how simple behaviours work yet. Understand this is bad practice, but good practice for tutorials.* 
+**Note from Mr. Pratt: Throughout tutorials in this course, you will indeed see comments like this from me. They are there to point out to you exactly what a behaviour does, and how it is implemented. I am doing this because you may not be aware of how simpler behaviours work yet. Understand this is bad practice, but good practice for tutorials.* 
 
 ## Rule 2: Good comments do not excuse unclear code
 Another misuse of comments is to provide information that should have been in the code. A simple example is when someone names a variable with a single letter (in this case, "s") and then adds a comment describing its purpose:
 
 ```python
-#get sensor reading of current light value
-s = pins.analog_read_pin(P1)
-
-#run motor at value of s (speed)
-motor.run_motors(M1,s)
+#get sensor reading of current distance value
+di = d.value
+while True:
+    #run motor at value of s (speed)
+    sv.throttle = s
 ```
 
-The need for comments could be eliminated with better variable naming: s should have been speed
+The need for comments could be eliminated with better variable naming. For example, the following code needs little commenting
+```py
+distance = distance_sensor.value
+
+while True:
+    servo1.throttle = distance  # servo speed proportional to distance
+
+```
 
 ## Rule 3: If you can’t write a clear comment, there may be a problem with the code
 The most infamous comment in the Unix source code is “You are not expected to understand this,” which appeared before some hairy context-switching code. Dennis Ritchie later explained that it was intended “in the spirit of ‘This won’t be on the exam,’ rather than as an impudent challenge.” Unfortunately, it turned out that he and co-author Ken Thompson didn’t understand it themselves and later had to rewrite it.
@@ -86,10 +100,9 @@ Comments should be added not just when initially writing code but also when modi
 
 ```python
 #If True, an object is currently in front of the ultrasonic sensor
-while pins.analog_read_pin(P1) >= 400:
-    start_time = time.monotonic_ns()
-    #this stops an infinite loop sometimes caused by rapid movements in front of the sensor. I am unsure of why
-    #this happens, but this "safety check" breaks the infinite loop
+while distance_sensor.value >= 400:
+    start_time = time.monotonic()
+    '''this stops an infinite loop sometimes caused by rapid movement in front of the sensor. I am unsure of why this happens, but this "safety check" breaks the infinite loop'''
     if (start_time - original_time > 50000000):
         break
 ```
@@ -114,6 +127,3 @@ I hope the above examples have shown that comments don’t excuse or fix bad cod
 > “Code Tells You How, Comments Tell You Why.” 
 
 Following these rules should save you and your teammates time and frustration. 
-
-That said, I’m sure these rules aren’t exhaustive and look forward to seeing suggested additions in (where else?) the comments.
->

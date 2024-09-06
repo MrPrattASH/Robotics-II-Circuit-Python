@@ -27,25 +27,25 @@ Calibrate the motors on your rover so that:
 * Motor Calibration
     * You need to calibrate your motor throttles individually so that your rover drives forward in a straight line. For example:
         * m1.throttle = 1.0
-        * m2.throttle = 1.0
+        * m2.throttle = -1.0
     * May not drive in a straight line. It could be:
         * m1.throttle = 1.0
-        * m2.throttle = 0.96
+        * m2.throttle = -0.96
 
 ### Define Functions
 After calibrating your motor, write your user defined function. Note, *do not include a sleep or pause in your straight function*. It might look something like this:
 ```python
 def straight():
     m1.throttle = 0.5
-    m2.throttle = 0.45
+    m2.throttle = -0.45
 
 ```
 
-You may also find it useful to make a `stop()` function as well. These functions will save you having to re-write code multiple times. 
+You may also find it useful to make a `stop()` function as well. These functions will save you having to re-write code multiple times. Ensure you have [calibrated your servo stop for each servo](rot_calibrate.py)
 ```python
 def stop():
-    m1.throttle = 0
-    m2.throttle = 0
+    m1.throttle = 0 # m1's stop value
+    m2.throttle = -0.1 # m2's stop value
 ```
 
 ### Call Functions
@@ -67,9 +67,9 @@ Ensure you make x2 functions, 1 for `left_turn()` and `right_turn()` respectivel
 
 #### Key Design Constraints
 * Code:
-    * To turn, rotate one throttle `+` and one throttle `-`
+    * To turn, rotate motors in opposite direction from one another. 
         * m1.throttle = 1.0 
-        * m2.throttle = -1.0
+        * m2.throttle = 1.0
     * After starting the motors, `time.sleep(x.x)` for x.x seconds. 
     * How long you pause will determine the number of degrees spun. This is the value you need to calibrate
     * Note your calibration values in your engineering journal. 

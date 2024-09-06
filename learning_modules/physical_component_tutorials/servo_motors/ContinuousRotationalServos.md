@@ -15,7 +15,7 @@ You'll find this Servo-Shroud to x3 Male jumper cable helpful when connecting yo
 ## Programming
 
 python code [here](rot_servo_high_level.py)
-```
+```py
 # SPDX-FileCopyrightText: 2019 Anne Barela for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
@@ -53,7 +53,7 @@ while True:
 ## Examining The code
 
 ### Import Statements
-```
+```py
 import time
 import board
 import pwmio
@@ -83,7 +83,7 @@ Initializes our servo on Pin Digital 0, with a duty cycle of 2 ** 15, and a freq
 creates a servo object, taking special methods from our servo library for controlling our servo. Note that we initialize a continuous servo. 
 
 ## While True Loop:
-```
+```py
 while True:
     print("forward")
     my_servo.throttle = 1.0
@@ -102,6 +102,7 @@ This loop controls the servo, printing the current action and setting the thrott
 
 * forward: Throttle set to 1.0 (max forward speed).
 * stop: Throttle set to 0.0 (stop).
+    * Note: You may notice that your servo doesn't actually stop here. We need to calibrate our stop positions. More on this below. 
 * reverse: Throttle set to -1.0 (max reverse speed).
 
 You can set the throttle to any value between -1.0 and 1.0:
@@ -112,4 +113,44 @@ You can set the throttle to any value between -1.0 and 1.0:
     0.1: 10% Forward Speed
     1.0: Max Forward Speed
 
+## Calibrating Your "Stop" Throttle
 
+Continous servos can be tricky, especially servos on the cheaper side. Generally, Servo motors <30 EUR will need to have calibrated stop positions. Likely you noticed that `0.0` throttle didn't actually stop your servo. Let's change that through calibration. It's possible that:
+* `0.1` is stop
+* `-0.18` is stop
+* any other value between `0.3` and `-0.3` may be stop. 
+
+[Here](rot_calibrate.py) is a handy code you can use to calibrate your stop position of a servo. **Each servo will need to be individually calibrated.** 
+* during calibration, watch the serial port and note down what `throttle.value` causes your servo to stop. 
+```py
+# SPDX-FileCopyrightText: 2024 Brogan Pratt
+#
+# SPDX-License-Identifier: MIT
+
+"""ervo continuous rotation calibration example"""
+import time
+import board
+import pwmio
+from adafruit_motor import servo
+
+# ----------------- INIT DEVICES -------------------------
+
+# create a PWMOut object on Pin D0.
+pwm = pwmio.PWMOut(board.D0, frequency=50)
+
+# Create a servo object, my_servo.
+my_servo = servo.ContinuousServo(pwm)
+
+# watch your serial port to see what value causes the servo to stop. 
+# note this stop value for each specific motor
+while True:
+    
+    print("starting calibration test")
+    i = -3.0
+    while i <= 3.0:
+        print("Servo Throttle: ", str(i))
+        my_servo.throttle = i
+        time.sleep(2)
+    print("Calibration completed\nRestarting...")
+    time.sleep(2)
+```

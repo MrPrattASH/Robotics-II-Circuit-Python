@@ -9,6 +9,7 @@ Each tutorial has a *Level 0* and corresponding *Level 1* tutorial associated wi
 ## The Basics
 Before moving on to any level 0/1 tutorials, ensure you have completed this initial tutorial. 
 * Base 0.0: [How to Write & Save Code on Circuit Python Boards](programming_tutorials/circuit_python_basics/python_basics.md)
+* Base 0.1: [Code Comments](how_to_comment_code/comments.md)
 
 ## Level 0:
 * 0.0: [Python Syntax](https://sites.google.com/view/circuitpython/tutorials/set-up/hello-python)
