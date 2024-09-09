@@ -387,12 +387,8 @@ contains_number = False
 password_strength = ""
 # Don't change the above code
 # vvv write your code here
-if eight_characters and contains_number:
-    password_strength = "Strong"
-elif eight_characters or contains_number:
-    password_strength = "Medium"
-else:
-    password_strength = "Weak"
+
+
 # ^^^ write your code here
 # Don't change the below code
 print(password_strength)
