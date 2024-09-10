@@ -145,12 +145,15 @@ my_servo = servo.ContinuousServo(pwm)
 # note this stop value for each specific motor
 while True:
     
+    #don't worry about understanding this code yet,
+    #simply watch your serial output :) 
     print("starting calibration test")
     i = -3.0
     while i <= 3.0:
         print("Servo Throttle: ", str(i))
         my_servo.throttle = i
         time.sleep(2)
+        i+= 1
     print("Calibration completed\nRestarting...")
     time.sleep(2)
 ```
