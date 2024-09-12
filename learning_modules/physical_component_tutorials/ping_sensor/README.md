@@ -32,6 +32,15 @@ When an object is placed 3 cm from the sensor (within the blind zone), the ultra
 * It might not detect the returning echo at all, thus resulting in no reading or a maximum range reading.
 * It can also interpret multiple reflections as the main echo, showing an incorrect value.
 
+## Wiring
+An Ultrasonic Ping sensor has three key wires:
+
+* Signal: The wire responsible for sending and receiving ultrasonic signals.
+* Power: Provide 5V OR 3.3V power to the sensor.
+* Ground: Provide a ground back to your microcontroller.
+
+![ping_wiring](ping_sensor_wiring.png)
+
 # Program Code
 Start by copying the [sonarbit.py](sonarbit_example.py) code above onto your code.py file on your Microcontroller. 
 
