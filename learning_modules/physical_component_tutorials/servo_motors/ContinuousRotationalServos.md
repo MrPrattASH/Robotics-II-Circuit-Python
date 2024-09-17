@@ -16,7 +16,7 @@ You'll find this Servo-Shroud to x3 Male jumper cable helpful when connecting yo
 
 python code [here](rot_servo_high_level.py)
 
-```py
+```python
 # SPDX-FileCopyrightText: 2019 Anne Barela for Adafruit Industries
 #
 # SPDX-License-Identifier: MIT
@@ -54,6 +54,7 @@ while True:
 ## Examining The code
 
 ### Import Statements
+
 ```py
 import time
 import board
@@ -84,6 +85,7 @@ Initializes our servo on Pin Digital 0, with a duty cycle of 2 ** 15, and a freq
 creates a servo object, taking special methods from our servo library for controlling our servo. Note that we initialize a continuous servo. 
 
 ## While True Loop:
+
 ```py
 while True:
     print("forward")
@@ -99,6 +101,7 @@ while True:
     my_servo.throttle = 0.0
     time.sleep(4.0)
 ```
+
 This loop controls the servo, printing the current action and setting the throttle:
 
 * forward: Throttle set to 1.0 (max forward speed).
@@ -123,7 +126,8 @@ Continous servos can be tricky, especially servos on the cheaper side. Generally
 
 [Here](rot_calibrate.py) is a handy code you can use to calibrate your stop position of a servo. **Each servo will need to be individually calibrated.** 
 * during calibration, watch the serial port and note down what `throttle.value` causes your servo to stop. 
-```py
+
+```python
 # SPDX-FileCopyrightText: 2024 Brogan Pratt
 #
 # SPDX-License-Identifier: MIT
