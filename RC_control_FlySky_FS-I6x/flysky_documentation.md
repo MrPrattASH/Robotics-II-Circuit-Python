@@ -1,6 +1,6 @@
 # CircuitPython - FlySky FS-I6X Controller - FS-iA6B Reciever
 
-This tutorial will serve as a reference for setting up the FlySky FS-i6X transmitter and FS-iA6B reciever with a metro M4 device. Theoretically, this should work for just about any RC controller that is capable of outputting a PWM signal.
+This tutorial will serve as a reference for setting up the FlySky FS-i6X transmitter and FS-iA6B reciever with a metro M4 device. Theoretically, this should work for just about any RC controller that is capable of outputting a PWM signal. You can think of this page as more of a debug tutorial. 
 
 # RC Intended output
 
