@@ -78,3 +78,5 @@ while True:
     print("The loop has finished. Notice how 'i' will now reset back to '0'")
     time.sleep(1)
 ```
+
+3. Observe the serial output. 
