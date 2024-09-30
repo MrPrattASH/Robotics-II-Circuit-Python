@@ -20,6 +20,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * 3.0: [Libraries](programming_tutorials/libraries/Libraries.md)
 * 4.0: [Conditional Statements](programming_tutorials/Selection_statements/conditonals1.md)
 * 5.0: [What are *Functions*?](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
+* 6.0: [*for loops*](programming_tutorials/for_range_loop/for_range.md)
 
 ***
 
