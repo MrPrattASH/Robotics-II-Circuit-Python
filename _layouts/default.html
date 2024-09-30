@@ -27,42 +27,45 @@
         word-break: break-word;    /* Break long words */
       }
     }
-      /* Reduce the padding and margins for the navigation on the left */
-  .wrapper {
-    display: flex;
-    align-items: flex-start; /* Ensure items align to the top */
-  }
+ /* Balance reducing padding and keeping layout intact */
+.wrapper {
+  display: flex;
+  align-items: flex-start; /* Ensure items align to the top */
+  justify-content: space-between;
+}
 
-  header {
-    flex-shrink: 0;
-    padding: 10px; /* Reduce the overall padding */
-    width: 200px; /* Adjust width based on your needs */
-  }
+header {
+  flex-shrink: 0;
+  padding: 15px; /* Reduce the overall padding moderately */
+  width: 220px; /* Adjust width based on your needs */
+}
 
-  nav ul {
-    padding: 0;
-    margin: 0;
-  }
+nav ul {
+  padding-left: 0; /* Remove default left padding */
+  margin: 0;
+}
 
-  nav li {
-    margin-bottom: 5px; /* Reduce space between list items */
-  }
+nav li {
+  list-style: none; /* Remove bullet points */
+  margin-bottom: 8px; /* Reduce space between list items */
+}
 
-  nav a {
-    padding: 5px; /* Reduce padding around links */
-    text-decoration: none;
-    color: #0366d6;
-  }
+nav a {
+  display: block;
+  padding: 8px 10px; /* Maintain a bit of padding for accessibility */
+  text-decoration: none;
+  color: #0366d6;
+}
 
-  nav a:hover {
-    text-decoration: underline;
-  }
+nav a:hover {
+  text-decoration: underline;
+}
 
-  /* Ensure main content takes up the rest of the space */
-  section {
-    flex-grow: 1;
-  }
-    
+/* Ensure main content takes up the rest of the space */
+section {
+  flex-grow: 1;
+  padding: 15px; /* Add some padding to the content */
+}
     /* Add a margin to the main content to make room for the TOC */
     body {
       margin-right: 180px;
