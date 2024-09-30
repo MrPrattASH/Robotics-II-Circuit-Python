@@ -19,6 +19,14 @@
       white-space: -o-pre-wrap;    /* Opera */
       word-wrap: break-word;       /* IE */
     }
+    /* Specifically target code inside <pre> tags produced by Markdown */
+    pre {
+      overflow: auto;               /* Enable scrolling if needed */
+      code {
+        white-space: pre-wrap;      /* Ensure code inside pre wraps as well */
+        word-break: break-word;    /* Break long words */
+      }
+    }
     /* Add a margin to the main content to make room for the TOC */
     body {
       margin-right: 180px;
