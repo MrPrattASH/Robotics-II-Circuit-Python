@@ -86,21 +86,26 @@ import time
 ### Initializing the Sensor
 
 Next, we need to initialize our distance sensor:
+
 ```python
 distance_sensor = Sonarbit(board.D2)
 prev_distance = 570  # Initial value
 ```
+
 Here, we create an instance of the Sonarbit class and attach it to pin D2 of the microcontroller. We also initialize a variable prev_distance with a value of 570. This is the *maximum read distance* that our sensor is capable of sensing. 
 
 ### Main Loop
 
 The main loop runs indefinitely to continually check and print the distance:
 
+```python
+
 while True:
     distance = distance_sensor.get_distance(prev_distance)
     print("The object is: " + str(distance) + " cm away")
     prev_distance = distance
     time.sleep(1)
+```
 
 * `get_distance(prev_distance)`: This method retrieves the current distance measured by the sensor. 
     * `prev_distance` is essential as an arguement. Sometimes, sensors might give out erratic readings due to noise or sudden changes in the environment. Providing a previous distance value can help the sensor's algorithm filter out such anomalies and provide more stable, consistent measurements.

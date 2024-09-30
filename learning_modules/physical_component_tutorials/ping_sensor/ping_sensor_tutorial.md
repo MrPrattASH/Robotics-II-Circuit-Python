@@ -106,6 +106,7 @@ Wiring is the same as one sensor, but simply add in a second sensor to a differe
 * Rather than initialize a single instance of our sonarbit, we simply initialize 2 instances. 
 * Note, we need to now double up on our variables for each respective sensor. 
 * Note, the method calls remain the same, as we're calling them from difference instances of the class. 
+
 ```python
 # Sonarbit_class Example
 # SPDX-FileCopyrightText: 2024 Brogan Pratt
