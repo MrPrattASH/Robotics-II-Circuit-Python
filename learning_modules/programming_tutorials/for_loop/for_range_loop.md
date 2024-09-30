@@ -18,10 +18,9 @@ Here is an example of an interactive Python widget:
   </code>
 </div>
 
-<script src="https://assets.datacamp.com/datacamp-light-latest.min.js"></script>
 
 
 
 
 
-<script src="https://assets.datacamp.com/datacamp-light-latest.min.js"></script>
+
