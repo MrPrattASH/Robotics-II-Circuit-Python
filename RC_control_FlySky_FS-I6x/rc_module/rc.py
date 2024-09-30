@@ -4,35 +4,9 @@ import pulseio
 import time
 
 class RCReceiver:
-    def __init__(self, ch1, ch2, ch3, ch4, ch5, ch6): #  channel_pins = [board.D7, board.D8, board.D9, board.D10, board.D11, board.D12]):
-        self.channel_pins = []
-        self.is_ch1 = False
-        self.is_ch2 = False
-        self.is_ch3 = False
-        self.is_ch4 = False
-        self.is_ch5 = False
-        self.is_ch6 = False
-        if ch1 is not None:
-            self.channel_pins.append(ch1)
-            self.is_ch1 = True
-        if ch2 is not None:
-            self.channel_pins.append(ch2)
-            self.is_ch2 = True
-        if ch3 is not None:
-            self.channel_pins.append(ch3)
-            self.is_ch3 = True
-        if ch4 is not None:
-            self.channel_pins.append(ch4)
-            self.is_ch4 = True
-        if ch5 is not None:
-            self.channel_pins.append(ch5)
-            self.is_ch5 = True
-        if ch6 is not None:
-            self.channel_pins.append(ch6)
-            self.is_ch6 = True
+    def __init__(self, channel_pins = [board.D7, board.D8, board.D9, board.D10, board.D11, board.D12]):
+        self.channel_pins = channel_pins
         self.pwm_ins = [pulseio.PulseIn(pin, maxlen=64, idle_state=False) for pin in self.channel_pins]
-        # __init__(self, channel_pins = [board.D7, board.D8, board.D9, board.D10, board.D11, board.D12]):
-        #self.channel_pins = channel_pins
 
     @staticmethod
     def correct_pulse(high_pulse, low_pulse, channel):
@@ -46,7 +20,8 @@ class RCReceiver:
         #scale_min = 0
         #scale_max = 100
         #high_pulse_scaled = round((high_pulse - pulse_length_min) * (scale_max - scale_min) / (pulse_length_max - pulse_length_min)) + scale_min
-        if channel <= 4 and channel > 0:
+        
+        if 1 <= channel <= 4:
             # Scale from 0 to 100 for channels 1-4
             scale_min = 0
             scale_max = 100
@@ -73,20 +48,12 @@ class RCReceiver:
 
     def read_channel(self, channel):
         high_pulse = None
-            
         try: 
             # pause to acquire values - removed and pause in the main code instead. 
             #time.sleep(0.02)
-            # select specified channel
-            if not self.is_ch3 or not self.is_ch4:
-                if channel == 5 or channel == 6:
-                    pwm_in = self.pwm_ins[channel -3]
-                else:
-                    pwm_in = self.pwm_ins[channel - 1]
-            else:
-                pwm_in = self.pwm_ins[channel - 1]
 
-          
+            # select specified channel
+            pwm_in = self.pwm_ins[channel - 1]
 
             # Number of pulses that have been read
             num_pulses = len(pwm_in)

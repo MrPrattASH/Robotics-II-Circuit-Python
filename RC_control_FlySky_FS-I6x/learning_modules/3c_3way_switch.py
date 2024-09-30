@@ -1,25 +1,28 @@
 '''Basic RC Analog input Control
-Outputs two toggle switches: SWC channel 6.
+Outputs two toggle switches. SWB and SWC.
+You must first set Ch 5/6 to SWB and SWC respectively on the controller first.
+SWB is a 2 way toggle switch
 SWC is a 3 way toggle switch.
 
 '''
 
-import time
+from digitalio import DigitalInOut, Direction, Pull
 import board
-from rc import RCReceiver
+import time
+import rc
 
-rc = RCReceiver(ch1 = board.D0, ch2 = board.D1, ch3 = None, ch4 = None, ch5 =board.D2, ch6 =board.D3)
+#init channel pin as a digital input. Defaults to a FALSE reading, so we must pull down.
 
-# Main code
+#SwC
+ch6 = DigitalInOut(board.D8)
+ch6.direction = Direction.INPUT
+ch6.pull = Pull.DOWN
+
 while True:
-    # Read channels
-    channel_6 = rc.read_channel(6)
-    if channel_6 is not None: # must not be None to do something with the output
-        print("Channel 6:", channel_6)
-    
-    # sleep for 20ms at the end of our loop, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    # read switches
+    ch6_cur = rc.read_3way_switch(ch6)
 
+    print(" SwC: " + str(ch6_cur)) # print current switch state
 
 
 

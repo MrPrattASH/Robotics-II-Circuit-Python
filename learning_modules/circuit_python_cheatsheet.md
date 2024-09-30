@@ -29,11 +29,10 @@ This can be handy for converting incoming RC signals as PWM values.
     analog_in = AnalogIn(board.A1)
 
     def get_voltage(pin):
-        #change the 3.3 to 5V if necessary
         return (pin.value * 3.3) / 65536
 
     while True:
-        print(get_voltage(analog_in),)
+        print((get_voltage(analog_in),))
         time.sleep(0.1)
 ```
 Analog input values are always 16 bit (i.e. in range(0, 65535)), regardless of the converter's resolution. The get_voltage function converts the analog reading into a voltage, assuming the default 3.3v reference voltage. (10K Pot's should use 5v)

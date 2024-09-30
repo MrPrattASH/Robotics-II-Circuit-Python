@@ -4,12 +4,6 @@ Follow through these self-guided tutorials to learn fundamental skills for using
 Each tutorial has a *Level 0* and corresponding *Level 1* tutorial associated with it. If you complete level 0, move on to level 1. For example:
 * Level 0 tutorial *0.0: Python Syntax* has a corresponding second Level 1 tutorial, *0.1: Built in Libraries*
 
-* [Programming Tutorials in Circuit Python](programming_tutorials.md)
-    * How do you write core components in circuit python? 
-    * Python Syntax, Variables, Loops, Lists, Conditonal Statements, Libraries, etc. 
-* [Hardware & Physical Component Tutorials](hardware_tutorials.md)
-    * How do you interface with physical components? 
-
 # Circuit Python Programming Tutorials
 
 ## The Basics
