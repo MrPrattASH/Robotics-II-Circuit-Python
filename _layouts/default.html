@@ -27,6 +27,42 @@
         word-break: break-word;    /* Break long words */
       }
     }
+      /* Reduce the padding and margins for the navigation on the left */
+  .wrapper {
+    display: flex;
+    align-items: flex-start; /* Ensure items align to the top */
+  }
+
+  header {
+    flex-shrink: 0;
+    padding: 10px; /* Reduce the overall padding */
+    width: 200px; /* Adjust width based on your needs */
+  }
+
+  nav ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  nav li {
+    margin-bottom: 5px; /* Reduce space between list items */
+  }
+
+  nav a {
+    padding: 5px; /* Reduce padding around links */
+    text-decoration: none;
+    color: #0366d6;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Ensure main content takes up the rest of the space */
+  section {
+    flex-grow: 1;
+  }
+    
     /* Add a margin to the main content to make room for the TOC */
     body {
       margin-right: 180px;
@@ -97,10 +133,9 @@
         <!-- Custom Navigation Links -->
         <nav>
           <ul>
-            <li><a href="{{ site.baseurl }}/">Home</a></li>
             <li><a href="{{ site.baseurl }}/learning_modules/programming_tutorials.html">Python Tutorials</a></li>
             <li><a href="{{ site.baseurl }}/learning_modules/hardware_tutorials.html">Hardware Tutorials</a></li>
-            <li><a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Cheat Sheet</a></li>
+            <li><a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Circuit Python Cheat Sheet</a></li>
           </ul>
         </nav>
         <!-- End of Custom Navigation Links -->
