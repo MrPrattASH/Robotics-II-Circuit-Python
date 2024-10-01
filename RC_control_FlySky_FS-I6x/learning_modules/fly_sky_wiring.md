@@ -1,6 +1,6 @@
-# Transmitter & Reciever Wiring/Controls
+# Transmitter & receiver Wiring/Controls
 
-The FlySky transmitter/reciever consists of 2 parts. The transmitter is the controller with the joysticks & switches, the reciever is the small box with the antenna. 
+The FlySky transmitter/receiver consists of 2 parts. The transmitter is the controller with the joysticks & switches, the receiver is the small box with the antenna. 
 
 ***
 
@@ -28,14 +28,14 @@ Eventually, we will drive the robot throttle with CH2, and steer with CH1. CH3/4
 
 ***
 
-## Wiring the Reciever
+## Wiring the receiver
 It is important to know that the receiver outputs a 5V signal. However, our Metro board has both 3.3 and 5v logic pins (or 5V tolerant at least), meaning that we don't need to change voltage to read our signals. 
 
-You'll need a wiring harness for the reciever, and the reciever itself
+You'll need a wiring harness for the receiver, and the receiver itself
 * The harness
     ![harness](wire_harness.jpeg)
-* The reciever
-    ![reciever](IMG_0175.jpeg)
+* The receiver
+    ![receiver](IMG_0175.jpeg)
 
 You can simply attach the wiring harness into the reciver, so that:
 * The channels can recieve signals from the antenna, and sends these as PWM signals to our microcontroller
@@ -43,14 +43,14 @@ You can simply attach the wiring harness into the reciver, so that:
     * Ch2 = Brown/White
     * Ch5 = Blue/White
     * Ch6 = Blue
-* The "BCC" section of our reciever is how we provide 5V power to our reciever. 
+* The "BCC" section of our receiver is how we provide 5V power to our receiver. 
     * 5V BCC (Battery) = Orange 
     * GND BCC (Battery) = Orange/White
 
 
 ![connected](connected_harness.jpeg)
-* Note, there are 2 "rows" of pins on the reciever. we want to use the x3 horizontal pins, *not the x1 hotizonal pin row*
-* This reciever is actually meant for you to attach Servos to, hence why we have x3 horizontal pins in rows. So we have a left Signal pin, middle 5V power, and Right GND. 
+* Note, there are 2 "rows" of pins on the receiver. we want to use the x3 horizontal pins, *not the x1 hotizonal pin row*
+* This receiver is actually meant for you to attach Servos to, hence why we have x3 horizontal pins in rows. So we have a left Signal pin, middle 5V power, and Right GND. 
 ![wiring](reciever_wiring.png)
 
 ***

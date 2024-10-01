@@ -28,7 +28,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 ## Servo Motors
 ### Power Requirements
 * Using 3+ Motors or browning out? Use an alternative power source for your motors.
-    * ![Universal Battery Elimination Circuit Wiring (UBEC)](physical_component_tutorials/UBEC/ubec_learning.md)
+    * [Universal Battery Elimination Circuit Wiring (UBEC)](physical_component_tutorials/UBEC/ubec_learning.md)
 
 ### Servo Tutorials
 * [(Continuous) Rotational Servos](physical_component_tutorials/servo_motors/ContinuousRotationalServos.md)
@@ -44,4 +44,5 @@ Coming soon.
 # Sensor Tutorials
 * [Distance Sensor (Ping)](physical_component_tutorials/ping_sensor/README.md)
     * [*Mars Rovers* Distance Sensor Challenges](physical_component_tutorials/ping_sensor/DistanceSensorChallenges.md)
-* [FlySky FS-i6x Radio Reciever & Transmitter](../RC_control_FlySky_FS-I6x/learning_modules/Fly_sky_learning.md)
+* [FlySky FS-i6x Radio Receiver & Transmitter](../RC_control_FlySky_FS-I6x/learning_modules/Fly_sky_learning.md)
+* [Analog Sensors - Line Sensor Example](physical_component_tutorials/analog_in/analog_io_learning.md)

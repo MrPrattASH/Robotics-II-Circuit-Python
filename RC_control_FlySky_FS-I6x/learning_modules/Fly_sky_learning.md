@@ -2,7 +2,7 @@
 This page will show you how to use the rc.py library for controlling a FlySky FS-i6(X) controller with an FS-iA6B reciever in circuitpython. 
 
 ## Tutorials
-* [Transmitter & Reciever Wiring/Controls](fly_sky_wiring.md)
+* [Transmitter & Receiver Wiring/Controls](fly_sky_wiring.md)
 * [Reading Joystick Tutorial](joystick_learning.md)
 * [Reading 2way Switch Tutorial](2way_learning.md)
 * [Reading 3way Switch Tutorial](3way_learning.md)

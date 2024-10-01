@@ -24,7 +24,11 @@ Analog input values are always 16-bit. This means that regardless of the referen
 
 ## What is a Line Sensor?
 
+![line-sensor](line_sensor.jpeg)
+
 A line sensor typically consists of two infrared LEDs: one for emitting (sending out) and one for receiving (getting back) the signal. The sensor measures the amount of light reflected back to it. 
+
+![leds](LEDs.jpeg)
 
 - **White Surface:** More light is reflected back, resulting in a lower voltage value.
 - **Black Surface:** More light is absorbed, resulting in a higher voltage value.
