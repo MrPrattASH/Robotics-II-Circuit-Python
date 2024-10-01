@@ -44,6 +44,7 @@ And in this example, we have the jumper switch set to 7.4V
 
 - **9V Barrel Jack Connector:** Connect this to your primary power source, our 6x AA battery pack. 
 - **Common GND:** Connect the ground of both the microcontroller circuit and the servo motor circuit here.
+    - Connect this to your micro controller GND
     - A common ground is a shared reference point in an electrical circuit. 
     - By connecting the grounds of both power sources together (common ground), you ensure a stable reference voltage across the entire circuit. 
     - This is crucial for preventing erratic behavior and ensuring proper communication between components. If we didn't have a common ground, we would have no circuit for our servo's to recieve signals from. 
@@ -61,6 +62,7 @@ And in this example, we have the jumper switch set to 7.4V
 
 - **12V Ring Terminals:** Connect this to your Motor controller 12V source. We'll bridge this to power both our motor controller from 12V *and* our DC motors from 12V. 
 - **Common GND:** Connect the ground of both the microcontroller circuit and the servo motor circuit here.
+    - Connect this to your micro controller GND
     - A common ground is a shared reference point in an electrical circuit. 
     - By connecting the grounds of both power sources together (common ground), you ensure a stable reference voltage across the entire circuit. 
     - This is crucial for preventing erratic behavior and ensuring proper communication between components. If we didn't have a common ground, we would have no circuit for our servo's to recieve signals from. 
