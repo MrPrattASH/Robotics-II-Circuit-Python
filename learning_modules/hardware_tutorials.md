@@ -46,3 +46,4 @@ Coming soon.
     * [*Mars Rovers* Distance Sensor Challenges](physical_component_tutorials/ping_sensor/DistanceSensorChallenges.md)
 * [FlySky FS-i6x Radio Receiver & Transmitter](../RC_control_FlySky_FS-I6x/learning_modules/Fly_sky_learning.md)
 * [Analog Sensors - Line Sensor Example](physical_component_tutorials/analog_in/analog_io_learning.md)
+    * [*Mars Rovers* Line Sensor Challenges](physical_component_tutorials/analog_in/line_sensor_challenges.md)

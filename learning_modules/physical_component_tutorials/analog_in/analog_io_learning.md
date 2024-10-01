@@ -169,7 +169,7 @@ We can abstract even further by transforming our `float` decimal return to an `i
 
 ```python
 
-def get_voltage(pin):
+def mapped_voltage(pin):
     # Maps our current 0-65535 range to 0-100
     mapped_value = map_range(pin.value, 0, 65535, new_min, new_max)
     return floor(mapped_value)
