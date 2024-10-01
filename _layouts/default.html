@@ -74,78 +74,7 @@
         display: none;
       }
     }
-    /* Dark Mode Styles */
-    body.light {
-      background-color: #ffffff;
-      color: #000000;
-    }
-    header, .side-toc, footer {
-      background-color: #ffffff;
-      color: #000000;
-    }
-    a {
-      color: #0366d6;
-    }
-    body.dark {
-      background-color: #1e1e1e;
-      color: #d4d4d4;
-    }
-    header, .side-toc, footer {
-      background-color: #252526;
-      color: #d4d4d4;
-    }
-    a {
-      color: #569cd6;
-    }
-    pre, code {
-      background-color: #f6f8fa;
-      color: #000000;
-    }
-    body.dark pre, body.dark code {
-      background-color: #1e1e1e;
-      color: #d4d4d4;
-    }
-    code {
-      color: #dcdcaa; /* Default code color in VS Code Dark+ theme */
-    }
-    body.dark code {
-      color: #dcdcaa; /* Default code color in VS Code Dark+ theme */
-    }
-    .python code {
-      color: #569cd6; /* Color for python keyword in VS Code Dark+ theme */
-    }
-    body.dark .python code {
-      color: #569cd6; /* Color for python keyword in VS Code Dark+ theme */
-    }
-    /* Style for the theme toggle button in the navigation */
-    nav ul li button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: inherit;
-      font-size: inherit;
-      padding: 0;
-      margin: 0;
-      text-align: left;
-    }
-    nav ul li button:hover {
-      text-decoration: underline;
-    }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const themeSwitcher = document.getElementById("theme-switcher");
-      const currentTheme = localStorage.getItem("theme") || "dark";
-      document.body.className = currentTheme;
-      themeSwitcher.textContent = currentTheme === "dark" ? "Light Mode" : "Dark Mode";
-      themeSwitcher.addEventListener("click", function() {
-        const newTheme = document.body.className === "light" ? "dark" : "light";
-        document.body.className = newTheme;
-        themeSwitcher.textContent = newTheme === "dark" ? "Light Mode" : "Dark Mode";
-        localStorage.setItem("theme", newTheme);
-      });
-    });
-  </script>
 </head>
 <body class="dark">
   <div class="wrapper">
@@ -163,11 +92,6 @@
             <li><a href="{{ site.baseurl }}/learning_modules/programming_tutorials.html">Python Tutorials</a></li>
             <li><a href="{{ site.baseurl }}/learning_modules/hardware_tutorials.html">Hardware & Component Tutorials</a></li>
             <li><a href="{{ site.baseurl }}/learning_modules/circuit_python_cheatsheet.html">Circuit Python Cheat Sheet</a></li>
-          </ul>
-          <br>
-          <h3> Toggle Theme</h3>
-          <ul>
-            <li><button id="theme-switcher" style="background:none;border:none;cursor:pointer;color:inherit;">Toggle Theme</button></li>
           </ul>
         </nav>
         <!-- End of Custom Navigation Links -->
