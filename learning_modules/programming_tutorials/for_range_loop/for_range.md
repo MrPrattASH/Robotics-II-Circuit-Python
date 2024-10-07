@@ -80,3 +80,68 @@ while True:
 ```
 
 3. Observe the serial output. 
+
+--- 
+
+## For Loops: 2 Arguments (Start & Stop)
+a `for` loop can also take more than a single arguement. Up to this point, we've been playing with a single arguement:
+
+```python
+for i in range(10):
+    print(i)
+    time.sleep(0.5)
+```
+
+* in this example, we increase our `i` iterater variable by 1 every time.
+* we also always start at `0` for our loop. 
+
+Let's try something different: 
+```python
+for i in range(0, 10):
+    print(i)
+    time.sleep(0.5)
+```
+
+* did you notice a difference in the output? What has changed in our arguments? 
+
+---
+
+We have 2 arguments now, rather than always starting from `0`, we can say what number to start from, and what number to end at. Observe:
+
+```python
+for i in range(5, 10):
+    print(i)
+    time.sleep(0.5)
+```
+
+* what number did we start at this time? 
+
+---
+
+## For Loops: 3 Arguments (Start, Stop, Iterater)
+Lets try 3 arguments:
+
+```python
+for i in range(0, 10, 2):
+    print(i)
+    time.sleep(0.5)
+```
+
+* What was the print output this time?
+* the third argument, `2`, is our step iterator. Rather than stepping by 1 each iteration or loop, now we are stepping by 2! 
+
+Lets look at a few more examples:
+
+Example 1: Count by 5's
+```python
+for i in range(0, 50, 5):
+    print(i)
+    time.sleep(0.5)
+```
+
+Example 2: Reverse counting down
+```python
+for i in range(10, 0, -1):
+    print(i)
+    time.sleep(0.5)
+```

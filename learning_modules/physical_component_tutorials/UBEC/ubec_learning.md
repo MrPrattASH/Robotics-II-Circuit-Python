@@ -48,7 +48,9 @@ And in this example, we have the jumper switch set to 7.4V
     - A common ground is a shared reference point in an electrical circuit. 
     - By connecting the grounds of both power sources together (common ground), you ensure a stable reference voltage across the entire circuit. 
     - This is crucial for preventing erratic behavior and ensuring proper communication between components. If we didn't have a common ground, we would have no circuit for our servo's to recieve signals from. 
-- **Servo Shrouds (1, 2, 3):** These connect to your servo motors.
+- **Servo Shroud (5):** These connect to your servo motors.
+- **Servo Y Splitter (1-2, 3-4):** Since we're driving in tank-drive fashion, all the motors on 1 side of our unit can be driving the same direction, so using 1 signal pin to control 2 servos is possible. 
+    - Note: You may need to ensure you've selected rotational servos that have similar stop values in this case. 
 - **Servo Data Out (D. Out):** These connect to the data pins of your servos.
 - **Level Switch Jumper:** Use this to select the voltage output of the UBEC. Use 6V for Mars Rovers. 
 
