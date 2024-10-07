@@ -11,7 +11,8 @@ If you forgot how to add libraries, see [this tutorial](../learning_modules/prog
 1. Navigate over to [download-directory ](https://download-directory.github.io/)
 2. Copy and paste the following URL to download the course lib file from our course repo. 
     `https://github.com/MrPrattASH/Robotics-II-Circuit-Python/tree/master/circuit_python_libraries/lib`
-3.  Open the zip. 
+3. Open the zip. 
+
 ---
 
 ## Option 2: Download each lib folder/mpy file individually

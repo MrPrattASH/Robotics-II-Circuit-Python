@@ -13,8 +13,6 @@ A repository for learning how to do Robotics using the *Metro M4* CircuitPython 
 
 # CircuitPy Libraries
 Download this library folder and add it to your *CIRCUITPY* drive for all the libraries needed throughout these courses. 
-* [circuitpy libraries download](circuit_python_libraries/lib)
+* [circuitpy libraries](circuit_python_libraries/libfolder.md)
 
-# Elevation Engineering Tutorials
-* [RoboClaw Motor Controller Documentation](RoboClaw_motor_controller/roboclaw_documentation.md)
 
