@@ -34,6 +34,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * [(Continuous) Rotational Servos](physical_component_tutorials/servo_motors/ContinuousRotationalServos.md)
     * [*Mars Rovers* Challenges](physical_component_tutorials/servo_motors/RotationalChallenges.md)
     * [*Elevation Engineering* Challenges](physical_component_tutorials/servo_motors/RotationalChallenges_Engineering.md)
+    * [*Elevation Engineering* 2 & 4 Bar Lifts](elevation_engineering/4_bar_lifts.md)
 * [Positional Servos](physical_component_tutorials/servo_motors/PositionalServos.md)
     * [*Mars Rovers* Challenges](physical_component_tutorials/servo_motors/PositionalServoChallenges_Mars.md)
 

@@ -21,6 +21,7 @@ Click on each respective file link to download the correct folder/file
 * [rc.py](../RC_control_FlySky_FS-I6x/rc_module/rc.py)
 * [arcade_drive_servo.py](../RC_control_FlySky_FS-I6x/arcade_drive_module/arcade_drive_servo.py)
 * [sonarbit.py](lib/sonarbit.py)
+* [timer.py](../learning_modules/programming_tutorials/timer/timer.py)
 * [adafruit_display_text](lib/adafruit_display_text/)
 * [adafruit_displayio_ssd1306.mpy](lib/adafruit_displayio_ssd1306.mpy)
 * [adafruit_hid](lib/adafruit_hid/)
