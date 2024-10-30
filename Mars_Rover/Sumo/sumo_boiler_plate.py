@@ -8,13 +8,13 @@ from arcade_drive_servo import Drive
 
 
 # Initialize an instance of the receiver with designated pins for channels
-rc = RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2, ch6=board.D3)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 
 # Initialize an instance of the Timer object
 timer = Timer()
 
 # Initialize an instance of the arcade_drive Object with tuned stop values
-drive = Drive(left_pin=board.D4, right_pin=board.D5, left_stop=0.0, right_stop=0.0)
+drive = Drive(left_pin=board.D2, right_pin=board.D3, left_stop=0.0, right_stop=0.0)
 
 # ------------------------ STATE FUNCTIONS ------------------------
 
@@ -28,7 +28,7 @@ def teleop_state():
     spin = 50
     throttle = 50
     sw_c = 0
-    channels = [1, 2, 5, 6]
+    channels = [1, 2, 6]
 
     # read channels
     for i in range(len(channels)):
@@ -39,8 +39,6 @@ def teleop_state():
             spin = channel_value
         elif channels[i] == 2:
             throttle = channel_value
-        elif channels[i] == 5:
-            sw_b = channel_value
         elif channels[i] == 6:
             sw_c = channel_value
     pass

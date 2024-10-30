@@ -3,7 +3,7 @@ import time
 from rc import RCReceiver
 from arcade_drive_servo import Drive
 
-rc = RCReceiver(ch1=board.D4, ch2=board.D5, ch3=None, ch4=None, ch5=board.D6, ch6=board.D7)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 drive = Drive(left_pin=board.D2, right_pin=board.D3, left_stop=0.0, right_stop=0.0)
 
 channels = [1,2,5,6]
