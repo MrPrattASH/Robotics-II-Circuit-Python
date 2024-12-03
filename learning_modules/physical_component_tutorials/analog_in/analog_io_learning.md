@@ -2,6 +2,9 @@
 
 By the end of this tutorial, you’ll understand the key differences between analog and digital signals, how to read analog inputs, and the benefits of abstraction in code. 
 
+
+[![video tutorial](video_tutorial.png)](https://www.youtube.com/watch?v=M75AKxbcMz8)
+
 ## Analog vs. Digital Signal
 
 In a 3.3V system, digital signals are straightforward—they’re either 0V or 3.3V. Essentially, digital signals boil down to `True` (3.3V) or `False` (0V) states. 
