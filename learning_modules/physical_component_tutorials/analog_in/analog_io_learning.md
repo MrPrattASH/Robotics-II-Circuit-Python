@@ -151,14 +151,14 @@ analog_in = AnalogIn(board.A1)
 new_min = 0
 new_max = 100
 
-def get_voltage(pin):
+def read_analog(pin):
     # Maps our current 0-65535 range to 0-100
     return map_range(pin.value, 0, 65535, new_min, new_max)
     # map_range(value, from_min, from_max, to_min, to_max)
 
 
 while True:
-    print(get_voltage(analog_in))
+    print(read_analog(analog_in))
     time.sleep(0.1)
 
 ```
