@@ -19,7 +19,7 @@ import time
 import board
 from rc import RCReceiver
 
-rc = RCReceiver(ch1 = board.D0, ch2 = board.D1, ch3 = None, ch4 = None, ch5 =board.D2, ch6 =board.D3)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 
 # Main code
 while True:
@@ -28,8 +28,7 @@ while True:
     if channel_5 is not None: # must not be None to do something with the output
         print("Channel 5:", channel_5)
     
-    # sleep for 20ms at the end of our loop, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
@@ -51,8 +50,7 @@ while True:
     if channel_5 is not None: # must not be None to do something with the output
         print("Channel 5:", channel_5)
     
-    # sleep for 20ms at the end of our loop, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 

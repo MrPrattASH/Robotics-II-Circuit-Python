@@ -1,8 +1,9 @@
 import time
+import board
 from rc import RCReceiver
 from arcade_drive import Drive
 
-rc = RCReceiver()
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 drive = Drive()
 
 # Main code
@@ -15,5 +16,4 @@ while True:
         drive.drive(channel_1,channel_2) # move our motors arcade drive style
 
 
-    # sleep for 20ms, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration

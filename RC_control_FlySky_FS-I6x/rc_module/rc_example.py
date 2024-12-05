@@ -26,6 +26,5 @@ while True:
 
     print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
 
-    # sleep for 20ms, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
     

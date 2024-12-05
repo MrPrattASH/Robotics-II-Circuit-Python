@@ -49,8 +49,7 @@ while True:
         print("spin", spin, "throttle", throttle) # move our motors arcade drive style
 
 
-    # sleep for 20ms, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
@@ -96,15 +95,14 @@ while True:
         drive.drive(spin, throttle)  # Moves the motors based on input
     print("spin", spin, "throttle", throttle)  # Displays the current input values
 
-    # Sleep for 20ms
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 ```
 
 - **Reading Channels**: The code reads channel 1 for `spin` and channel 2 for `throttle` to get joystick input.
 - **Checking Inputs**: It checks if the inputs are not `None` (meaning valid and connected inputs).
 - **Driving Motors**: If valid data is read, the `drive` function is called to control the motors according to the joystick's direction and throttle.
 - **Print Statement**: This outputs the current values of `spin` and `throttle` to the console for debugging purposes.
-- **Delay**: A short delay of 20 milliseconds is added to match the RC receiver's duty cycle and avoid overwhelming the processor with too many instructions in a short period.
+- **Delay**: A short delay of 20-40 ish milliseconds is added to match the RC receiver's duty cycle and avoid overwhelming the processor with too many instructions in a short period.
 
 ## Conclusion
 

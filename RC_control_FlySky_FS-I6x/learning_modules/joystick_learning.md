@@ -21,7 +21,7 @@ import time
 import board
 from rc import RCReceiver
 
-rc = RCReceiver(ch1 = board.D0, ch2 = board.D1, ch3 = None, ch4 = None, ch5 =board.D2, ch6 =board.D3)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 
 # Main code
 while True:
@@ -31,8 +31,7 @@ while True:
     if channel_1 is not None and channel_2 is not None: # must not be None to do something with the output
         print("1: ", channel_1, "2: ", channel_2)
     
-    # sleep for 20ms, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
@@ -63,11 +62,11 @@ The next section of the code initializes the RC receiver channels.
 
 ```python
 
-rc = RCReceiver(ch1 = board.D0, ch2 = board.D1, ch3 = None, ch4 = None, ch5 =board.D2, ch6 =board.D3)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 ```
 
 - **`rc`**: This is an instance of the `RCReceiver` class, which we will use to read the values from the RC receiver.
-- **Channels**: `ch1` to `ch6` represent the input channels from the RC receiver. They are connected to specific pins (e.g., `board.D0`, `board.D1`, etc.).
+- **Channels**: `ch1` to `ch6` represent the input channels from the RC receiver. They are connected to specific pins (e.g., `board.D10`, `board.D11`, etc.).
     - Note, we ignore Channels 3/4, so we assign them a value of `None` so that the library will ignore these channels. 
 
 ### Main Code Loop
@@ -82,8 +81,7 @@ while True:
     channel_2 = rc.read_channel(2)
     if channel_1 is not None and channel_2 is not None: # must not be None to do something with the output
         print("1: ", channel_1, "2: ", channel_2)
-    # sleep for 20ms, the length of a single duty cycle of the RC receiver.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
@@ -96,8 +94,8 @@ while True:
 - **Check for None**: 
   - `if channel_1 is not None and channel_2 is not None`: Ensures that both channels have valid readings before proceeding. If there is ever an error in reading a channel, the method will return `None`. 
 - **Delay**:
-  - `time.sleep(0.02)`: Pauses the loop for 20 milliseconds. This matches the length of a single duty cycle of the RC receiver, ensuring the code reads the next cycle's data. 
-  - We *always* have to put a single 0.20ms sleep at the end of our `while True:` loop in order to keep our readings in sync with our duty cycle. 
+  - `rc.ensure_cycle() `: maintains correct sync for cycle readings of our rc reciever (20 milliseconds). This matches the length of a single duty cycle of the RC receiver, ensuring the code reads the next cycle's data. 
+  - We *always* have to ensure sync at the end of our `while True:` loop in order to keep our readings in sync with our duty cycle. 
 
 
 ***

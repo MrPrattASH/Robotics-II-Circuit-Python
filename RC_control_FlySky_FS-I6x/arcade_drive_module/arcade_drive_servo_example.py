@@ -19,5 +19,4 @@ while True:
         print("spin", spin, "throttle", throttle) # move our motors arcade drive style
 
 
-    # sleep for 20ms, the length of a single duty cycle of the RC reciever.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration

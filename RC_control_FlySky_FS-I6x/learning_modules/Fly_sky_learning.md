@@ -25,7 +25,7 @@ import board
 from rc import RCReceiver
 
 # Initialize the receiver with designated pins for channels
-rc = RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2, ch6=board.D3)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 
 # List of channel numbers we are interested in
 channels = [1, 2, 5, 6]
@@ -55,8 +55,7 @@ while True:
     # Print the channel values to the console
     print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
     
-    # Pause for 20ms, the length of a single duty cycle of the RC receiver.
-    time.sleep(0.02)
+    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
@@ -86,10 +85,10 @@ from rc import RCReceiver
 
 ```python
 
-rc = RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2, ch6=board.D3)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 ```
 
-We create an instance of `RCReceiver` and assign specific microcontroller pins (D0, D1, D2, D3) to the receiver channels 1, 2, 5, and 6 respectively. Channels 3 and 4 are not being used (the left side of our controller with the 6 section transmission), hence they are set to `None`. 
+We create an instance of `RCReceiver` and assign specific microcontroller pins (D10, D11, D12, D13) to the receiver channels 1, 2, 5, and 6 respectively. Channels 3 and 4 are not being used (the left side of our controller with the 6 section transmission), hence they are set to `None`. 
 
 
 
@@ -167,14 +166,14 @@ The `print` statement outputs the values of channels 1, 2, 5, and 6 to the seria
 
 ```python
 
-time.sleep(0.02)
+rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
 
 
-Finally, `time.sleep(0.02)` pauses the loop for 20 milliseconds. This delay matches the length of a single duty cycle of the RC receiver, ensuring smooth and accurate readings. 
+Finally, `rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration` ensures that our loop follows a 20ms delay cycle. This delay matches the length of a single duty cycle of the RC receiver, ensuring smooth and accurate readings. 
 
-You **must** pause for 20ms at the end of each while True loop, or your RC reading cycles will be out of phase with the sent signals from the RC transmitter. 
+You **must** ensure your cycle at the end of each while True loop, or your RC reading cycles will be out of phase with the sent signals from the RC transmitter. 
 
 
