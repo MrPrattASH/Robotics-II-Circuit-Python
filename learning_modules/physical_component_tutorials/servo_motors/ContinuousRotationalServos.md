@@ -1,6 +1,13 @@
 # Continuous Rotational Servos
 
-Continous rotational servos, as their name implies, are servo motors that constantly spin in circles. They can spin in either direction, depending on what direction you set their throttle to. Wiring a servo is easy:
+Continous rotational servos, as their name implies, are servo motors that constantly spin in circles. They can spin in either direction, depending on what direction you set their throttle to.
+
+## Video tutorial
+[![servo_video](rot_servo_screen.png)](https://youtu.be/mDOMjQkQtlU)
+
+***
+
+## Wiring
 
 A servo has 3 wires:
 * Signal (white or yellow): Attach this to (most) Digital or Analog pin on your board. 

@@ -4,6 +4,11 @@ Positional servos, unlike continuous rotational servos, are designed to move and
 * If set a servo to 90* and you apply 5kg/cm of torque to a 10.2kg/cm servo, it will hold the angle
 * but if you increase the force applied to greater than 10.2kg/cm, the servo will start to fail and be unable to hold the 90* angle. 
 
+## Video tutorial
+[![servo_video](pos_servo_screen.png)](https://www.youtube.com/watch?v=VO-LuhUMNaA)
+
+***
+
 On our servo mounts, we might have a servo set to 0 degrees:
 ![0deg](pos_0.jpeg)
 
