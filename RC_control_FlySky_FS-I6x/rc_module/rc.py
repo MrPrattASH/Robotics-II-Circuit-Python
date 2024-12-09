@@ -7,12 +7,13 @@ class RCReceiver:
         self.channel_pins = list(filter(None, [ch1, ch2, ch3, ch4, ch5, ch6]))
         self.pwm_ins = [pulseio.PulseIn(pin, maxlen=64, idle_state=False) for pin in self.channel_pins]
         self.last_read_time = time.monotonic()
+        print("RCReceiver initialized with channels:", self.channel_pins)
 
     @staticmethod
     def correct_pulse(high_pulse, low_pulse, channel):
         if high_pulse > 2050:
             high_pulse, low_pulse = low_pulse, high_pulse
-        
+
         if channel <= 4 and channel > 0:
             high_pulse_scaled = round((high_pulse - 950) * 100 / (2050 - 950))
             if 46 < high_pulse_scaled < 54:
@@ -33,20 +34,28 @@ class RCReceiver:
 
     def read_channel(self, channel):
         high_pulse = None
-        try:
-            index = channel - 1
-            if channel in [5, 6]:
-                index = channel - 3
-            pwm_in = self.pwm_ins[index]
+        index = channel - 1
+        # Adjust index for channels 5 and 6 because they use non-contiguous channel pins
+        if channel in [5, 6]:
+            index = channel - 3
+        if index < 0 or index >= len(self.pwm_ins):
+            print(f"Channel {channel} is not active")
+            return None
+        
+        pwm_in = self.pwm_ins[index]
+        #print(f"Reading channel {channel} with index {index}")
 
-            if len(pwm_in) > 1:
-                high_pulse, low_pulse = pwm_in[0], pwm_in[1]
-                high_pulse, low_pulse = self.correct_pulse(high_pulse, low_pulse, channel)
-                
-                for _ in range(len(pwm_in)):
-                    pwm_in.popleft()
+        try:
+            while len(pwm_in) < 2:
+                # Wait for enough pulses
+                time.sleep(0.005) # Short sleep to allow buffer to fill
+            high_pulse, low_pulse = pwm_in[0], pwm_in[1]
+            high_pulse, low_pulse = self.correct_pulse(high_pulse, low_pulse, channel)
+            # Clear the buffer after reading
+            pwm_in.clear()
+
         except RuntimeError as e:
-            print("Failed to read from channel", channel, "with error:", str(e))
+            print(f"Failed to read from channel {channel} with error: {str(e)}")
 
         return high_pulse
 
