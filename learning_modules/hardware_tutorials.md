@@ -14,7 +14,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 
 ### Level 0:
 * 0.0: [Simple External LED Circuit](physical_component_tutorials/basic_led_debug/single_led_0.md)
-* 1.0: [4-Pin Buttons](https://sites.google.com/view/circuitpython/tutorials/button-and-led)
+* 1.0: [4-Pin Buttons](physical_component_tutorials/4-Pin_Buttons/4pin_button_learning.md)
 * 2.0: [Capacitors & Noisy Signals](physical_component_tutorials/capacitors_breadboard/Capacitors.md)
 
 ### Level 1:

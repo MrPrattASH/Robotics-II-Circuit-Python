@@ -42,7 +42,7 @@ class RCReceiver:
             return None
         
         pwm_in = self.pwm_ins[index]
-        print(f"Reading channel {channel} with index {index}")
+        #print(f"Reading channel {channel} with index {index}")
         
         start_time = time.monotonic()
 

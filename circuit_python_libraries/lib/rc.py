@@ -32,10 +32,9 @@ class RCReceiver:
 
         return high_pulse_scaled, low_pulse
 
-    def read_channel(self, channel):
+    def read_channel(self, channel, timeout=0.1):
         high_pulse = None
         index = channel - 1
-        # Adjust index for channels 5 and 6 because they use non-contiguous channel pins
         if channel in [5, 6]:
             index = channel - 3
         if index < 0 or index >= len(self.pwm_ins):
@@ -44,24 +43,29 @@ class RCReceiver:
         
         pwm_in = self.pwm_ins[index]
         #print(f"Reading channel {channel} with index {index}")
+        
+        start_time = time.monotonic()
 
         try:
             while len(pwm_in) < 2:
-                # Wait for enough pulses
-                time.sleep(0.005) # Short sleep to allow buffer to fill
+                if time.monotonic() - start_time > timeout:
+                    print(f"Timeout waiting for pulses on channel {channel}")
+                    return None
+                time.sleep(0.005)
+            
             high_pulse, low_pulse = pwm_in[0], pwm_in[1]
             high_pulse, low_pulse = self.correct_pulse(high_pulse, low_pulse, channel)
-            # Clear the buffer after reading
             pwm_in.clear()
 
         except RuntimeError as e:
             print(f"Failed to read from channel {channel} with error: {str(e)}")
 
         return high_pulse
-
+    '''
     def ensure_cycle(self):
         current_time = time.monotonic()
         elapsed_time = current_time - self.last_read_time
         if elapsed_time < 0.02:
             time.sleep(0.02 - elapsed_time)
         self.last_read_time = time.monotonic()
+    '''

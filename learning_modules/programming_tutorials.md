@@ -22,6 +22,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * 5.0: [What are *Functions*?](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
 * 6.0: [*For i in Range* Loops](programming_tutorials/for_range_loop/for_range.md)
 * 7.0: [Non-breaking Timers](programming_tutorials/timer/timer_learning.md)
+* 8.0: [Onboard NeoPixel RGB LED](physical_component_tutorials/neo_pixel/README.md)
 
 ***
 
@@ -30,3 +31,4 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * 1.1: [Morse](programming_tutorials/SOS_Blinking_LED/morse.md)
 * 2.1: [The REPL](https://learn.adafruit.com/welcome-to-circuitpython/the-repl)
 * 4.1: [Built in Functions](programming_tutorials/Built_In_Functions_Practices/built_in_functions.md)
+

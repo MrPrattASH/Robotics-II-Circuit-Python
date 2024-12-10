@@ -1,11 +1,17 @@
 # Programming the Onboard NeoPixel (P40)
 
-**Note, this tutorial has been heavily modified from the fantastic M4 tutorial [here](https://learn.adafruit.com/adafruit-metro-m4-express-featuring-atsamd51/circuitpython-neopixel), but updated for circuitpy 7.3.2, and specifially changed for the M4 board.**
+## Video Tutorial
+To watch a video of the following tutorial, see this video
+[![video](video_tutorial.png)](https://www.youtube.com/watch?v=qRyp4pKvi3g)
 
 ## The Code
+**Note, this tutorial has been heavily modified from the fantastic M4 tutorial [here](https://learn.adafruit.com/adafruit-metro-m4-express-featuring-atsamd51/circuitpython-neopixel), but updated for circuitpy 9.1.x, and specifically changed for the M4 board.**
+
 This example includes multiple visual effects.
 
 To use with CircuitPython, you need to first install a few libraries, into the lib folder on your CIRCUITPY drive. Then you need to update code.py with the example script. Install the neopixel library now if you have not dones so. 
+
+You can download the necessary library [here](../../../circuit_python_libraries/lib/neopixel.mpy)
 
 Start this code following along from the "onboard_neopixel.py" file (located above) 
 
