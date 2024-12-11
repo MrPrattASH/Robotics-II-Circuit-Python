@@ -81,7 +81,7 @@ while True:
         init_battle = True
 
     if init_battle:  # start battle
-        print("Starting battle. Init auto timer of 30s")
+        print("Starting battle. Init auto timer of 45s")
         timer.set_timer(time.monotonic(), time.monotonic() + 45)  # make 45s timer for auto
         auto = True
         init_battle = False
@@ -90,14 +90,14 @@ while True:
     elif auto:  # auto mode checks
         if timer.check_timer():  # check if auto mode is over
             print("auto timer up! init teleop timer") 
-            timer.set_timer(time.monotonic(), time.monotonic() + 90)  # make 90s timer for teleop
             auto = False
             stop_state()
+            break  # end loop & main program. 
 
-        else:
+        else:  # if our timer is not up, enter auto state.
             auto_state()  # enter auto state
     
-    else:
+    else:  # if not init_battle OR not auto, enter stop state. 
         stop_state()
 
     time.sleep(0.01) # small sleep to prevent CPU overload & button debounces
