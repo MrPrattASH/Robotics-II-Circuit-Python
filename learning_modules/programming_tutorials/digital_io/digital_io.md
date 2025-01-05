@@ -3,6 +3,8 @@ Let's get into our first physical component. We're going to make our onboard LED
 
 # Video Tutorial
 
+{% include youtube.html id="XH401a__nY8" %}
+
 [![img](Screenshot%202025-01-05%20at%2014.36.01.png)](https://www.youtube.com/watch?v=XH401a__nY8)
 
 ---
