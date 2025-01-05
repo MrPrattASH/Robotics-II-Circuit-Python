@@ -1,30 +1,20 @@
 import time
 import board
-from rc import RCReceiver
+import rc
 
-rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
-channels = [1,2,5,6]
-x = 0
-y = 0
-sw_b = 0
-sw_c = 0
+rc = rc.RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 
 # Main code
 while True:
     # Read channels in a loop, iterating through our list 
-    for i in range(len(channels)):
-        channel_value = rc.read_channel(channels[i])
-        if channel_value is not None:
-            if channels[i] == 1:
-                x = channel_value
-            elif channels[i] == 2:
-                y = channel_value
-            elif channels[i] == 5:
-                sw_b = channel_value
-            elif channels[i] == 6:
-                sw_c = channel_value
+    x = rc.read_channel(1)
+    y = rc.read_channel(2)
+    sw_b = rc.read_channel(5)
+    sw_c = rc.read_channel(6)
 
     print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
-
-    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
-    
+    # if you want to use the values, ensure you have this structure:
+    '''
+    if x is not None:
+        print("do something")
+    '''

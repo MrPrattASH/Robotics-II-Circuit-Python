@@ -1,6 +1,14 @@
 # Digital IO (In/Out)
 Let's get into our first physical component. We're going to make our onboard LED blink on the M4 board. 
 
+# Video Tutorial
+
+[![img](Screenshot%202025-01-05%20at%2014.36.01.png)](https://www.youtube.com/watch?v=XH401a__nY8)
+
+---
+
+# Text Tutorial
+
 The onboard LED is a red LED with the "L" next to it. By the end of this tutorial, you'll be able to turn this on and off. 
 
 ![metro](metro.jpeg)
@@ -88,8 +96,3 @@ while True:
 
 * After this, we run all 4 lines, then repeat back to the top of our `while True:` loop, repeating this .5sec on, .5sec off loop forever. 
 * Go ahead and change the value of `time.sleep(0.5)` to something like `(1)` or `(0.1)`. What changes to you observe to the LED? 
-
-### Quick Links
-* [Home](/README.md)
-* [Tutorials](/learning_modules/tutorials_list.md)
-* [Circuit Python Cheat Sheet](/learning_modules/circuit_python_cheatsheet.md)
