@@ -2,10 +2,13 @@
 
 Lets talk about how to wire and program 4-pin Buttons
 
-## Video Tutorial
-Click the link below to watch a video on how to program a 4-pin button. 
+# Video Tutorial
 
-[![video tutorial](video_tutorial.png)](https://youtu.be/U28j9r-mWqQ)
+{% include youtube.html id="U28j9r-mWqQ" %}
+
+***
+
+# Text Tutorial
 
 ## Wiring
 ![4pin_wiring](https://github.com/user-attachments/assets/65a58a13-8434-4628-9e17-fe9690030a44)

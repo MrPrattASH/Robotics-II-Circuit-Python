@@ -19,6 +19,14 @@ Your rover needs the following hardware:
 - Flysky receiever
 - x2 Rotational servo motors, orientated in tank drive where x1 of the motor sides in inverted/mirrored
 
+# Video Tutorial
+
+{% include youtube.html id="097uBx4V9UI" %}
+
+---
+
+# Text Tutorial
+
 ### Required Library
 
 Before moving forward, ensure you have the following [arcade_drive_servo.py](arcade_drive_servo.py) and [rc.py](../rc_module/rc.py) py files on your `CIRCUITPY` lib folder.

@@ -9,6 +9,14 @@ This page will show you how to use the rc.py library for controlling a FlySky FS
 
 ***
 
+# Video Tutorial
+
+{% include youtube.html id="Ix4YrCbWJ3o" %}
+
+***
+
+# Text Tutorial
+
 ## Library Documentation (Putting it all together)
 * **Before putting this all together below, ensure you have done all 4 tutorials above.**
 * Ensure you have added the [rc.py](../rc_module/rc.py) file to your `CIRCUITPY` lib folder. 

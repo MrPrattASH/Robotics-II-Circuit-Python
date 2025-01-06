@@ -2,6 +2,14 @@
 
 This tutorial will teach you how to use a ping sensor (in our case, a "SonarBit" branded ping sensor) on a M4 board. 
 
+# Video Tutorial
+
+{% include youtube.html id="FLxU1WYNmNk" %}
+
+***
+
+# Text Tutorial
+
 ## How Ultrasonic Sensors Work
 
 Ultrasonic sensors operate by emitting ultrasonic sound waves at a frequency higher than the human ear can hear. The sensor then waits for the sound waves to bounce back (echo) from an object. It measures the time taken for the waves to return and uses this information to calculate the distance to the object. The formula used is:

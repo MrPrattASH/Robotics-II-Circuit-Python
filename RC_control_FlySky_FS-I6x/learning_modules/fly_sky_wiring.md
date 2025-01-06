@@ -4,6 +4,14 @@ The FlySky transmitter/receiver consists of 2 parts. The transmitter is the cont
 
 ***
 
+# Video Tutorial
+
+{% include youtube.html id="Ix4YrCbWJ3o" %}
+
+***
+
+# Text Tutorial
+
 ## Controling the FlySky Transmitter
 
 ### Powering on

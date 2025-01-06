@@ -2,10 +2,13 @@
 
 Continous rotational servos, as their name implies, are servo motors that constantly spin in circles. They can spin in either direction, depending on what direction you set their throttle to.
 
-## Video tutorial
-[![servo_video](rot_servo_screen.png)](https://youtu.be/mDOMjQkQtlU)
+# Video Tutorial
+
+{% include youtube.html id="mDOMjQkQtlU" %}
 
 ***
+
+# Text Tutorial
 
 ## Wiring
 

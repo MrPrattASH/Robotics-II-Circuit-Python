@@ -2,8 +2,13 @@
 
 By the end of this tutorial, you’ll understand the key differences between analog and digital signals, how to read analog inputs, and the benefits of abstraction in code. 
 
+# Video Tutorial
 
-[![video tutorial](video_tutorial.png)](https://www.youtube.com/watch?v=M75AKxbcMz8)
+{% include youtube.html id="M75AKxbcMz8" %}
+
+***
+
+# Text Tutorial
 
 ## Analog vs. Digital Signal
 

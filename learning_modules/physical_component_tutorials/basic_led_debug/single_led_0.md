@@ -1,4 +1,13 @@
-# Wiring an LED
+# Wiring an external LED
+Use the following Diagram below to wire an LED to your breadboard. 
+
+# Video Tutorial
+
+{% include youtube.html id="md-W8MEAZEs" %}
+
+***
+
+# Text Tutorial
 
 Use the following Diagram below to wire an LED to your breadboard. 
 
