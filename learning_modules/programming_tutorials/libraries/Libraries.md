@@ -17,6 +17,11 @@ Either way, as you start to explore CircuitPython, you'll want to know how to ge
 
 ## Downloading Libraries
 
+### Option 1: Clone a repo
+If you followed the [tutorial on cloning github repos](../../github/github_clone.md), you don't need to do Option #2. Move directly onto The next heading, *copying libraries to your board*. Alternatively, [follow the tutorial here.](../../github/github_clone.md)
+
+
+### Option 2: Direct Download a Repo
 Navigate over to [download-directory ](https://download-directory.github.io/)
 
 ![gitdown](gitdown.png)

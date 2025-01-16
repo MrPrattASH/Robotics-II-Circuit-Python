@@ -22,6 +22,10 @@ class Drive:
 
     def drive(self, spin, throttle):
         """Throttle and spin control using arcade drive logic."""
+        if spin == None:
+            spin = 50
+        if throttle == None:
+            throttle = 50
         spin = (spin - 50) / 50  # Normalize spin to -1 to 1
         throttle = (throttle - 50) / 50  # Normalize throttle to -1 to 1
         scale_factor = self.scale
