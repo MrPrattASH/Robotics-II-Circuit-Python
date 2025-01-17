@@ -62,8 +62,6 @@ while True:
                 
     # Print the channel values to the console
     print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
-    
-    rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
 
 ```
 
@@ -168,20 +166,5 @@ print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
 The `print` statement outputs the values of channels 1, 2, 5, and 6 to the serial console. 
 
 
-### Sleep Function
-
-
-
-```python
-
-rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration
-
-```
-
-
-
-Finally, `rc.ensure_cycle()  # Maintains sync with our 20ms cycle every loop iteration` ensures that our loop follows a 20ms delay cycle. This delay matches the length of a single duty cycle of the RC receiver, ensuring smooth and accurate readings. 
-
-You **must** ensure your cycle at the end of each while True loop, or your RC reading cycles will be out of phase with the sent signals from the RC transmitter. 
 
 
