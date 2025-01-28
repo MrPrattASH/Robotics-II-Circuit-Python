@@ -9,27 +9,20 @@ Write a python program to print `hello world!` to the serial console.
 <script src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
 
 <div data-datacamp-exercise data-lang="python">
-    {
-        "instructions": "Write a Python program to print 'Hello, World!'.",
-        "solution": "print('Hello, World!')",
-        "sct": "Ex().check_output('Hello, World!').success_msg('Great job!')",
-        "hint": "Use the print() function to display the text."
-    }
+    <pre data-type="code">
+# Task: Write a Python program to print "Hello, World!"
+    </pre>
+    
+    <pre data-type="solution">
+print("Hello, World!")
+    </pre>
+
+    <pre data-type="sct">
+Ex().check_output("Hello, World!").success_msg("Great job! 🎉")
+    </pre>
+
+    <pre data-type="hint">
+Use the print() function to display the text.
+    </pre>
 </div>
-{% endraw %}
-
-## hello micro
-
-{% raw %}
-<script src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
-
-<code data-datacamp-exercise data-lang="python">
-# Task: Write a program to print "Hello, World!"
-
-# Solution:
-# print("hello world")
-# print("hello micro")
-
-# Hint: Use the print() function to display the text.
-</code>
 {% endraw %}
