@@ -12,7 +12,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 ***
 
 ## Level 0:
-* 0.0: [Python Syntax](https://sites.google.com/view/circuitpython/tutorials/set-up/hello-python)
+* 0.0: [Python Syntax](programming_tutorials/python_basics/basics.md)
 * 0.1: [What are "Variables"?](programming_tutorials/variables/variables.md)
 * 0.2: [Forever Loops](programming_tutorials/while_true/while_true.md)
 * 1.0: [Onboard LED](programming_tutorials/digital_io/digital_io.md)

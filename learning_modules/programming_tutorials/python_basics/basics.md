@@ -14,6 +14,7 @@ Write a python program to print `hello world!` to the serial console.
 # Solution:
 # print("hello world")
 
+# Hint: Use the print() function to display the text.
 </code>
 {% endraw %}
 
