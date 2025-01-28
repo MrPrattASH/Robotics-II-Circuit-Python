@@ -1,27 +1,15 @@
-```markdown
-   # Hello world
-   test v1
-   ```
-   {% raw %}
-   ```html
-   <script src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
-   <code data-datacamp-exercise
-   data-lang="python"
-   data-height="300"
-   data-allow-download="false">
-   # === EXERCISE ===
-   # Complete the 'add' function so that it adds two numbers and returns the result.
-   def add(a, b):
-    # Type your code here
-    pass
-   # === SOLUTION ===
-   def add(a, b):
-    return a + b
-   # === SCT ===
-   Ex().has_function_calls('add').has_equal_output()
-   # === HINT ===
-   # Use the '+' operator to add two variables together.
-   </code>
-   ```
-   {% endraw %}
-   ```
+# non hidden section
+here
+
+<details>
+  <summary>Click to reveal more information</summary>
+
+  Here is the hidden content that will be revealed when you click the summary.
+
+  You can use **bold text**, *italics*, and even include [links](https://example.com) inside this section.
+
+  - List item 1
+  - List item 2
+  - List item 3
+
+</details>
