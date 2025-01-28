@@ -5,17 +5,27 @@ test v1
 {% raw %}
 <script src="https://cdn.datacamp.com/dcl-react.js.gz"></script>
 
-<h2>Self-Marking Quiz: Multiple Tasks</h2>
-<p>Complete the following tasks:</p>
+<code data-datacamp-exercise
+      data-lang="python"
+      data-height="300"
+      data-allow-download="false">
 
-<code data-datacamp-exercise data-lang="python">
-# Task 1: Print "Hello, World!"
-# Task 2: Print "Python is fun!"
+# === EXERCISE ===
+# Complete the 'add' function so that it adds two numbers and returns the result.
 
-# Solution:
-# print("Hello, World!")
-# print("Python is fun!")
+def add(a, b):
+    # Type your code here
+    pass
 
-# Hint: Use the print() function for both tasks.
+# === SOLUTION ===
+def add(a, b):
+    return a + b
+
+# === SCT ===
+Ex().has_function_calls('add').has_equal_output()
+
+# === HINT ===
+# Use the '+' operator to add two variables together.
+
 </code>
 {% endraw %}
