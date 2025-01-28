@@ -16,7 +16,7 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * 0.1: [What are "Variables"?](programming_tutorials/variables/variables.md)
 * 0.2: [Forever Loops](programming_tutorials/while_true/while_true.md)
 * 1.0: [Onboard LED](programming_tutorials/digital_io/digital_io.md)
-* 2.0: [Traceback Error Codes](https://learn.adafruit.com/welcome-to-circuitpython/interacting-with-the-serial-console)
+* 2.0: [Traceback Error Codes](programming_tutorials/traceback_error_codes/tracebacks.md)
 * 3.0: [Libraries](programming_tutorials/libraries/Libraries.md)
 * 4.0: [Conditional Statements](programming_tutorials/Selection_statements/conditonals1.md)
 * 5.0: [What are *Functions*?](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions)
