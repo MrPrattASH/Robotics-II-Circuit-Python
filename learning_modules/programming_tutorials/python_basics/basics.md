@@ -1,5 +1,12 @@
 # Basic Python Syntax
 
+# Video Tutorial
+
+{% include youtube.html id="dhD4JQTZt_Q" %}
+
+---
+# Text Tutorial
+
 ## What is a Computer Program?
 A computer program is a set of instructions that tells a robot how to perform specific tasks or respond to certain conditions. This involves receiving inputs from the environment (*such as data from sensors like cameras, microphones, or touch sensors*) that provide information about the robot's surroundings or instructions from human operators. The robot's computer then processes these inputs and determines appropriate outputs, which are actions or responses executed by the robot. Outputs could involve moving parts of the robot, navigating a space, or communicating information back to humans or other systems. Understanding how programs guide input and output is essential for students interested in robotics, as it defines how robots interact with and respond to the world around them.
 
