@@ -1,4 +1,12 @@
 # Forever Loops
+
+# Video Tutorial
+
+{% include youtube.html id="AoroF_UwLwY" %}
+
+---
+# Text Tutorial
+
 In robotics, we always run our programs forever, using iteration, or a loop. 
 
 In this first tutorial, we'll learn:

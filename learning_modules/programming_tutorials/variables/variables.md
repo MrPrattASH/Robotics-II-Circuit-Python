@@ -1,4 +1,13 @@
 # Variables in Python 
+
+# Video Tutorial
+
+{% include youtube.html id="bDqB9Apj4eQ" %}
+
+---
+# Text Tutorial
+
+
 A variable is a "bucket" that we can use to store data. In Python, we can save data like numbers, words, letters, True/False, or more types of values inside of **variables**. Much like in math, we also use variables in programming.
 ```python
 # In math:
