@@ -121,7 +121,7 @@ wallet = wallet -
 
 #print all 3 values. Don't change these print statements. They'll print first the string, then the value of the variable listed after the comma
 print("Total sum in wallet:", wallet)
-print("Total sum in Bank:, bank_account)
+print("Total sum in Bank:", bank_account)
 print("Total money all together:", total_money)
 ```
 

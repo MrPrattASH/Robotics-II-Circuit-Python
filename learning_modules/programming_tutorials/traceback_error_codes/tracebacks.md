@@ -1,5 +1,12 @@
 # Introduction to Debugging with Traceback Errors
 
+# Video Tutorial
+
+{% include youtube.html id="v7YeaI5o86Y" %}
+
+---
+# Text Tutorial
+
 When you run a piece of code and encounter an error, you'll often see a "traceback" in the serial console. This traceback provides valuable information about what went wrong, where it happened, and sometimes hints at why the error occurred.
 
 ## Understanding Traceback Errors
