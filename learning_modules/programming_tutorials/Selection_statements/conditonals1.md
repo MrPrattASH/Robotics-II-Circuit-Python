@@ -325,6 +325,7 @@ else:
 ## Practice Exercise #1
 Using the code below as a template, write a selection statement that:
 * an if statement that will print if the variable `is_touched` is True. 
+
 ```python
 is_touched = True # don't change this
 
@@ -340,6 +341,7 @@ print("The touch sensor was pressed")
 ## Practice Exercise #2
 Using the code below as a template, write a selection statement that:
 * an if/else statement that will print "touched"m if `is_touched` is `True`, and "non touched" if `is_touched` is `False`.
+
 ```python
 is_touched = False # don't change this
 
@@ -358,6 +360,7 @@ Using the code below as a template, write a selection statement that:
 * if volume is < 20, print "turn up the volume"
 * if volume is > 20 and < 50, print "just right"
 * else, print "turn it down"
+
 ```python
 volume = 24
 # write your code here vvv
