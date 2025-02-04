@@ -2,9 +2,11 @@
 Now that you know how to program a rotational servo, let's do some challenges to continue to build your knowledge. You'll need your basic rover for this challenge. 
 
 # Wiring your Rover
-Let's wire up your rover first. Don't forget your 10uF Capacitor and 0.22uF ceramic capacitor to help filter out some noise. Remember, the closer these capacitors are to your power rail jumpers, the better. 
-![rover](mars_rover_schematic.png)
-![roverjpeg](rover.jpeg)
+Let's wire up your rover first. 
+
+{% include youtube.html id="negoGKP-xZ4" %}
+
+---
 
 ## Writing User Defined Functions
 For this challenge, it will be useful to create several user defined functions. We'll step through the various challenges to create these functions. 
