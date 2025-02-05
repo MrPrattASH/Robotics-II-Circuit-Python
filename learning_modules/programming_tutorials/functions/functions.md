@@ -8,4 +8,4 @@
 ---
 # Text Tutorial
 
-Tutorial here *You may need to **right click > open in new tab***
+Tutorial [here](https://sites.google.com/view/circuitpython/tutorials/blinking-led/libraries-and-functions) *You may need to **right click > open in new tab***
