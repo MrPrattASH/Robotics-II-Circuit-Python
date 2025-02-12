@@ -11,7 +11,7 @@ drive = Drive(left=board.D0, right=board.D1)
 
 # Create a positional servo object, my_pos_servo.
 pwm0 = pwmio.PWMOut(board.D2, duty_cycle=2 ** 15, frequency=50)
-intake_servo = servo.Servo(pwm0)
+intake_servo = servo.ContinuousServo(pwm0)
 
 # Main code
 while True:
@@ -25,9 +25,9 @@ while True:
 
     if ch5 is not None:
         if ch5 == 1:  # switch up
-            intake_servo.angle = 90  # TODO: Calibrate this angle
+            intake_servo.throttle = 0.8  # TODO: Calibrate this speed + direction
         else:  # switch down
-            intake_servo.angle = 5  # TODO: Calibrate this angle
+            intake_servo.throttle = 0 
 
 
     time.sleep(0.02) # keep timer in sync with flysky receiver
