@@ -28,7 +28,7 @@ Let's write our first program. Programs are a set of instructions that get execu
 
 4. "CMD-A" to select all code, and delete, so we're starting with a fresh canvas. 
 5. on line 1, write: 
-` print("Hello Python!) `
+` print("Hello Python!") `
 6. In Mu, press on "Serial" to open your serial console. (This is what our M4 tells to us)
 ![serial](serial.png)
 7. Press "Save". 
@@ -40,7 +40,7 @@ Let's write our first program. Programs are a set of instructions that get execu
 8. You should now see in the serial console below, with your print statement
 9. Try writing and saving a few more print statements onto the code.py file like so:
 ```python
-print("hello Python!)
-print("this is line 2!)
-print("and I'm a serial console talking to you)
+print("hello Python!")
+print("this is line 2!")
+print("and I'm a serial console talking to you")
 ```
