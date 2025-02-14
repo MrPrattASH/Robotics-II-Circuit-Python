@@ -50,7 +50,7 @@ An Ultrasonic Ping sensor has three key wires:
 ![ping_wiring](ping_sensor_wiring.png)
 
 # Program Code
-Start by copying the [sonarbit.py](sonarbit_example.py) code above onto your code.py file on your Microcontroller. 
+Start by copying the [sonarbit.py](sonarbit.py) code above onto your code.py file on your Microcontroller. 
 
 ```python
 # Sonarbit_class Example
