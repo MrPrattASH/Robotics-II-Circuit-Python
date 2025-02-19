@@ -1,4 +1,4 @@
-# Arcade Drive (Servo Motors)
+# Arcade Drive (DC Motors) 
 
 There are two classic ways of controlling a 2 or 4 wheeled rover that has a tank drive drivetrain. 
 
@@ -17,11 +17,12 @@ In contrast, Arcade drive is a method of controlling the motors of a tank drive 
 ### Rover Setup
 Your rover needs the following hardware:
 - Flysky receiever
-- x2 Rotational servo motors, orientated in tank drive where x1 of the motor sides in inverted/mirrored
+- x2 DC motors OR x4 DC motors connected via y Splitter
+- RoboClaw Motor Controller (2x30A recommended)
 
 # Video Tutorial
 
-{% include youtube.html id="097uBx4V9UI" %}
+{% include youtube.html id="AsT0ODlqZmo" %}
 
 ---
 
@@ -29,22 +30,20 @@ Your rover needs the following hardware:
 
 ### Required Library
 
-Before moving forward, ensure you have the following [arcade_drive_servo.py](arcade_drive_servo.py) and [rc.py](../rc_module/rc.py) py files on your `CIRCUITPY` lib folder.
+Before moving forward, ensure you have the following [arcade_drive_dc.py](arcade_drive_dc.py) and [rc.py](../rc_module/rc.py) py files on your `CIRCUITPY` lib folder.
 
 ---
 
 ## Example Code
 
 ```python
-import board
 import time
+import board
 from rc import RCReceiver
-from arcade_drive_servo import Drive
+from arcade_drive_dc import Drive
 
 rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
-drive = Drive(left_pin=board.D2, right_pin=board.D3, left_stop=0.0, right_stop=0.0)
-
-channels = [1,2,5,6]
+drive = Drive(left=board.D0, right=board.D1)
 
 # Main code
 while True:
@@ -53,11 +52,10 @@ while True:
     throttle = rc.read_channel(2) # throttle
 
     if spin is not None and throttle is not None: # must not be None to do something with the output
-        drive.drive(spin,throttle)
-        print("spin", spin, "throttle", throttle) # move our motors arcade drive style
+        drive.drive(spin,throttle) # move our motors arcade drive style
 
 
-    time.sleep(0.02)  # Maintains sync with our 20ms cycle every loop iteration
+    time.sleep(0.02) # keep timer in sync with flysky receiver
 
 ```
 
@@ -70,7 +68,7 @@ while True:
 import board
 import time
 from rc import RCReceiver
-from arcade_drive_servo import Drive
+from arcade_drive_dc import Drive
 ```
 
 - **board**: This library provides board-specific constants to specify pins used for input and output. It's essential to identify which pins on the board connect to devices.
@@ -80,14 +78,13 @@ from arcade_drive_servo import Drive
 ### Setting Up the RC Receiver and Drive
 
 ```python
-rc = RCReceiver(ch1=board.D4, ch2=board.D5, ch3=None, ch4=None, ch5=board.D6, ch6=board.D7)
-drive = Drive(left_pin=board.D2, right_pin=board.D3, left_stop=0.0, right_stop=0.0)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
+drive = Drive(left=board.D0, right=board.D1)
 ```
 
 - The **RCReceiver** is initialized with different channels corresponding to different board pins. [full tutorial here](../learning_modules/Fly_sky_learning.md)
-- The **Drive** is set up with pins controlling the left and right servo motors. 
-    - The pwm servo objects are initialized in the library itself, not in your `code.py` file. 
-    - `left_stop` and `right_stop` values are set to zero. You can calibrate these values if you find they stop value of `0.0` is not actually causing your servo to stop. [servo stop calibration tutorial]
+- The **Drive** is set up with pins controlling the left and right DC motors. 
+    - The pwm motor objects are initialized in the library itself, not in your `code.py` file. 
 
 ### Main Code Loop
 
@@ -103,7 +100,7 @@ while True:
         drive.drive(spin, throttle)  # Moves the motors based on input
     print("spin", spin, "throttle", throttle)  # Displays the current input values
 
-    time.sleep(0.02)  # Maintains sync with our 20ms cycle every loop iteration
+    time.sleep(0.02) # Maintains sync with our 20ms cycle every loop iteration
 ```
 
 - **Reading Channels**: The code reads channel 1 for `spin` and channel 2 for `throttle` to get joystick input.
@@ -114,4 +111,4 @@ while True:
 
 ## Conclusion
 
-This code effectively allows for controlling a robot using an RC receiver and servo motors. It's crucial to ensure that the pins and channels are correctly configured to match your hardware setup.
+This code effectively allows for controlling a robot using an RC receiver and DC motors. It's crucial to ensure that the pins and channels are correctly configured to match your hardware setup.

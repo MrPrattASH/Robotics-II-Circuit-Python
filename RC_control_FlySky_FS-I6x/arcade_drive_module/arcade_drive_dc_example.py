@@ -1,7 +1,7 @@
 import time
 import board
 from rc import RCReceiver
-from arcade_drive import Drive
+from arcade_drive_dc import Drive
 
 rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
 drive = Drive(left=board.D0, right=board.D1)

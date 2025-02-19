@@ -1,12 +1,6 @@
 # CircuitPython - FlySky FS-I6X Controller - FS-iA6B Reciever
 This page will show you how to use the rc.py library for controlling a FlySky FS-i6(X) controller with an FS-iA6B reciever in circuitpython. 
 
-## Tutorials
-* [Transmitter & Receiver Wiring/Controls](fly_sky_wiring.md)
-* [Reading Joystick Tutorial](joystick_learning.md)
-* [Reading 2way Switch Tutorial](2way_learning.md)
-* [Reading 3way Switch Tutorial](3way_learning.md)
-
 ***
 
 # Video Tutorial
@@ -23,9 +17,36 @@ This page will show you how to use the rc.py library for controlling a FlySky FS
 
 ***
 
-### Program Breakdown
+### Program Breakdown (Simplified)
 
-py file [here](../rc_module/rc_example.py)
+```python
+import time
+import board
+from rc import RCReceiver
+
+# Initialize the receiver with designated pins for channels
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
+
+
+# Main code loop
+while True:
+    x = rc.read_channel(1)
+    y = rc.read_channel(2)
+    ch5 = rc.read_channel(ch5)
+    ch6 = rc.read_channel(ch6)
+                
+    # Print the channel values to the console
+    print("Ch 1:", x, "Ch 2:", y, "Ch 5:", ch5, "Ch 6:", ch6)
+
+    time.sleep(0.02) # add a minor sleep to keep in time with PWM cycle
+
+```
+
+*** 
+
+### Program Breakdown (List Version - Mars Rovers)
+
+python example file [here](../rc_module/rc_example.py)
 
 ```python
 import time
@@ -62,6 +83,8 @@ while True:
                 
     # Print the channel values to the console
     print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
+
+    time.sleep(0.02) # add in a minor sleep to keep in time with PWM cycle. 
 
 ```
 
@@ -165,6 +188,13 @@ print("Ch 1:", x, "Ch 2:", y, "Ch 5:", sw_b, "Ch 6:", sw_c)
 
 The `print` statement outputs the values of channels 1, 2, 5, and 6 to the serial console. 
 
+*** 
 
+## Individual Component Tutorials
+If you're interested in how all these individual components work, check out these tutorials. 
+* [Transmitter & Receiver Wiring/Controls](fly_sky_wiring.md)
+* [Reading Joystick Tutorial](joystick_learning.md)
+* [Reading 2way Switch Tutorial](2way_learning.md)
+* [Reading 3way Switch Tutorial](3way_learning.md)
 
 
