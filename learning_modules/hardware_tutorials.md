@@ -38,11 +38,9 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * [Positional Servos](physical_component_tutorials/servo_motors/PositionalServos.md)
     * [*Mars Rovers* Challenges](physical_component_tutorials/servo_motors/PositionalServoChallenges_Mars.md)
 
-## Arcade Drive RC Controller
-* [Arcade Drive *Servo*](../RC_control_FlySky_FS-I6x/arcade_drive_module/ArcadeDrive_learning.md)
-
-## DC Motors
-Coming soon. 
+## Arcade Drive w/ FlySky RC Controller 
+* [*Servo Motors (Mars Rovers)*](../RC_control_FlySky_FS-I6x/arcade_drive_module/ArcadeDrive_learning.md)
+* [* DC Motors (Elevation Engineering)*](../RC_control_FlySky_FS-I6x/arcade_drive_module/ArcadeDrive_learning_DC.md)
 
 *** 
 
