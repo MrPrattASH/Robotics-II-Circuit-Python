@@ -1,51 +1,58 @@
 # For Loops with Ranges in Python
 
-In this tutorial, we'll learn about:
-* What a `for` loop is, and how it differs from a `while True:` loop
-* How `for` loops can be used to repeat actions a specific number of times.
-Let's try the difference between a single line program and a `for` loop.
+In Python programming, the `for i in range` loop is a fundamental construct that allows you to iterate over a sequence of numbers, executing a block of code multiple times efficiently. This is similar to the `while True` loops we have previously explored, but with more control over the number of repetitions and better readability.
 
-### Single Line Program
-1. Connect the M4 to your computer, and load *code.py*
-2. On line 1, write:
+## Understanding `for i in range` Loops
+
+In Python, `for i in range` is commonly used with the `range()` function, which generates a sequence of numbers. Here's a basic structure, copy and paste this into your code.py file and observe the output in your serial console:
 
 ```python
-print("this is a non-looped program")
-```
-
-3. Open the serial console.
-4. Save this program and observe the serial output. You'll notice you should see a `code done running` line in your Serial console. 
-
----
-
-### For Loop
-1. Delete all existing code.
-2. Write in this code:
-
-```python
+# Using a 'for' loop with 'range' to repeat an action
 for i in range(5):
-    print("this is in a loop!")
+    print("This is iteration number:", i)
 ```
 
-3. Open the serial console.
-4. Save this program and observe the serial output.
+- **Loop Definition:** `for i in range(5):` This line defines a loop that will iterate five times. The loop variable `i` starts at 0 and goes up to 4 (one less than the number provided).
+- **Repeating Actions:** `print("This is iteration number:", i)` The loop repeats this action, updating the loop variable `i` each time.
 
-## Examining a For Loop:
-You've likely noticed by now that the statement is printed five times. That's what the `for i in range(5):` statement does. Let's examine this:
-* The word "for" initiates a loop. This loop will run a specific number of times as defined.
-* The variable `i` is a counter. It will take values from 0 up to 4 in our case (5 values in total because `range(5)` gives us numbers 0, 1, 2, 3, 4).
-* The `range(5)` function provides a sequence of numbers from 0 to 4.
-* The colon `:` signifies to the computer that the statement is over and the loop body begins. Similar to how we write `if x is True` statements.
-* Much like the indentation in the bullet points here, anything that is indented within the `for` loop will run for each value in the range.
+### Parameters of `range()`
 
-Try running the following code to see the counter `i` value throughout loop interations:
+The `range()` function can take different parameters to tailor the sequence of numbers:
+
+1. **Single Parameter:** `range(stop)` generates numbers from 0 up to (but not including) `stop`.
+2. **Two Parameters:** `range(start, stop)` generates numbers from `start` to `stop` (excluding `stop`).
+3. **Three Parameters:** `range(start, stop, step)` generates numbers from `start` to `stop`, incrementing by `step`. If `step` is negative, the numbers will decrement.
+
+Here's how these parameters can be used:
 
 ```python
-for i in range(3):
-    print("Loop iteration number:", i)
+# Numbers from 0 to 4
+for i in range(5):
+    print(i)
+
+# Numbers from 2 to 5
+for i in range(2, 6):
+    print(i)
+
+# Numbers from 10 to 1, decreasing by 2
+for i in range(10, 0, -2):
+    print(i)
 ```
 
----
+## Practice 1
+
+1. Experiment with `range()` by running this code:
+
+```python
+for i in range(1, 10, 2): 
+    print("Odd number:", i)
+```
+
+How does changing the parameters modify the output sequence?
+
+## Applying `for` Loops in Robotics
+
+In robotics, loops are essential for repeated actions like moving a robot forward or reading sensor data multiple times. 
 
 ## Using Delays in For Loops:
 We can also use time delays in `for` loops just like in `while` loops to see the iteration more clearly. *This is generally advised for debugging purposes, but not super helpful for when we're actually running code, unless the `time.sleep()` value in minimal*. 
@@ -61,87 +68,73 @@ for i in range(5):
 print("The loop has finished")
 ```
 
-## For Loops and While True Loops
-A `for` loop lets us run a block of code a specific number of times. Unlike a `while True:` loop, which runs forever, a `for` loop ends after a predetermined number of iterations. This can be useful when you need to repeat actions a set number of times rather than indefinitely. We can even nest in `for` loops inside of our `while True:` loop. 
+### Example: Moving a Robot Forward
 
-1. Delete all existing code. 
-2. Write and run the following code:
+Assume you have a function `move_forward(steps)` that moves the robot forward by a given number of steps. You can use `for` loops to move the robot a specific way:
 
 ```python
-import time
-
-print("starting main loop")
-while True:
-    for i in range(5):
-        print("This is in a loop! We're on interation number:", i)
-        time.sleep(1)
-    print("The loop has finished. Notice how 'i' will now reset back to '0'")
-    time.sleep(1)
+# Move the robot forward 5 steps, 3 times
+for i in range(3):
+    move_forward(5)
 ```
 
-3. Observe the serial output. 
+## Challenge 1: Looping for Tasks
 
---- 
-
-## For Loops: 2 Arguments (Start & Stop)
-a `for` loop can also take more than a single arguement. Up to this point, we've been playing with a single arguement:
+Use a `for` loop to simulate a robot lifting objects repeatedly. Each lift takes one unit of energy, and you want the robot to lift 4 objects.
 
 ```python
-for i in range(10):
-    print(i)
-    time.sleep(0.5)
+# Define a function 'lift_object()' that prints "Object lifted". This will be a placeholder statement
+def
+# Use a 'for' loop to call 'lift_object()' 4 times
 ```
 
-* in this example, we increase our `i` iterater variable by 1 every time.
-* we also always start at `0` for our loop. 
+<details>
+<summary>Click to reveal a hint</summary>
+<pre><code>
+# Create the function with 'def lift_object():' and inside, use 'print("Object lifted")'.
+# Use 'for i in range(4):' to call the function multiple times.
+</code></pre>
+</details>
 
-Let's try something different: 
-```python
-for i in range(0, 10):
-    print(i)
-    time.sleep(0.5)
-```
+## Challenge 2: Countdown for Launch
 
-* did you notice a difference in the output? What has changed in our arguments? 
-
----
-
-We have 2 arguments now, rather than always starting from `0`, we can say what number to start from, and what number to end at. Observe:
+Create a countdown from 10 to 1 before a robot launch using a loop.
 
 ```python
-for i in range(5, 10):
-    print(i)
-    time.sleep(0.5)
+# Use a 'for' loop to count down from 10 to 1
+for
+    # Print each number in the countdown
+# Print "Launch!" after the loop
 ```
 
-* what number did we start at this time? 
+<details>
+<summary>Click to reveal a hint</summary>
+<pre><code>
+# Use 'for i in range(10, 0, -1)' for counting down from 10 to 1.
+# Ensure you print "Launch!" outside of the loop.
+</code></pre>
+</details>
 
----
+## Challenge 3: Adjusting Parameter Values
 
-## For Loops: 3 Arguments (Start, Stop, Iterater)
-Lets try 3 arguments:
+Your task is to create a loop that modifies the speed of the robot incrementally from 1 to 5 units.
 
 ```python
-for i in range(0, 10, 2):
-    print(i)
-    time.sleep(0.5)
+# Assume a function 'set_speed(speed)' sets the robot's speed
+def set_speed(speed):
+    print("speed", speed, "set!")
+
+# Use a 'for' loop to increase speed from 1 to 5
+for
+    # Call 'set_speed(speed)' inside the loop
 ```
 
-* What was the print output this time?
-* the third argument, `2`, is our step iterator. Rather than stepping by 1 each iteration or loop, now we are stepping by 2! 
+<details>
+<summary>Click to reveal a hint</summary>
+<pre><code>
+# Iterate with 'for speed in range(1, 6):' to change the speed from 1 to 5 inclusive.
+# Call 'set_speed(speed)' within each iteration of the loop.
+</code></pre>
+</details>
 
-Lets look at a few more examples:
-
-Example 1: Count by 5's
-```python
-for i in range(0, 50, 5):
-    print(i)
-    time.sleep(0.5)
-```
-
-Example 2: Reverse counting down
-```python
-for i in range(10, 0, -1):
-    print(i)
-    time.sleep(0.5)
-```
+As you practice more, you'll appreciate the power and flexibility these loops provide!
