@@ -82,7 +82,7 @@ rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12,
 drive = Drive(left=board.D0, right=board.D1)
 ```
 
-- The **RCReceiver** is initialized with different channels corresponding to different board pins. [full tutorial here](../learning_modules/Fly_sky_learning.md)
+- The **RCReceiver** is initialized with different channels corresponding to different board pins. 
 - The **Drive** is set up with pins controlling the left and right DC motors. 
     - The pwm motor objects are initialized in the library itself, not in your `code.py` file. 
 

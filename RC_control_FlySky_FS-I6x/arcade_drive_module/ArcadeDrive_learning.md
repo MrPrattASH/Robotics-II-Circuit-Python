@@ -84,7 +84,7 @@ rc = RCReceiver(ch1=board.D4, ch2=board.D5, ch3=None, ch4=None, ch5=board.D6, ch
 drive = Drive(left_pin=board.D2, right_pin=board.D3, left_stop=0.0, right_stop=0.0)
 ```
 
-- The **RCReceiver** is initialized with different channels corresponding to different board pins. [full tutorial here](../learning_modules/Fly_sky_learning.md)
+- The **RCReceiver** is initialized with different channels corresponding to different board pins. 
 - The **Drive** is set up with pins controlling the left and right servo motors. 
     - The pwm servo objects are initialized in the library itself, not in your `code.py` file. 
     - `left_stop` and `right_stop` values are set to zero. You can calibrate these values if you find they stop value of `0.0` is not actually causing your servo to stop. [servo stop calibration tutorial]
