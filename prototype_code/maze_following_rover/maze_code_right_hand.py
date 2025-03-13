@@ -8,9 +8,19 @@ from adafruit_motor import servo
 """ PINOUTS
 # D0 left servo
 # D1 right servo
-# D2 Distance sensor front
-# D3 Distance sensor right
+# D2 Distance sensor right
+# D3 Distance sensor front
 """
+
+''' algorithm
+1. Check the Right Sensor:
+    1a. If the right sensor detects no wall, turn right + move forward 30*cm.
+    1b. If the right sensor detects a wall, proceed to check the front sensor.
+        2. Check the Front Sensor:
+            2a. If the front sensor detects no wall, move forward 30cm*.
+            2b. If the front sensor detects a wall, turn around (180 degrees). 
+
+'''
 
 # ---------------- INIT HARDWARE ----------------
 # servos
@@ -37,12 +47,12 @@ def stop_rover():
     print("stop")
     servo_1.throttle = 0
     servo_2.throttle = 0
-    time.sleep(2.0)
+    time.sleep(0.5)
 
 def right():
     print("right")
-    servo_1.throttle = -0.5
-    servo_2.throttle = -0.6
+    servo_1.throttle = -0.45
+    servo_2.throttle = -0.3
     time.sleep(0.75)
 
 def u_turn():
