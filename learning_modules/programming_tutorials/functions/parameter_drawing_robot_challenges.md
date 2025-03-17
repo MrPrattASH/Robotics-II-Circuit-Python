@@ -4,7 +4,10 @@ Welcome to the Drawing Robot Challenge! This challenge will get you to practice 
 
 # Video Tutorial
 
-This video tutorial, use the "Chapters" function to skip ahead and watch the marker mounting section. Later on in the challenges, if you get stuck, come back and watch through the remainder of the video. 
+This video tutorial, **you do not need to watch the entire vide**
+* Use the "Chapters" function to skip ahead and watch the marker mounting section. 
+* After mounting your marker, move on to the challenges below. 
+* *If you get stuck on these challenges, come back and watch through the remainder of the video.*
 
 {% include youtube.html id="eVwYuASxglM" %}
 
