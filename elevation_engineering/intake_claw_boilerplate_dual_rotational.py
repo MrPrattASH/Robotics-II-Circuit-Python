@@ -4,6 +4,7 @@ import time
 import board
 from rc import RCReceiver
 from arcade_drive import Drive
+import pwmio
 from adafruit_motor import servo
 
 rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
