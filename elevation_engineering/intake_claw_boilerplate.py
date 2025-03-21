@@ -3,7 +3,7 @@
 import time
 import board
 from rc import RCReceiver
-from arcade_drive import Drive
+from arcade_drive_dc import Drive
 import pwmio
 from adafruit_motor import servo
 
