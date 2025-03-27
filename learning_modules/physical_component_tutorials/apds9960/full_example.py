@@ -12,7 +12,7 @@ while True:
     
     line = sensor.proximity # no parenthesis
     r,g,b,c = sensor.color_data
-    print("prox", line, "Red: {0}, Green {1}, Blue: {2}, Clear: {3}".format(r,g,b,c))
+    print("prox", line, "Red:", r, "Green:", g , "Blue:", b, "Clear:", c)
     
     gesture = sensor.gesture()
     #print("Raw gesture data:", gesture)

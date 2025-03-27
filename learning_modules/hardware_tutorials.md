@@ -50,3 +50,9 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
 * [FlySky FS-i6x Radio Receiver & Transmitter](../RC_control_FlySky_FS-I6x/learning_modules/Fly_sky_learning.md)
 * [Analog Sensors - Line Sensor Example](physical_component_tutorials/analog_in/analog_io_learning.md)
     * [*Mars Rovers* Line Sensor Challenges](physical_component_tutorials/analog_in/line_sensor_challenges.md)
+* ADPS-9960 Proximity, Colour, & Gesture Sensor
+    * [Colour Sensing Mode](physical_component_tutorials/apds9960/colour_mode.md)
+    * [Proximity Sensing Mode](physical_component_tutorials/apds9960/proximity.md)
+
+# External Screen Tutorials
+* 128x64 OLED (Mono & Non-Mono Variants)
