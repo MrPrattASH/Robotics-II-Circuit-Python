@@ -2,7 +2,7 @@
 
 # Video Tutorial
 
-{% include youtube.html id="jhezHeDwAHo" %}
+{% include youtube.html id="nHECoycpmEY" %}
 
 ***
 # Text Tutorial
@@ -17,7 +17,7 @@ Before beginning, you will need 3 relevant libraries that will do a lot of the h
 ## Wiring Diagram
 ![oled](https://user-images.githubusercontent.com/101632496/187387302-fb97456a-efc9-4922-b8dd-6fb14d7c4ccb.png)
 * We will use this board in i2C mode, NOT SDI mode
-* Use 3.3V only, connected to VIN pin.
+* Use 3.3V from the microcontroller. 
 
 It's easy to use OLEDs with Python and the Adafruit CircuitPython DisplayIO SSD1306 module. This module allows you to easily write Python code to control the display.
 
@@ -30,6 +30,7 @@ import board
 import displayio
 import terminalio
 import adafruit_displayio_ssd1306
+import time
 
 displayio.release_displays()
 

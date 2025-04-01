@@ -14,7 +14,7 @@ In this tutorial, you'll learn how to use the APDS-9960 sensor in proximity mode
 To wire the APDS-9960 sensor using StemmaQT, follow these steps:
 
 1. **Connect the Blue Wire (Data):** Connect the blue wire to the data (SDA) pin on your microcontroller board.
-2. **Connect the Yellow Wire (Data):** Connect the yellow wire to the clock (SCL) pin on your microcontroller board.
+2. **Connect the Yellow Wire (Clock):** Connect the yellow wire to the clock (SCL) pin on your microcontroller board.
 3. **Power and Ground:**
    - Connect the red wire to the 3.3V or 5V power pin.
    - Connect the black wire to the ground (GND) pin.

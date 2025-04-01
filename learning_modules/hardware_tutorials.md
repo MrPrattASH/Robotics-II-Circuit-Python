@@ -55,4 +55,4 @@ Start with the Basics, then move on from there. You'll notice that Level 1 tutor
     * [Proximity Sensing Mode](physical_component_tutorials/apds9960/proximity.md)
 
 # External Screen Tutorials
-* 128x64 OLED (Mono & Non-Mono Variants)
+* [128x64 OLED (Mono & Non-Mono Variants)](physical_component_tutorials/OLED_screen_128x64/oled.md)
