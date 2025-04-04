@@ -57,6 +57,7 @@ I2C (Inter-Integrated Circuit) is a communication protocol commonly used in micr
 ## Code Example
 
 Here's a basic code example to get started with the APDS-9960 sensor in color mode:
+Ensure you have the [adafruit_adps9960](../../../circuit_python_libraries/lib/adafruit_apds9960/) library on your `CIRCUITPY` Lib folder. 
 
 ```python
 
