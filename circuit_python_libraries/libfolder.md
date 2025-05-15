@@ -20,7 +20,8 @@ If you forgot how to add libraries, see [this tutorial](../learning_modules/prog
 Click on each respective file link to download the correct folder/file
 * [rc.py](../RC_control_FlySky_FS-I6x/rc_module/rc.py)
 * [arcade_drive_servo.py](../RC_control_FlySky_FS-I6x/arcade_drive_module/arcade_drive_servo.py)
-* [sonarbit.py](lib/sonarbit.py)
+* [arcade_drive_dc.py](../RC_control_FlySky_FS-I6x/arcade_drive_module/arcade_drive_dc.py)
+* [sonarbit.py](../learning_modules/physical_component_tutorials/ping_sensor/sonarbit.py)
 * [timer.py](../learning_modules/programming_tutorials/timer/timer.py)
 * [adafruit_display_text](lib/adafruit_display_text/)
 * [adafruit_displayio_ssd1306.mpy](lib/adafruit_displayio_ssd1306.mpy)

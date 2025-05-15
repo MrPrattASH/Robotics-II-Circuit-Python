@@ -12,6 +12,7 @@ class RCReceiver:
 
     @staticmethod
     def correct_pulse(high_pulse, low_pulse, channel, ch5_mode):
+
         if high_pulse > 2050:
             high_pulse, low_pulse = low_pulse, high_pulse
 
@@ -20,6 +21,7 @@ class RCReceiver:
             if 46 < high_pulse_scaled < 54:
                 high_pulse_scaled = 50
         elif channel == 5:
+            #print(high_pulse)
             if ch5_mode == "switch":
                 high_pulse_scaled = 0 if high_pulse < 1500 else 1
             else: # using a pot as a channel
@@ -44,9 +46,14 @@ class RCReceiver:
 
     def read_channel(self, channel, timeout=0.1, ch5_mode="switch"):
         high_pulse = None
+
         index = channel - 1
-        if channel in [5, 6]:
-            index = channel - 3
+        if len(self.pwm_ins) > 4:  # we're using channel 3:
+            if channel in [5, 6]:
+                index = channel - 2
+        else:
+            if channel in [5, 6]:
+                index = channel - 3
         if index < 0 or index >= len(self.pwm_ins):
             print(f"Channel {channel} is not active")
             return None
@@ -64,6 +71,7 @@ class RCReceiver:
                 time.sleep(0.005)
             
             high_pulse, low_pulse = pwm_in[0], pwm_in[1]
+            #print(high_pulse)
             high_pulse, low_pulse = self.correct_pulse(high_pulse, low_pulse, channel, ch5_mode)
             pwm_in.clear()
 
