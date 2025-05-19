@@ -38,7 +38,8 @@ oled_reset = board.D9
 
 # Use for I2C
 i2c = board.I2C()
-display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=oled_reset)
+display_bus = I2CDisplayBus(i2c, device_address=0x3C) # or 0x3d
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=32)
 
 WIDTH = 128
 HEIGHT = 64  # Change to 32 if needed
@@ -84,7 +85,8 @@ We set the I2C object to the board's I2C with the easy shortcut function board.I
 
 # Use for I2C
 i2c = board.I2C()
-display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=oled_reset)
+display_bus = I2CDisplayBus(i2c, device_address=0x3C) # or 0x3d
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=32)
 ```
 
 In order to make it easy to change display sizes, we'll define a few variables in one spot here. We have the display width, the display height and the border size, which we will explain a little further below. If your display is something different than these numbers, change them to the correct setting.
