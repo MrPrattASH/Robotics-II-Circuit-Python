@@ -29,23 +29,18 @@ To demonstrate the usage, we'll initialize the library and use Python code to co
 import board
 import displayio
 import terminalio
-import adafruit_displayio_ssd1306
 import time
+from i2cdisplaybus import I2CDisplayBus
+import adafruit_displayio_ssd1306
 
+#releases current displays if any were initialized before setup 
 displayio.release_displays()
-
-oled_reset = board.D9
 
 # Use for I2C
 i2c = board.I2C()
-display_bus = I2CDisplayBus(i2c, device_address=0x3C) # or 0x3d
-display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=32)
+display_bus = I2CDisplayBus(i2c, device_address=0x3d) # or 0x3d
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
 
-WIDTH = 128
-HEIGHT = 64  # Change to 32 if needed
-BORDER = 5
-
-display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=WIDTH, height=HEIGHT)
 
 for i in range(5):
     print("index:", i)
@@ -63,6 +58,8 @@ Let's take a look at the sections of code one by one. We start by importing the 
 import board
 import displayio
 import terminalio
+import time
+from i2cdisplaybus import I2CDisplayBus
 import adafruit_displayio_ssd1306
 ```
 
@@ -72,33 +69,17 @@ Next we release any previously used displays. This is important because if the m
 
 displayio.release_displays()
 ```
-Next we define the reset line, which will be used for either SPI or I2C.
-
-```python
-
-oled_reset = board.D9
-```
-
-We set the I2C object to the board's I2C with the easy shortcut function board.I2C(). By using this function, it finds the SPI module and initializes using the default SPI parameters. We also set the display bus to I2CDisplay which makes use of the I2C bus.
 
 ```python
 
 # Use for I2C
 i2c = board.I2C()
-display_bus = I2CDisplayBus(i2c, device_address=0x3C) # or 0x3d
-display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=32)
+display_bus = I2CDisplayBus(i2c, device_address=0x3d) # or 0x3d
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=128, height=64)
 ```
 
 In order to make it easy to change display sizes, we'll define a few variables in one spot here. We have the display width, the display height and the border size, which we will explain a little further below. If your display is something different than these numbers, change them to the correct setting.
 
-```python
-
-WIDTH = 128
-HEIGHT = 64    
-BORDER = 5
-```
-
-Finally, we initialize the driver with a width of the WIDTH variable and a height of the HEIGHT variable. If we stopped at this point and ran the code, we would have a terminal that we could type at and have the screen update.
 
 ```python
 for i in range(5):
