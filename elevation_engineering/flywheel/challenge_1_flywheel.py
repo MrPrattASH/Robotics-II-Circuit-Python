@@ -10,8 +10,6 @@ from arcade_drive_dc import Drive
 # for each, set values higher or lower depending on your tests
 FLYWHEEL_GOAL_RPM = 300 
 
-GATE_OPEN_TIME = 0.25
-
 
 
 
@@ -30,6 +28,7 @@ RECOVERY_THRESHOLD = 0.95   # % of max RPM considered "recovered"
 STOP = 1.520 # motor stop command
 FULL_FORWARD = STOP + .400 # motor max fwd 
 FULL_REVERSE = STOP - .400 # motor max rev
+GATE_OPEN_TIME = 0.25
 
 # === P control setup ===
 Kp = 0.001
