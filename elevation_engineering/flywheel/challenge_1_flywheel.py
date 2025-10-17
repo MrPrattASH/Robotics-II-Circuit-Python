@@ -8,7 +8,7 @@ from arcade_drive_dc import Drive
 
 # === TODO CHANGES ===
 # for each, set values higher or lower depending on your tests
-FLYWHEEL_GOAL_RPM = 300 
+FLYWHEEL_GOAL_RPM = 900 
 
 
 
@@ -22,7 +22,7 @@ rc = rc.RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2,
 drive = Drive(left=board.D10, right=board.D11) # init's motors like flywheel_left TC3 Timer
 
 # === CONFIG ===
-ENCODER_TICKS_PER_REV = 112  # Flywheel motor encoder ticks @ 6K RPM motor
+ENCODER_TICKS_PER_REV = 28  # Flywheel motor encoder ticks @ 6K RPM motor
 SAMPLE_INTERVAL = 0.1       # seconds per measurement window
 RECOVERY_THRESHOLD = 0.95   # % of max RPM considered "recovered"
 STOP = 1.520 # motor stop command
