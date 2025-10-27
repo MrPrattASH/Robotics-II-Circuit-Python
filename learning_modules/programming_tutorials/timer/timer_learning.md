@@ -205,7 +205,38 @@ while True:
 <details>
  <summary>Click to reveal my solution</summary>
 <pre><code>
-# Use arithmetic operators for changing values and shorthand for assignments such as += and -=.
+while True:
+    now = time.monotonic()
+    distance = distance_sensor.get_distance(prev_distance)
+    throttle = rc.read_channel(1)
+    spin = rc.read_channel(2)
+    
+    if distance < 10 and not forklift_start: #lift up arm if we get too close
+        forklift_start = True
+        forklift_timer.set_timer(now, now + forklift_sweep_full_timer)
+        sweep_timer.set_timer(now, now + forklift_sweep_step)
+    else: #return the arm to rest
+        forklift_angle = 0
+        forklift_start = False
+    
+    if forklift_start:
+        sweep_end = forklift_timer.check_timer()
+        sweep_step_end = sweep_timer.check_timer()
+
+        if sweep_end:
+            forklift_angle = forklift_sweep_end_angle
+        else:
+            if sweep_step_end:
+                forklift_angle += 5 # add 5 to sweep angle
+                sweep_timer.set_timer(now, now + forklift_sweep_step)
+
+
+
+    drive.drive(spin, throttle) # call drive motors
+
+    forklift.angle = forklift_angle # tell our servo what angle to go to once per loop. 
+    prev_distance = distance
+    time.sleep(0.2) # small sleep to stay in time with RC flysky controller
 </code></pre>
 </details>
 
