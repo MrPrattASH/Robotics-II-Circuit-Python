@@ -33,4 +33,4 @@ Click on each respective file link to download the correct folder/file
 * [neopixel.mpy](lib/neopixel.mpy)
 * [simpleio.mpy](lib/simpleio.mpy)
 * [adafruit_adps9960](lib/adafruit_apds9960/)
-* [circuitPyHuskyLib](lib/circuitPyHuskyLib.py)
+* [circuitPyHuskyLib](../CircuitPython-HuskyLens/circuitPyHuskyLib.py)
