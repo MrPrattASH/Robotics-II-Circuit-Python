@@ -12,6 +12,9 @@ HuskyLens is an easy-to-use AI machine vision sensor with 7 built-in functions: 
 * 3	-:	GND	Negative (0V)
 * 4	+:	VCC	Positive (3.3~5.0V)
 
+## NEVER PLUG IN THE HUSKY LENS WHILE POWERED. 
+The ports are not "hot-swappable", meaning you will break the T/X connectors. 
+
 ## Buttons
 There are two buttons on the HuskyLens, the function button and the learning button. The basic operations of these two buttons are shown as follows:
 
@@ -66,7 +69,7 @@ import board
 import time
 from circuitPyHuskyLib import HuskyLensLibrary
 
-hl = HuskyLensLibrary('I2C', TX=board.SDA, RX=board.SCL)
+hl = HuskyLensLibrary('I2C', SDA=board.SDA, SCL=board.SCL)
 hl.algorithm("ALGORITHM_FACE_RECOGNITION") # Redirect to Face Recognition Function
 
 
@@ -78,7 +81,6 @@ while True:
     else:
         print("no faces detected")
         
-    pixel.show() # turn on NeoPixel
     time.sleep(0.5)
 
 ```

@@ -83,7 +83,7 @@ while True:
     else:
         print("catapult still running!")
 
-
+    time.sleep(0.02) #minor sleep to stop runaways.
 ```
 
 ### Experiment
@@ -98,6 +98,8 @@ You can also restart timers throughout the while true loop. Let's assume you hav
 feeder_timer = Timer()
 feeder_timer_end = false
 
+feeder_timer.set_timer(time.monotonic(), time.monotonic()) # create an empty timer. 
+
 while True:
     now = time.monotonic() #get current time
     ch5 = rc.read_channel(5)
@@ -110,6 +112,7 @@ while True:
         if feeder_timer_end:
             print("Timer done!")
 
+    time.sleep(0.02) #minor sleep to stop runaways. 
 ```
 
 ### Experiment
@@ -149,7 +152,7 @@ while True:
     drive.drive(spin, throttle) # call drive motors
 
     prev_distance = distance
-    time.sleep(0.2) # small sleep to stay in time with RC flysky controller
+    time.sleep(0.02) # small sleep to stay in time with RC flysky controller
     
 ```
 
@@ -236,7 +239,7 @@ while True:
 
     forklift.angle = forklift_angle # tell our servo what angle to go to once per loop. 
     prev_distance = distance
-    time.sleep(0.2) # small sleep to stay in time with RC flysky controller
+    time.sleep(0.02) # small sleep to stay in time with RC flysky controller
 </code></pre>
 </details>
 

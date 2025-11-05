@@ -14,7 +14,14 @@ Point the HuskyLens at any faces. When a face is detected, it will be automatica
 
 ![SingleFaceDetection](images/face2.png)
 
-At this point, you should take a selfie of yourself, then train off of this image, rather than a live view. 
+At this point, you have 2 options. 
+1. Selfie on computer screen: you may take a selfie of yourself, then train off of this image, rather than a live view. note, The husky lens is less accurate when viewing off a computer screen, due to pixel lighting complexities. 
+2. train on your face using a partner + using the on RGB LED above the husky lens camera. 
+3. Use your computer's camera to view the husky lens while training. 
+- The RGB LED indicator is used to indicate the status of the face recognition function. Its colors are defined as:
+    - Blue:	Detected a face, but not learned
+    - Yellow:	Learning the new face
+    - Green:	Recognized a learned face
 
 ### 2. Face Learning: Single Angle:
 Point the “+” symbol at a face, short press the "learning button" to learn the face. If the same face is detected by HuskyLens, a blue frame with words "Face: ID1" will be displayed on the screen，which indicates that HuskyLens has learned the face and can recognize it now.
@@ -45,7 +52,9 @@ When HuskyLens is in the face recognition mode, short press the "learning button
 
 #### Learn your face from multiple angles
 
-Keep holding down the “learning button”, point HuskyLens' "+" symbol at different angles of the face. During this process, a yellow frame with words "Face: ID1" will be displayed on the screen, which indicates HuskyLens is learning the face. Please point the yellow frame at different angles of the same person's face, such as front face and side face (or multiple photos of the same person), to enter all angles of this person's face.
+Press and hold down the "learning button". Keep holding down the “learning button”, point HuskyLens' "+" symbol at different angles of the face. (rotate your face in front of the husky lens)
+
+During this process, a yellow frame with words "Face: ID1" will be displayed on the screen, which indicates HuskyLens is learning the face. Please point the yellow frame at different angles of the same person's face, such as front face and side face (or multiple photos of the same person), to enter all angles of this person's face.
 
 Then you can release the "learning button" to finish the learning. When Huskylens detected the learned face, a blue frame with words "Face: ID1" will be displayed, now HuskyLens can recognize the face from different angles.
 
@@ -67,25 +76,21 @@ import board
 import time
 from circuitPyHuskyLib import HuskyLensLibrary
 
-hl = HuskyLensLibrary('I2C', TX=board.SCL, RX=board.SDA)
+hl = HuskyLensLibrary('I2C', SDA=board.SDA, SCL=board.SCL)
 hl.algorithm("ALGORITHM_FACE_RECOGNITION") # Redirect to Face Recognition Function
-
-# Assign different color to different ID r,g,b format
-color = {1:(30,0,0)}
 
 while True:
     results = hl.learnedBlocks() # Only get learned results (recognized face)
     
     if results: # if result not empty
-        # print out all current data known about the block
-        print("ID:", results[0].ID)
-        print("Learned:", results[0].learned)
-        print("X:", results[0].x)
-        print("Y:", results[0].y)
-        print("Width:", results[0].width)
-        print("Height:", results[0].height)
-    else:
-        print("No recognized face detected")
+        for i in results:
+            if i.ID == 0:
+            # print out all current data known about the block
+                print("Learned:", i.learned)
+                print("X:", i.x)
+                print("Y:", i.y)
+                print("Width:", i.width)
+                print("Height:", i.height)
 
     time.sleep(0.5)
 ```
