@@ -77,7 +77,7 @@ while True:
     results = hl.blocks() # Get All type=BLOCK results (any valid "face" results)
     
     if results: # if result not empty
-        print("Detected face count:", {len(results)}) #count how many faces were returned
+        print("Detected face count:", {len(results)}) #count how many LEARNED faces were returned
     else:
         print("no faces detected")
         

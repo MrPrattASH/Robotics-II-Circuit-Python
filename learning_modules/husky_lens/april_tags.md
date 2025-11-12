@@ -133,23 +133,29 @@ We can also measure distance to our target, *provided we are looking straight on
 >
 > 110cm max reliable detection distance
 
+200mm^2 tags
+- 34cm min distance, max 235.5
+- D(cm) A, pixels
+- 34, 21316
+- 50, 9604
+- 100, 2400
+- 150, 1024
+- 200, 676
+- 235.5, 440
+
+
 We can use the following function to get our distance from the target. 
 - `width`: `block.width` attribute, in pixels
 - `height`: `block.height` attribute, in pixels
 
 ```python
-from Math import sqrt
+from math import sqrt
 
 def get_distance_from_tag(width, height):
-    # calculate area % of screen
-    screen_area = 320 * 240 # size in pixels of husky lens screen
+    a = 28820190 *1.04 # screen area 320 * 240
+    b = 2.045  # scaled exponent
     tag_area = width * height
-    coverage_percent = (tag_area / screen_area)
-
-    # power-law curve calculations
-    scale = 8.52 # *8.4-8.6 depending on your preference for error at close or distance
-
-    distance = scale / sqrt(coverage_percent)
+    distance = (a / tag_area) ** (1 / b)
     return distance
 
 ```
