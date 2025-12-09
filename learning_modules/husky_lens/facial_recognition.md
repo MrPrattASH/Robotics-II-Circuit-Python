@@ -11,6 +11,9 @@ This function can detect any face contour, recognize and track the learned face.
 ## Text Tutorial
 
 
+### Library
+Before continuing, ensure that you have the [CircuitPyHuskyLens.py](circuitPyHuskyLib.py) file on your lib folder. 
+
 ## Recognize one face
 The default setting is to learn and recognize a single face. Dial the function button to the left until the word "Face recognition" is displayed at the top of the screen.
 

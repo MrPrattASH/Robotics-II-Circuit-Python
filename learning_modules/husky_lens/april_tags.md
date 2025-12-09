@@ -12,6 +12,9 @@ The default setting is to learn a single tag. This chapter uses learning, recogn
 
 ## Text Tutorial
 
+### Library
+Before continuing, ensure that you have the [CircuitPyHuskyLens.py](circuitPyHuskyLib.py) file on your lib folder. 
+
 ## Operation and Settings
 1. Dial the function button to the right or left until the words "Tag Recognition" are displayed at the top of the screen.
 2. Long press the function button to enter the parameter setting of the tag recognition function.
