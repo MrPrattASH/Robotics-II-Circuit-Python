@@ -196,7 +196,7 @@ class HuskyLensLibrary:
                         ret.append(frameNumber)
                     return ret
             except:
-                print("Read response error, please try again")
+                print("working...")
                 return []
     
     def convert_to_class_object(self,data,isBlock):

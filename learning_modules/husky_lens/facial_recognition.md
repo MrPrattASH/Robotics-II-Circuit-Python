@@ -2,6 +2,15 @@
 
 This function can detect any face contour, recognize and track the learned face.
 
+## Video Tutorial
+
+{% include youtube.html id="Et7vXJgLRjA" %}
+
+---
+
+## Text Tutorial
+
+
 ## Recognize one face
 The default setting is to learn and recognize a single face. Dial the function button to the left until the word "Face recognition" is displayed at the top of the screen.
 
