@@ -28,6 +28,13 @@ A servo has 3 wires:
 2. **Power**: Provide 5V, 6V, or 7.4V, depending on your power supply. Higher Voltage generally means stronger servo performance.
 3. **Ground**: Connect a common ground to both your power supply and your microcontroller.
 
+#### Method 1: Servo Power Delivery Board (PDB)
+Wire this up to the servo PDB. Don't forget to add in power for BOTH the metro board & the servo PDB!
+![servo_wire_pdb](servo_pdb_sketch_done.png)
+
+#### Method 2: Metro Board Power
+
+If you're only using your Metro board as power, do the following. **I advise against this method as the amperage is too low for proper power**
 ![servo_wiring](servo_wriring_breadboard.png)
 
 You'll find this Servo-Shroud to x3 Male jumper cable helpful when connecting your servo to your breadboard. 

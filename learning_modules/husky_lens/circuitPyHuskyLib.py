@@ -70,14 +70,18 @@ class HuskyLensLibrary:
     # Constant Value
     SHAPE = (320, 240)
     
-    def __init__(self, proto, TX=None, RX=None, SCL=None, SDA=None, baudrate=9600, address=0x32, verbose=True):
+    def __init__(self, proto, TX=None, RX=None, SCL=None, SDA=None, i2c_bus=None, baudrate=9600, address=0x32, verbose=True):
         self.proto = proto
         self.address = address
         self.verbose = verbose
         if (proto == "UART"):
             self.huskylensSer = busio.UART(TX, RX, baudrate=baudrate)
         elif (proto == "I2C"):
-            i2c = busio.I2C(SCL, SDA)
+            # Use the provided bus if it exists, otherwise create a new one
+            if i2c_bus is not None:
+                i2c = i2c_bus
+            else:
+                i2c = busio.I2C(SCL, SDA)
             self.huskylensSer = i2c_device.I2CDevice(i2c, address)
         else:
             raise ValueError('Only support UART or I2C protocol')
