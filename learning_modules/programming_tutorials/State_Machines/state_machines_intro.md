@@ -63,7 +63,7 @@ STATE: STOPPED
 [ .... ] Robot waits here indefinitely.
 ```
 
-The critical thing to note here **transition event**: when the `bumper is pressed` decision is `TRUE`, the robot transitions from `MOVING_FORWARD` to `STOPPED`.
+The critical thing to note here is the **transition event**: when the `bumper is pressed` decision is `TRUE`, the robot transitions from `MOVING_FORWARD` to `STOPPED`. There is no transition event from Stopped. 
 
 ***
 
@@ -76,8 +76,8 @@ The two states are **"Light On"** and **"Light Off"**.
 Your task is to write out the flowchart-style pseudo-code for each state.
 
 **Hints:**
-*   What is the "SENSE" action in each state?
-*   What is the "DECISION" that causes a transition?
+*   What is the "SENSE" action in each state? (think about what hardware component is the "sensor" in this robot)
+*   What is the "DECISION" that causes a transition? (usually this is the "if" or "elif" statement)
 *   The "ACTION" in each state is very simple: what should the light be doing?
 
 <details>
@@ -93,8 +93,6 @@ STATE: LIGHT_ON
       V
 [ DECISION ] Is the button pressed?
       |
-      +---- [ IF FALSE ] ----> Stay in LIGHT_ON state.
-      |
       +---- [ IF TRUE ]  ----> TRANSITION to LIGHT_OFF state.
 
 
@@ -108,9 +106,9 @@ STATE: LIGHT_OFF
       V
 [ DECISION ] Is the button pressed?
       |
-      +---- [ IF FALSE ] ----> Stay in LIGHT_OFF state.
-      |
       +---- [ IF TRUE ]  ----> TRANSITION to LIGHT_ON state.
+
+      ** Note, I excluded the IF FALSE conditions here, as it simply is "stay in current state"**
 </code></pre>
 </details>
 
@@ -118,9 +116,9 @@ STATE: LIGHT_OFF
 
 ## Challenge #1: The Patrolling Guard Bot
 
-Design a state machine for a robot that patrols a hallway. It moves in one direction until it hits a wall, then it turns around and moves in the other direction.
+Design a state machine for a robot that 'patrols' a hallway in the school. It moves in one direction until it hits a wall, then it turns around and moves in the other direction.
 
-It will have two states: **"Moving Left"** and **"Moving Right"**. It has a bumper on both the left and right sides.
+It will have two states: **"Moving Left"** and **"Moving Right"**. It has a bumper on both the left and right sides. Assume that we have NO human or obstacle detection. It's not a very smart robot. 
 
 ```
 # Write the flowchart pseudo-code for the "Moving Left" state.
@@ -152,8 +150,6 @@ STATE: MOVING_LEFT
       V
 [ DECISION ] Is the LEFT bumper pressed?
       |
-      +---- [ IF FALSE ] ----> Stay in MOVING_LEFT state.
-      |
       +---- [ IF TRUE ]  ----> TRANSITION to MOVING_RIGHT state.
 
 
@@ -166,8 +162,6 @@ STATE: MOVING_RIGHT
       |
       V
 [ DECISION ] Is the RIGHT bumper pressed?
-      |
-      +---- [ IF FALSE ] ----> Stay in MOVING_RIGHT state.
       |
       +---- [ IF TRUE ]  ----> TRANSITION to MOVING_LEFT state.
 </code></pre>
@@ -209,8 +203,6 @@ STATE: WAITING_CALMLY
       V
 [ DECISION ] Is the light level LOW (it's dark)?
       |
-      +---- [ IF FALSE ] ----> Stay in WAITING_CALMLY state.
-      |
       +---- [ IF TRUE ]  ----> TRANSITION to SPINNING_IN_PANIC state.
 
 
@@ -224,8 +216,211 @@ STATE: SPINNING_IN_PANIC
       V
 [ DECISION ] Is the light level HIGH (lights are on)?
       |
-      +---- [ IF FALSE ] ----> Stay in SPINNING_IN_PANIC state.
-      |
       +---- [ IF TRUE ]  ----> TRANSITION to WAITING_CALMLY state.
 </code></pre>
 </details>
+
+***
+
+## Challenge #3: The "Fetch" Bot (3 States)
+
+This robot is programmed to play a simple game of fetch. It will wait patiently, and when you press a button, it will run forward for a short time to "get the ball," and then run backward to "bring it back."
+
+This robot has three states:
+1.  **Waiting:** The robot is stopped and waiting for the game to start.
+2.  **Fetching:** The robot is driving forward.
+3.  **Returning:** The robot is driving backward to its starting spot.
+
+It uses a **button** to start and an internal **timer** to know how long to drive.
+
+```
+# Write the flowchart pseudo-code for the "Waiting" state.
+# It should be still and check if the button has been pressed.
+
+# Write the flowchart pseudo-code for the "Fetching" state.
+# It should drive forward and use a timer (e.g., 3 seconds) to know when to stop.
+
+# Write the flowchart pseudo-code for the "Returning" state.
+# It should drive backward for the same amount of time before going back to wait.
+```
+
+<details>
+<summary>Click to reveal a hint</summary>
+<pre><code>
+# The transition from "Waiting" to "Fetching" is a button press.
+# The transitions from "Fetching" to "Returning", and from "Returning" back to "Waiting", are both based on a timer finishing.
+</code></pre>
+</details>
+
+<details>
+<summary>Click to reveal an example solution</summary>
+<pre><code>
+STATE: WAITING
+---------------------------------
+[ ACTION ] Stop all motors.
+      |
+      V
+[ SENSE ] Check the button sensor.
+      |
+      V
+[ DECISION ] Is the button pressed?
+      |
+      +---- [ IF TRUE ]  ----> TRANSITION to FETCHING state.
+
+
+STATE: FETCHING
+---------------------------------
+[ ACTION ] Drive motors FORWARD. Start a 3-second timer.
+      |
+      V
+[ SENSE ] Check if the timer is finished.
+      |
+      V
+[ DECISION ] Is 3 seconds over?
+      |
+      +---- [ IF TRUE ]  ----> TRANSITION to RETURNING state.
+
+
+STATE: RETURNING
+---------------------------------
+[ ACTION ] Drive motors BACKWARD. Start a 3-second timer.
+      |
+      V
+[ SENSE ] Check if the timer is finished.
+      |
+      V
+[ DECISION ] Is 3 seconds over?
+      |
+      +---- [ IF TRUE ]  ----> TRANSITION to WAITING state.
+</code></pre>
+</details>
+
+***
+
+## Challenge #4: Smart Line Follower (4 States)
+
+This robot is designed to follow a black line on a white floor. However, it also has a distance sensor on the front to avoid collisions. If it sees an obstacle, it will stop and wait for the obstacle to be moved before it continues following the line.
+
+This robot has four states:
+1.  **Follow Line:** The robot is centered on the line and driving forward.
+2.  **Adjust Left:** The robot has drifted off the line to the right and needs to turn left to get back on track.
+3.  **Adjust Right:** The robot has drifted off the line to the left and needs to turn right to get back on track.
+4.  **Obstacle Stop:** The robot has detected something in its path and is waiting.
+
+It uses **two line sensors** (left and right) and a **front distance sensor**.
+
+```
+# Write the flowchart pseudo-code for all four states.
+# In any of the three moving states, what should happen if the distance sensor detects an obstacle?
+# How does the robot know when it's back on the line after adjusting?
+```
+
+<details>
+<summary>Click to reveal a hint</summary>
+<pre><code>
+# The "Obstacle Stop" state can be reached from ANY of the other three states.
+# Assume the robot is on the line when both left and right sensors see black.
+# If the right sensor sees white, the robot has drifted right.
+# If the left sensor sees white, the robot has drifted left.
+</code></pre>
+</details>
+
+<details>
+<summary>Click to reveal an example solution</summary>
+<pre><code>
+STATE: FOLLOW_LINE
+---------------------------------
+[ ACTION ] Drive motors FORWARD.
+      |
+      V
+[ SENSE ] Read distance sensor AND both line sensors.
+      |
+      V
+[ DECISION ] Is there an obstacle?
+      |
+      +---- [ IF TRUE ] ----> TRANSITION to OBSTACLE_STOP state.
+      |
+      +---- [ IF FALSE ] ---> [ DECISION ] Does right sensor see WHITE?
+                                |
+                                +---- [ IF TRUE ] ----> TRANSITION to ADJUST_LEFT state.
+                                |
+                                +---- [ IF FALSE ] ---> [ DECISION ] Does left sensor see WHITE?
+                                                        |
+                                                        +---- [ IF TRUE ] ----> TRANSITION to ADJUST_RIGHT state.
+
+
+STATE: ADJUST_LEFT
+---------------------------------
+[ ACTION ] Turn slightly LEFT.
+      |
+      V
+[ SENSE ] Read distance sensor AND right line sensor.
+      |
+      V
+[ DECISION ] Is there an obstacle?
+      |
+      +---- [ IF TRUE ] ----> TRANSITION to OBSTACLE_STOP state.
+      |
+      +---- [ IF FALSE ] ---> [ DECISION ] Does right sensor see BLACK again?
+                                |
+                                +---- [ IF TRUE ] ----> TRANSITION to FOLLOW_LINE state.
+
+
+STATE: ADJUST_RIGHT
+---------------------------------
+[ ACTION ] Turn slightly RIGHT.
+      |
+      V
+[ SENSE ] Read distance sensor AND left line sensor.
+      |
+      V
+[ DECISION ] Is there an obstacle?
+      |
+      +---- [ IF TRUE ] ----> TRANSITION to OBSTACLE_STOP state.
+      |
+      +---- [ IF FALSE ] ---> [ DECISION ] Does left sensor see BLACK again?
+                                |
+                                +---- [ IF TRUE ] ----> TRANSITION to FOLLOW_LINE state.
+
+
+STATE: OBSTACLE_STOP
+---------------------------------
+[ ACTION ] Stop all motors.
+      |
+      V
+[ SENSE ] Read the distance sensor.
+      |
+      V
+[ DECISION ] Is the obstacle gone?
+      |
+      +---- [ IF TRUE ]  ----> TRANSITION to FOLLOW_LINE state.
+</code></pre>
+</details>
+
+***
+
+## Challenge #5: The Warehouse Bot (5 States)
+
+This is your final design challenge! There is no solution provided, so it's up to you to think through the logic completely.
+
+**The Mission:**
+Your robot works in a small warehouse. It must start at a home base, follow a line to a pickup station, wait for a package to be "loaded" (signaled by a button press), follow the line to a red-colored drop-off zone, "unload" the package (by waiting for 3 seconds), and finally return to the home base to start again.
+
+**The Robot's States:**
+You must design a system with these five states:
+1.  **Following to Pickup:** The robot is following the line from home base to the package pickup station.
+2.  **Waiting for Load:** The robot has arrived at the pickup station and is waiting for the "load package" button to be pressed.
+3.  **Delivering Package:** The robot has the package and is following the line from the pickup station to the drop-off zone.
+4.  **Dropping Off:** The robot has found the red drop-off zone and is waiting for 3 seconds to "unload."
+5.  **Returning Home:** The robot is now empty and following the line back to the home base.
+
+**The Robot's Sensors:**
+*   **Line Sensor(s):** To follow the black line.
+*   **Bumper Sensor:** To detect when it has arrived at the pickup station wall.
+*   **Button:** To signal that a package has been loaded.
+*   **Color Sensor:** To detect the red drop-off zone.
+*   **Internal Timer:** To handle the 3-second drop-off time.
+
+**Your Task:**
+1.  Think about the transitions. What event causes the robot to go from one state to the next? (e.g., from `Following to Pickup` to `Waiting for Load`).
+2.  Write the flowchart-style pseudo-code for **each of the five states**. Be sure to include the Action, Sense, and Decision steps for every state. Good luck
