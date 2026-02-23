@@ -13,7 +13,7 @@ This page will show you how to use the rc.py library for controlling a FlySky FS
 
 ## Library Documentation (Putting it all together)
 * **Before putting this all together below, ensure you have done all 4 tutorials above.**
-* Ensure you have added the [rc.py](../rc_module/rc.py) file to your `CIRCUITPY` lib folder. 
+* Ensure you have added the [rc.py](../../circuit_python_libraries/lib/rc.py) file to your `CIRCUITPY` lib folder. 
 
 ***
 
@@ -36,7 +36,7 @@ while True:
     ch6 = rc.read_channel(ch6)
                 
     # Print the channel values to the console
-    print("Ch 1:", x, "Ch 2:", y, "Ch 5:", ch5, "Ch 6:", ch6)
+    print("Ch 1:", x, "Ch 2:", y, "Ch 5:", 5, "Ch 6:", 6)
 
     time.sleep(0.02) # add a minor sleep to keep in time with PWM cycle
 

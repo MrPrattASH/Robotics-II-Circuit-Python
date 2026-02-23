@@ -1,5 +1,12 @@
 # Arcade Drive (DC Motors) 
 
+The goal of this lesson is to teach you how to wire up your rover to be able to run in RC mode. You will have to:
+1. Wire the FlySky RC controller
+2. Wire the Motor controller for powering the drive motors
+3. Run the attached program to make your rover RC controlled! 
+
+## Controlling Rovers
+
 There are two classic ways of controlling a 2 or 4 wheeled rover that has a tank drive drivetrain. 
 
 From [xiaoxiae on Github](https://xiaoxiae.github.io/Robotics-Simplified-Website/drivetrain-control/tank-drive/):
@@ -22,15 +29,17 @@ Your rover needs the following hardware:
 
 # Video Tutorial
 
+Watch the following video and follow along with the wiring to get your rover prepared for RC control. 
+
 {% include youtube.html id="AsT0ODlqZmo" %}
 
 ---
 
 # Text Tutorial
 
-### Required Library
+### Required Libraries
 
-Before moving forward, ensure you have the following [arcade_drive_dc.py](arcade_drive_dc.py) and [rc.py](../rc_module/rc.py) py files on your `CIRCUITPY` lib folder.
+Before moving forward, ensure you have the following [arcade_drive_dc.py](arcade_drive_dc.py) and [rc.py](../../circuit_python_libraries/lib/rc.py) py files on your `CIRCUITPY` lib folder.
 
 ---
 
@@ -60,6 +69,8 @@ while True:
 ```
 
 ## Code Breakdown
+
+Again, while it is not necessary for you to understand this code, a rudimentary understanding of what is happening is useful for the course. 
 
 ### Importing Necessary Libraries
 
