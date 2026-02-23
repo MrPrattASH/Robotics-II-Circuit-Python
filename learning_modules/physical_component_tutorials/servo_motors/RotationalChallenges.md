@@ -81,3 +81,5 @@ Make your rover:
 * Move forward for 3 seconds
 * turn right
 * Repeat this x4 **total times** to draw a square with your rover. 
+
+You may find a `for i in range(4)` loop useful here. 
