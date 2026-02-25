@@ -8,7 +8,8 @@ from arcade_drive_dc import Drive
 
 # === TODO CHANGES ===
 # for each, set values higher or lower depending on your tests
-FLYWHEEL_GOAL_RPM = 900 
+FLYWHEEL_GOAL_RPM = 400 
+GEAR_RATIO = 1.0 # set to 1.0 if no external gearing, otherwise set to your ratio
 
 
 

@@ -55,8 +55,8 @@ import board
 from rc import RCReceiver
 from arcade_drive_dc import Drive
 
-rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
-drive = Drive(left=board.D0, right=board.D1)
+rc = RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2, ch6=board.D3)
+drive = Drive(left=board.D10, right=board.D11)
 
 # Main code
 while True:

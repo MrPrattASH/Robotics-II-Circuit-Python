@@ -28,6 +28,11 @@ class Drive:
         if throttle == None:
             throttle = 50
 
+        if spin > 75:
+            spin = 75
+        elif spin < 25:
+            spin = 25
+
         spin = (spin - 50) / 50  # Normalize spin to -1 to 1
         throttle = (throttle - 50) / 50  # Normalize throttle to -1 to 1
         scale_factor = self.scale 

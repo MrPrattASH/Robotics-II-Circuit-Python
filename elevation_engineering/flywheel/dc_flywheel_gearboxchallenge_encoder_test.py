@@ -5,7 +5,6 @@ import rotaryio
 
 # === TODO CHANGES ===
 # for each, set values higher or lower depending on your tests
-FLYWHEEL_GOAL_RPM = 300 
 GEAR_RATIO = 1.0 # set to 1.0 if no external gearing, otherwise set to your ratio
 
 
@@ -59,16 +58,20 @@ fire_start_time = 0.0
 
 flywheel_power = STOP
 
-print("Flywheel Starting in 3..")
+print("Motor Starting in 3..")
 time.sleep(1)
 print("2..")
 time.sleep(1)
 print("1..")
 time.sleep(1)
 
+start_loop = time.monotonic()
+end_loop = start_loop + 5 # run for 5 seconds
 while True:
     # update encoders at fixed interval
     now = time.monotonic()
+    if now > end_loop:
+        break
     dt = now - prev_rpm_time
     if dt >= SAMPLE_INTERVAL:
         cur_rpm = get_rpm(encoder, prev_ticks, dt)
@@ -77,13 +80,9 @@ while True:
         
     print(f"input RPM = {cur_rpm:.0f} | Output RPM = {cur_rpm * GEAR_RATIO:.0f}")
 
-    error = (FLYWHEEL_GOAL_RPM - cur_rpm)
-    p_adj = error * Kp
-
-    #apply P control & clamp
-    flywheel_power = max(FULL_REVERSE, min(FULL_FORWARD, BASE_MOTOR_POWER + p_adj))
-
-    flywheel.duty_cycle = servo_duty_cycle(flywheel_power)
+    flywheel.duty_cycle = servo_duty_cycle(FULL_FORWARD)
 
     time.sleep(0.02) 
 
+#stop motor
+flywheel.duty_cycle = servo_duty_cycle(STOP)
