@@ -35,6 +35,10 @@ Watch the following video and follow along with the wiring to get your rover pre
 
 ---
 
+Wiring Diagram (sans 9V batter pack for microcontroller power) 
+
+![23](drive_motors.png)
+
 # Text Tutorial
 
 ### Required Libraries
