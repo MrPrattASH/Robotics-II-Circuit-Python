@@ -8,7 +8,7 @@ from arcade_drive_dc import Drive
 
 # === TODO CHANGES ===
 # for each, set values higher or lower depending on your tests
-FLYWHEEL_GOAL_RPM = 400 
+FLYWHEEL_GOAL_RPM = 900 
 GEAR_RATIO = 1.0 # set to 1.0 if no external gearing, otherwise set to your ratio
 
 
@@ -23,7 +23,7 @@ rc = rc.RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2,
 drive = Drive(left=board.D10, right=board.D11) # init's motors like flywheel_left TC3 Timer
 
 # === CONFIG ===
-ENCODER_TICKS_PER_REV = 28  # Flywheel motor encoder ticks @ 6K RPM motor
+ENCODER_TICKS_PER_REV = 7  # Flywheel motor encoder ticks @ 6K RPM motor
 SAMPLE_INTERVAL = 0.1       # seconds per measurement window
 RECOVERY_THRESHOLD = 0.95   # % of max RPM considered "recovered"
 STOP = 1.520 # motor stop command
@@ -82,8 +82,8 @@ while True:
     gate_request = rc.read_channel(5) == 1 # True if flipped
     flywheel_request = rc.read_channel(6) == 1 # True if flipped
 
-    if spin is not None and throttle is not None:
-        drive.drive(spin, throttle) # move drive motors arcade style
+    #if spin is not None and throttle is not None:
+    #    drive.drive(spin, throttle) # move drive motors arcade style
 
     # update encoders at fixed interval
     dt = now - prev_rpm_time
@@ -112,7 +112,7 @@ while True:
     elif flywheel_state == STATE_SPINNING_UP:
 
         # P controller logic
-        print(f"State: SPINNING_UP: Cur RPM = {cur_rpm:.0f}")
+        print(f"State: SPINNING_UP: Input RPM = {cur_rpm:.0f} | Output RPM = {cur_rpm * GEAR_RATIO:.0f}")
         error = (FLYWHEEL_GOAL_RPM - cur_rpm)
         p_adj = error * Kp
 
@@ -125,7 +125,7 @@ while True:
     
     # === READY ===
     elif flywheel_state == STATE_READY:
-        print(f"State: READY: Cur RPM = {cur_rpm:.0f}")
+        print(f"State: READY: input RPM = {cur_rpm:.0f} | Output RPM = {cur_rpm * GEAR_RATIO:.0f}")
         error = (FLYWHEEL_GOAL_RPM - cur_rpm)
         p_adj = error * Kp
 

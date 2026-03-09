@@ -19,7 +19,7 @@ flywheel = pwmio.PWMOut(board.D4, frequency=50) #left flywheel motor TC2 Timer
 
 
 # === CONFIG ===
-ENCODER_TICKS_PER_REV = 28  # Flywheel motor encoder ticks @ 6K RPM motor
+ENCODER_TICKS_PER_REV = 7  # Flywheel motor encoder ticks @ 6K RPM motor
 SAMPLE_INTERVAL = 0.02       # seconds per measurement window
 RECOVERY_THRESHOLD = 0.95   # % of max RPM considered "recovered"
 STOP = 1.520 # motor stop command
@@ -58,6 +58,8 @@ fire_start_time = 0.0
 
 flywheel_power = STOP
 
+max_rpm = 0
+
 print("Motor Starting in 3..")
 time.sleep(1)
 print("2..")
@@ -77,6 +79,8 @@ while True:
         cur_rpm = get_rpm(encoder, prev_ticks, dt)
         prev_ticks = encoder.position
         prev_rpm_time = now
+        if cur_rpm > max_rpm:
+            max_rpm = cur_rpm
         
     print(f"input RPM = {cur_rpm:.0f} | Output RPM = {cur_rpm * GEAR_RATIO:.0f}")
 
@@ -84,5 +88,6 @@ while True:
 
     time.sleep(0.02) 
 
+print(f"Max RPM Achieved: Input: {max_rpm:.0f} | Output {max_rpm * GEAR_RATIO:.0f}")
 #stop motor
 flywheel.duty_cycle = servo_duty_cycle(STOP)
