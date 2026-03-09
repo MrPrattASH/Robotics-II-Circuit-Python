@@ -8,6 +8,7 @@ This tutorial will teach you how to use a ping sensor (in our case, a "SonarBit"
 
 ***
 
+
 # Text Tutorial
 
 ## How Ultrasonic Sensors Work

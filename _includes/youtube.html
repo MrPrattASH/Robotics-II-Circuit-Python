@@ -1,6 +1,6 @@
 <div class="embed-container">
     <iframe width="640" height="390" 
-    src="https://www.youtube.com/embed/{{ include.id }}" 
+    src="https://www.youtube.com/embed/{{ include.id }}?start={{ include.start | default: 0 }}{% if include.end %}&end={{ include.end }}{% endif %}&enablejsapi=1" 
     frameborder="0" allowfullscreen></iframe>
 </div>
 <style>
