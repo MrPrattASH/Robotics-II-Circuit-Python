@@ -4,7 +4,7 @@ This tutorial will teach you how to use a ping sensor (in our case, a "SonarBit"
 
 # Video Tutorial
 
-{% include youtube.html id="FLxU1WYNmNk?start=10&enablejsapi=1" %}
+{% include youtube.html id="FLxU1WYNmNk?start=6&enablejsapi=1" %}
 
 ***
 
