@@ -3,7 +3,7 @@ import pulseio
 import time
 
 class RCReceiver:
-    def __init__(self, ch1, ch2, ch3, ch4, ch5, ch6, ch5_mode="switch"):
+    def __init__(self, ch1 = None, ch2 = None, ch3 = None, ch4 = None, ch5 = None, ch6 = None, ch5_mode="switch"):
         self.channel_pins = list(filter(None, [ch1, ch2, ch3, ch4, ch5, ch6]))
         self.pwm_ins = [pulseio.PulseIn(pin, maxlen=64, idle_state=False) for pin in self.channel_pins]
         self.last_read_time = time.monotonic()
@@ -16,9 +16,19 @@ class RCReceiver:
             high_pulse, low_pulse = low_pulse, high_pulse
 
         if channel <= 4 and channel > 0:
-            high_pulse_scaled = round((high_pulse - 950) * 100 / (2050 - 950))
-            if 46 < high_pulse_scaled < 54:
-                high_pulse_scaled = 50
+            # centre is 1500, half-range is 550 (950-2050)
+            # (value - centre) / half range gives a -1 to 1 range
+            high_pulse_scaled = round(((high_pulse - 1500) / 550.0),2)
+            
+            if -0.05 < high_pulse_scaled < 0.05: #DEADZONE
+                high_pulse_scaled = 0
+
+            # clamp logic
+            if high_pulse_scaled > 1.0:
+                high_pulse_scaled = 1.0
+            elif high_pulse_scaled < -1.0:
+                high_pulse_scaled = -1.0
+
         elif channel == 5:
             if ch5_mode == "switch":
                 high_pulse_scaled = 0 if high_pulse < 1500 else 1
@@ -71,6 +81,7 @@ class RCReceiver:
             print(f"Failed to read from channel {channel} with error: {str(e)}")
 
         return high_pulse
+    
     '''
     def ensure_cycle(self):
         current_time = time.monotonic()
