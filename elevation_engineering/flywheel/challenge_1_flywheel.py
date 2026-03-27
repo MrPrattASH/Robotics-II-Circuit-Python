@@ -2,28 +2,28 @@ import time
 import board
 import pwmio
 import rotaryio
-from digitalio import DigitalInOut, Direction, Pull
 import rc
-from arcade_drive_dc import Drive
+from arcade_drive import Drive
 
 # === TODO CHANGES ===
 # for each, set values higher or lower depending on your tests
 FLYWHEEL_GOAL_RPM = 900 
 GEAR_RATIO = 1.0 # set to 1.0 if no external gearing, otherwise set to your ratio
-
-
+# Ex: 3:1 would be 3
+# Ex: 1:3 would be 0.33 
 
 
 # === HARDWARE SETUP ===
-encoder = rotaryio.IncrementalEncoder(board.D6, board.D7) #TC5 Timer
+encoder = rotaryio.IncrementalEncoder(board.D6, board.D7, divisor=1) #TC5 Timer
 
 flywheel_left = pwmio.PWMOut(board.D4, frequency=50) #left flywheel motor TC2 Timer
 
-rc = rc.RCReceiver(ch1=board.D0, ch2=board.D1, ch3=None, ch4=None, ch5=board.D2, ch6=board.D3) #TC 0/1/4 Timers
-drive = Drive(left=board.D10, right=board.D11) # init's motors like flywheel_left TC3 Timer
+rc = rc.RCReceiver(ch1=board.D0, ch2=board.D1, ch5=board.D2, ch6=board.D3) #TC 0/1/4 Timers
+drive = Drive(left_pin=board.D10, right_pin=board.D11, motor_type="dc") # init's motors like flywheel_left TC3 Timer
 
 # === CONFIG ===
-ENCODER_TICKS_PER_REV = 7  # Flywheel motor encoder ticks @ 6K RPM motor
+
+ENCODER_TICKS_PER_REV = 28  # Flywheel motor encoder ticks @ 6K RPM motor
 SAMPLE_INTERVAL = 0.1       # seconds per measurement window
 RECOVERY_THRESHOLD = 0.95   # % of max RPM considered "recovered"
 STOP = 1.520 # motor stop command
@@ -67,6 +67,7 @@ print(f"starting in State: {flywheel_state}")
 
 prev_ticks = encoder.position
 cur_rpm = 0.0
+output_rpm = 0.0
 prev_rpm_time = time.monotonic()
 
 fire_start_time = 0.0
@@ -89,7 +90,7 @@ while True:
     dt = now - prev_rpm_time
     if dt >= SAMPLE_INTERVAL:
         cur_rpm = get_rpm(encoder, prev_ticks, dt)
-
+        output_rpm = cur_rpm * GEAR_RATIO
         prev_ticks = encoder.position
         prev_rpm_time = now
 
