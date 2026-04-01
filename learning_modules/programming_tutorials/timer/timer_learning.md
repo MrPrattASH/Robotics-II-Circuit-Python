@@ -79,6 +79,13 @@ if timer.seconds() > 5:
 The `reset()` function is powerful because it lets you restart your count at any time. Let's assume you have a 2-second timer that restarts every time you flick a switch on your RC receiver (Channel 5).
 
 ```python
+import time
+from elapsed_time import ElapsedTime
+from rc import RCReceiver
+
+# Initialize the receiver with designated pins for channels
+rc = RCReceiver(ch5=board.D3)
+
 feeder_timer = ElapsedTime()
 
 while True:
