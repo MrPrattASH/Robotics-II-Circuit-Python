@@ -4,6 +4,10 @@ import pwmio
 from adafruit_motor import servo
 from rc import RCReceiver
 from adafruit_simplemath import map_range
+import displayio
+import terminalio
+from adafruit_display_text import label
+import adafruit_displayio_ssd1306
 
 ''' PINOUT
 0 Left side Servos (pivot)
@@ -37,30 +41,49 @@ left_drive = servo.ContinuousServo(pwm2)
 right_drive = servo.ContinuousServo(pwm3)
 drill = servo.ContinuousServo(pwm5)
 
+displayio.release_displays()
+
+oled_reset = board.D9
+
+# init i2C object
+i2c = board.I2C()
+#perhaps capitalD for address?)
+display_bus = displayio.I2CDisplay(i2c, device_address=0x3d, reset=oled_reset)
+
+#display parameters
+WIDTH = 128
+HEIGHT = 64
+BORDER = 5
+
+display = adafruit_displayio_ssd1306.SSD1306(display_bus, width=WIDTH, height=HEIGHT)
+
+
 # ---- RCReceiver -----
 
-rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch3=None, ch4=None, ch5=board.D12, ch6=board.D13)
+rc = RCReceiver(ch1=board.D10, ch2=board.D11, ch5=board.D12, ch6=board.D13)
 
 
 # left side, 97 ish is straight
-
+drill.throttle = 0
 while True:
     x = rc.read_channel(1)
     y = rc.read_channel(2)
     ch5 = rc.read_channel(5)
     
-    if x == 50:
+    #print(ch5)
+    
+    if x == 0:
         left_pivot.angle = 97
         right_pivot.angle = 97
     else:
-        left_pivot.angle = round(map_range(x, 0, 100, 0, 180))
-        right_pivot.angle = round(map_range(x, 0,100,0,180))
+        left_pivot.angle = round(map_range(x, -1, 1, 0, 180))
+        right_pivot.angle = round(map_range(x, -1,1,0,180))
     
-    if y == 50:
+    if y == 0:
         left_drive.throttle = 0
         right_drive.throttle = 0
     else:
-        left_drive.throttle = map_range(y, 0, 100, 1, -1)
-        right_drive.throttle = map_range(y, 0, 100, -1, 1)
+        left_drive.throttle = -y
+        right_drive.throttle = y
     
     time.sleep(0.02)
