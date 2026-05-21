@@ -70,6 +70,8 @@ Connect the husky lens to your metro m4 express board as follows:
 * 3	-:	GND	Negative (0V)
 * 4	+:	VCC	Positive (3.3~5.0V)
 
+Before continuing, ensure that you have the [CircuitPyHuskyLens.py](circuitPyHuskyLib.py) file on your lib folder. 
+
 Then, run the following code. when you point the huskylens at the image, what is printed on your serial port? What about a different image? How reliable is the huskylens?
 
 ```python
