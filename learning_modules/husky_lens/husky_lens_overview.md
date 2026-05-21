@@ -12,6 +12,14 @@ HuskyLens is an easy-to-use AI machine vision sensor with 7 built-in functions: 
 * 3	-:	GND	Negative (0V)
 * 4	+:	VCC	Positive (3.3~5.0V)
 
+This course uses x2 different types of cables. 
+* Blue,White,Black,Red cables
+    * Blue = SDA Data
+    * White = SCL Clock
+* Green,Blue,Blac,Red cables
+    * Green = SDA Data
+    * Blue = SCL Clock
+
 ## NEVER PLUG IN THE HUSKY LENS WHILE POWERED. 
 The ports are not "hot-swappable", meaning you will break the T/X connectors. 
 
