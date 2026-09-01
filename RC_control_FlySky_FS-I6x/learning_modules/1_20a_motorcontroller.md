@@ -2,6 +2,8 @@
 
 This tutorial wires a single DC motor to a goBILDA 1x20A motor controller and drives it from your transmitter. You will use one switch to turn the motor on at full power, and off. You will not write any code.
 
+The intention is that you will first power up your gear ratio box, then we will use the same wiring for project #1. 
+
 By the end, you flip a switch on your transmitter and your intake motor spins at full power. Flip it back and the motor stops.
 
 > **Note:** this builds on top of the wiring already on your robot. Your receiver and 12V battery circuit should already be connected before you start this tutorial.
